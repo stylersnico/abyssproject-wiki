@@ -2,7 +2,7 @@
 title: My personal infrastructure
 description: My servers at home and on the internet
 published: false
-date: 2021-08-25T14:14:46.868Z
+date: 2021-08-25T14:15:39.894Z
 tags: selfhosting
 editor: markdown
 dateCreated: 2021-08-25T14:14:46.868Z
@@ -53,7 +53,7 @@ The storage is the following:
 ### Technical stack
 
 - Virtualisation : Proxmox
-- Data : Raid 1 avec XFS
+- Data : Raid 1 with XFS
 - Virtual machines : QEMU with VirtIO drivers
 - Automatic shutdown with Nuts in case of power outage
 
