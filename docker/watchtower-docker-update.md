@@ -2,7 +2,7 @@
 title: Automatisation des updates Docker avec Watchtower
 description: Mettez à jour toutes les images lancées avec des docker run / create.
 published: true
-date: 2021-08-25T13:14:18.175Z
+date: 2021-08-25T13:27:21.821Z
 tags: docker, watchtower
 editor: markdown
 dateCreated: 2021-08-24T16:06:06.326Z
@@ -45,6 +45,19 @@ Dans le détail, voici les arguments les plus intéressants :
 ```bash
     --cleanup
 ``` 
+
+# Vérification du bon fonctionnement
+
+Vous pouvez sortir les logs avec la commande suivante : 
+
+```bash
+docker logs watchtower
+```
+
+Ensuite, vous verrez des logs comme ceux-ci lorsqu'une nouvelle image est trouvée et appliquée : 
+
+![docker-watchtower.jpg](/docker/docker-watchtower.jpg)
+
     
 ### Sources
 
