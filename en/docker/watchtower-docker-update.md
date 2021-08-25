@@ -2,7 +2,7 @@
 title: Docker update automation with Watchtower
 description: Update all your docker image that you have launched with Docker run or create.
 published: true
-date: 2021-08-25T13:22:09.612Z
+date: 2021-08-25T13:28:52.284Z
 tags: docker, watchtower
 editor: markdown
 dateCreated: 2021-08-25T13:22:09.612Z
@@ -43,8 +43,20 @@ Here is the most interesting parts :
 - And then, we delete all the old docker images to free up some space on the disk.
 ```bash
     --cleanup
-``` 
-    
+```
+
+# Checking that everything works
+
+You can see the logs with the following command: 
+
+```bash
+docker logs watchtower
+```
+
+Then, you will see this kind of logs when a new image is found and installed: 
+
+![docker-watchtower.jpg](/docker/docker-watchtower.jpg)
+
 ### Sources
 
 Official documentation : https://containrrr.dev/watchtower/arguments/
