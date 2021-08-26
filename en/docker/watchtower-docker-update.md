@@ -2,7 +2,7 @@
 title: Docker update automation with Watchtower
 description: Update all your docker image that you have launched with Docker run or create.
 published: true
-date: 2021-08-25T13:28:52.284Z
+date: 2021-08-26T15:23:56.162Z
 tags: docker, watchtower
 editor: markdown
 dateCreated: 2021-08-25T13:22:09.612Z
@@ -13,6 +13,11 @@ dateCreated: 2021-08-25T13:22:09.612Z
 The goal of this document is to automate the update of all dockers images that you may have on your system.
 
  It is especially interesting if you use docker standalone and you run all your images with docker run.
+ 
+ > This will update all the docker image but not the system inside.
+If you use images with security problem, this won't help.
+Do regular audit of docker images that you use.
+{.is-warning}
 
 # Update automation of Docker containers
 
