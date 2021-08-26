@@ -2,7 +2,7 @@
 title: Automatisation des updates Docker avec Watchtower
 description: Mettez à jour toutes les images lancées avec des docker run / create.
 published: true
-date: 2021-08-26T15:22:22.100Z
+date: 2021-08-26T15:22:45.527Z
 tags: docker, watchtower
 editor: markdown
 dateCreated: 2021-08-24T16:06:06.326Z
@@ -16,7 +16,7 @@ Ceci est particulièrement intéressant si vous utilisez Docker en standalone et
 
 > Ceci mettra à jour les images Docker, mais non pas l'intérieur des images.
 Si les images que vous utilisez ont des failles de sécurité, alors cet outil ne réglera pas le souci.
-Faites toujours un audit des images Docker que vous utilisez au niveau de la sécurité.
+Faites toujours des audit réguliers des images Docker que vous utilisez.
 {.is-warning}
 
 
