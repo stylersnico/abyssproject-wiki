@@ -2,7 +2,7 @@
 title: Monter son serveur Web avec Debian 11
 description: Découvrez comment monter votre serveur Web compatible HTT2 et TLS 1.3 avec Debian 11, NGINX, MariaDB et PHP-FPM.
 published: true
-date: 2021-08-12T17:51:20.562Z
+date: 2021-08-31T09:18:34.044Z
 tags: debian 10, wordpress, web, nginx
 editor: markdown
 dateCreated: 2021-08-11T13:32:29.070Z
@@ -458,10 +458,6 @@ define('WP_CACHE_KEY_SALT', 'website.tap.ovh');
 ```bash
 redis-cli monitor
 ```
-
-  Vous devriez voir le cache répondre en naviguant sur votre site : 
-  
-  
   
   
 # Note de fin
