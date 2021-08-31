@@ -2,7 +2,7 @@
 title: Build your webserver with Debian 11
 description: Get your HTT2 and TLS 1.3 compatible webserver with Debian 11, NGINX, MariaDB and PHP-FPM.
 published: true
-date: 2021-08-12T17:50:20.421Z
+date: 2021-08-31T09:17:52.836Z
 tags: web, debian, fpm, mariadb
 editor: markdown
 dateCreated: 2021-08-12T17:50:18.409Z
@@ -14,13 +14,13 @@ dateCreated: 2021-08-12T17:50:18.409Z
 
 # Before starting
 
-The idea is to start with a stable system (Debian 11) to install all the components of a fast and secure webserver (HTTP2, TLS 1.2 et 1.3 with best practices).
+The idea is to start with a stable system (Debian 11) to install all the components of a fast and secure Web Server (HTTP2, TLS 1.2 et 1.3 with best practices).
 
-On top of that, on the understanding that a webserver alone is useless without a website on it, we are going to install a Wordpress (because it's the most used CMS in the world at the time of the write).
+Moreover, assuming that a webserver alone is useless without a website on it, we are going to install a Wordpress (because it's the most used CMS in the world at this time).
 
 Here is what we are going to use:
 
--   Webserver : NGINX
+-   Web Server : NGINX
 -   Database Server : MariaDB
 -   PHP Engine : FastCGI Process Manager (FPM) with static governor
 
@@ -33,7 +33,7 @@ Here is what we are going to use:
 
 # Wanted results
 
-We use two well known website for estimating security of the NGINX side, SSL Labs and Security Headers:
+We use two well-known websites for estimating security of the NGINX side, SSL Labs and Security Headers:
 
 -   [SSL Labs](https://www.ssllabs.com/ssltest/) : A+
 -   [Security Headers](https://securityheaders.com/) : A
@@ -71,7 +71,7 @@ We are going to configure all softwares one by one now.
 
 ## NGINX
 
-Grab my Nginx secure config which is using the headers-more module:
+Grab my Nginx secure config, which is using the headers-more module:
 
 ```bash
 cd /etc/nginx/
@@ -79,7 +79,7 @@ rm nginx.conf && wget https://raw.githubusercontent.com/stylersnico/nginx-secure
 ```
 
 You can open the config file and adapt workers depending on your cpu cores on your server.
-You can also go throught all security options that are integrated. We will go back to nginx after, please now restart the service:
+You can also go through all security options that are integrated. We will go back to nginx after, please now restart the service:
 
 ```bash
 systemctl restart nginx
@@ -212,51 +212,52 @@ systemctl restart redis
 
  
 
-# Installation d'un blog WordPress
+# Installing a Wordpress blog
 
-Dans cette partie, on va voir comment mettre à profit la base de serveur web que l'on vient d'installer afin d'y installer un des systèmes de gestion de contenu les plus utilisés. Supprimez déjà les fichiers de configuration par défaut :
+In this part, we are going to use the Web Server that we set up just before to install the most popular content management system, Wordpress.
+Delete all the default config files:
 
 ```bash
 rm /etc/nginx/sites-enabled/default 
 rm /etc/php/8.0/fpm/pool.d/www.conf
 ```
 
-## Téléchargement de WordPress
+## Wordpress download
 
-Téléchargez et installez la dernière version de WordPress sur votre serveur :
+Download the latest release of Wordpress:
 
 ```bash
 cd /var/www/
 wget https://wordpress.org/latest.zip && unzip latest.zip && rm latest.zip
 ```
 
-  Maintenant, créez l’utilisateur pour wordpress :
+  Create the wordpress user:
 
 ```bash
 adduser wordpress
 ```
 
-Ajoutez-lui les droits sur le site :
+Adjust the rights on the website:
 
 ```bash
 chown -R wordpress:www-data /var/www/wordpress
 ```
 
-  Ajoutez ensuite cet utilisateur dans le groupe www-data :
+  Add the new user in the www-data group:
 
 ```bash
 adduser wordpress www-data
 ```
 
-## Création du fichier de configuration NGINX
+## Creation of your first nginx configuration file
 
-Créez le vhost avec la commande suivante :
+Open the vhost with this command:
 
 ```bash
 nano /etc/nginx/sites-enabled/wordpress.vhost
 ```
 
-Copiez-y ceci :
+Add this to the file:
 
 ```nginx
 server {
@@ -272,15 +273,15 @@ index index.php;
 ```
  
 
-## Création du fichier de configuration PHP
+## PHP Configuration
 
-Créez le pool fpm avec la commande suivante :
+Create the PHP-FPM pool with this command:
 
 ```bash
 nano /etc/php/8.0/fpm/pool.d/wordpress.conf
 ```
 
-Copiez-y ceci :
+Add this:
 ```bash
 [wordpress]
 
@@ -303,44 +304,44 @@ env[HOSTNAME] = $HOSTNAME
 env[PATH] = /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 ```
 
-  Redémarrez les services avec la commande suivante :
+  Restart PHP-FPM and NGINX:
 
 ```bash
 systemctl restart nginx && systemctl restart php8.0-fpm
 ```
 
-## Création de la base de données
+## Database creation
 
-Connectez-vous en root avec la commande suivante :
+Connect to the MariaDB server with this command:
 
 ```bash
 mysql -u root -p
 ```
 
-  Créez la base de données pour WordPress :
+  Create the database for wordpress:
 
 ```sql 
 CREATE DATABASE wordpress;
 ```
 
-  Créez l’utilisateur :
+  Create the user:
 ```sql 
 CREATE USER 'wordpress'@'localhost' IDENTIFIED BY 'password';
 ```
-  Donnez les droits à l’utilisateur sur la base de données :
+  Give the rights to the user:
 ```sql 
 GRANT ALL PRIVILEGES ON wordpress.* TO 'wordpress'@'localhost';
 ```
-  Appliquez les droits et sortez :
+  Apply the rights and exit:
 ```sql 
 FLUSH PRIVILEGES;
 exit
 ```
  
 
-## Mise en place du certificat Let’s Encrypt
+## Configuring SSL with Le'ts Encrypt
 
-Installez acme.sh :
+Install acme.sh:
 
 ```bash
 curl https://get.acme.sh | sh -s email=test@tap.ovh
@@ -349,13 +350,13 @@ chmod +x acme.sh
 sh acme.sh --set-default-ca  --server  letsencrypt
 ```
 
-  Exécutez la commande suivante en indiquant votre vhost pour demander un certificat :
+  Launch this command with your domain to get the certificate:
 
 ```bash
 sh acme.sh  --issue  -d website.tap.ovh  --nginx /etc/nginx/sites-enabled/wordpress.vhost --keylength ec-384
 ```
 
-  Si l’opération réussie, vous devrez juste configurer le certificat ECDSA dans votre vhost nginx :
+  If the operation is successful, you just have to add the certificate to your nginx configuration:
 ```bash
 [Wed 11 Aug 2021 08:21:06 PM CEST] Your cert is in: /root/.acme.sh/website.tap.ovh_ecc/website.tap.ovh.cer
 [Wed 11 Aug 2021 08:21:06 PM CEST] Your cert key is in: /root/.acme.sh/website.tap.ovh_ecc/website.tap.ovh.key
@@ -363,7 +364,7 @@ sh acme.sh  --issue  -d website.tap.ovh  --nginx /etc/nginx/sites-enabled/wordpr
 [Wed 11 Aug 2021 08:21:06 PM CEST] And the full chain certs is there: /root/.acme.sh/website.tap.ovh_ecc/fullchain.cer
 ```
 
-  Éditez votre vhost nginx pour rajouter les informations nécessaires (fullchain et clé privée) :
+  Edit the NGINX vhost to add the certificate (fullchain and private key):
 ```nginx
 server {
 listen 80;
@@ -436,15 +437,15 @@ try_files $uri $uri/ /index.php?$args;
 
 }
 ```
-Redémarrez ensuite NGINX et accédez à l’URL du blog pour l’installer :
+Restart Nginx and install your blog :
 
 https://website.tap.ovh/
 
  
 
-## Configuration du cache Redis
+## Redis Configuration
 
-Suivez l'installateur Wordpress, la première chose à faire ensuite, c'est de configurer ces deux lignes dans votre fichier de configuration WordPress :
+Right after wordpress installation, add those two lines to your Wordpress config:
 
 ```bash
 nano /var/www/wordpress/wp-config.php
@@ -454,17 +455,13 @@ nano /var/www/wordpress/wp-config.php
 define('WP_CACHE', true);
 define('WP_CACHE_KEY_SALT', 'website.tap.ovh');
 ```
-  Ensuite, installez et activez l'extension [Redis Object Cache.](https://fr.wordpress.org/plugins/redis-cache/) Une fois que c'est fait, vérifiez que Redis marche bien avec la commande suivante :
+  Then, download and activate [Redis Object Cache.](https://fr.wordpress.org/plugins/redis-cache/)
+  When it's done, check the Redis object cache with this command :
 
 ```bash
 redis-cli monitor
-```
+```  
+  
+# End note
 
-  Vous devriez voir le cache répondre en naviguant sur votre site : 
-  
-  
-  
-  
-# Note de fin
-
-Si vous souhaitez aller plus loin, vous pouvez regarder la mise en place des images au format WebP : [https://www.abyssproject.net/2020/05/mettre-en-place-les-images-au-format-webp-sur-son-site-avec-nginx/](https://www.abyssproject.net/2020/05/mettre-en-place-les-images-au-format-webp-sur-son-site-avec-nginx/)
+If you want to go forward, you could add WEBP images to your website (FRENCH, translation waiting): [https://www.abyssproject.net/2020/05/mettre-en-place-les-images-au-format-webp-sur-son-site-avec-nginx/](https://www.abyssproject.net/2020/05/mettre-en-place-les-images-au-format-webp-sur-son-site-avec-nginx/)
