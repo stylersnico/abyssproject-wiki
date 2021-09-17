@@ -2,7 +2,7 @@
 title: Mise à jour des emails Exchange en masse
 description: Le tout en powershell ...
 published: true
-date: 2021-09-17T07:46:26.095Z
+date: 2021-09-17T07:46:41.330Z
 tags: exchange, powershell, email
 editor: markdown
 dateCreated: 2021-09-17T07:46:26.095Z
@@ -41,6 +41,6 @@ Set-mailbox $_ -PrimarySmtpAddress $_.PrimarySmtpAddress
 
 
     
-### Sources
+## Sources
 
 Converting SMTP Proxy Addresses to Lowercase by Mike Crowley: https://mikecrowley.us/2012/05/14/converting-smtp-proxy-addresses-to-lowercase/
