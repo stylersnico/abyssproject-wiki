@@ -2,15 +2,11 @@
 title: Configurer les enregistrements DKIM, SPF et DMARC
 description: Configurer les enregistrements DKIM, SPF et DMARC obligatoires pour l’email
 published: true
-date: 2021-08-13T19:51:19.840Z
+date: 2021-09-17T07:25:23.351Z
 tags: dkim, spf, dmarc
 editor: markdown
 dateCreated: 2021-08-13T15:37:16.763Z
 ---
-
-> Article en cours de relecture
-{.is-warning}
-
 
 # Introduction
 
