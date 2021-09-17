@@ -2,7 +2,7 @@
 title: Mise à jour des emails Exchange en masse
 description: Le tout en powershell ...
 published: true
-date: 2021-09-17T07:46:41.330Z
+date: 2021-09-17T07:49:28.395Z
 tags: exchange, powershell, email
 editor: markdown
 dateCreated: 2021-09-17T07:46:26.095Z
@@ -15,7 +15,7 @@ Le but de ce script est de renommer les adresses SMTP dans Exchange afin d'unifo
 
 # Script
 
-To use in Powershell IDE:
+Dans un IDE powershell:
 
 ```powershell
 Add-PSSnapin Microsoft.Exchange.Management.PowerShell.SnapIn
