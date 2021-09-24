@@ -2,7 +2,7 @@
 title: Clean Exchange logs
 description: Clean Exchange logs in powershell
 published: true
-date: 2021-09-17T08:23:22.229Z
+date: 2021-09-17T08:23:25.075Z
 tags: exchange, powershell
 editor: markdown
 dateCreated: 2021-09-17T08:23:22.229Z

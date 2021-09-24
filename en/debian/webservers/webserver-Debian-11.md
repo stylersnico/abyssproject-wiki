@@ -2,7 +2,7 @@
 title: Build your webserver with Debian 11
 description: Get your HTT2 and TLS 1.3 compatible webserver with Debian 11, NGINX, MariaDB and PHP-FPM.
 published: true
-date: 2021-08-31T09:18:59.049Z
+date: 2021-08-31T09:19:02.200Z
 tags: web, debian, fpm, mariadb
 editor: markdown
 dateCreated: 2021-08-12T17:50:18.409Z

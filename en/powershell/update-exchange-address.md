@@ -2,7 +2,7 @@
 title: Bulk update of email addresses in Exchange
 description: In powershell...
 published: true
-date: 2021-09-17T07:49:33.165Z
+date: 2021-09-17T07:49:35.838Z
 tags: exchange, powershell, emails
 editor: markdown
 dateCreated: 2021-09-17T07:49:33.165Z

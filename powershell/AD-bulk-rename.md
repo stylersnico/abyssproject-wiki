@@ -2,7 +2,7 @@
 title: Mise à jour des utilisateurs AD en masse
 description: En powershell, pour uniformiser les majuscules et minuscules.
 published: true
-date: 2021-09-17T08:00:17.643Z
+date: 2021-09-17T08:00:20.522Z
 tags: powershell, ad, active directory
 editor: markdown
 dateCreated: 2021-09-17T08:00:17.643Z

@@ -2,7 +2,7 @@
 title: Bulk update of AD users
 description: With powershell, to standardize uppercase and lowercase
 published: true
-date: 2021-09-17T08:00:54.353Z
+date: 2021-09-17T08:00:57.151Z
 tags: powershell, ad, active directory
 editor: markdown
 dateCreated: 2021-09-17T08:00:54.353Z

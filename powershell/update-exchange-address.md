@@ -2,7 +2,7 @@
 title: Mise à jour des emails Exchange en masse
 description: Le tout en powershell ...
 published: true
-date: 2021-09-17T07:49:28.395Z
+date: 2021-09-17T07:49:31.280Z
 tags: exchange, powershell, email
 editor: markdown
 dateCreated: 2021-09-17T07:46:26.095Z

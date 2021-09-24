@@ -2,7 +2,7 @@
 title: Configure DKIM, SPF and DMARC
 description: Configure mandatory DKIM, SPF and DMARC records for email
 published: true
-date: 2021-09-17T07:40:41.373Z
+date: 2021-09-17T07:40:44.268Z
 tags: dkim, spf, dmarc
 editor: markdown
 dateCreated: 2021-09-17T07:40:41.373Z
