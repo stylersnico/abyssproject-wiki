@@ -2,7 +2,7 @@
 title: Clean history of a GIT repository
 description: Clean all history in a repository
 published: true
-date: 2022-02-17T08:28:23.509Z
+date: 2022-02-17T08:29:08.222Z
 tags: git
 editor: markdown
 dateCreated: 2022-02-17T08:18:06.733Z
@@ -21,6 +21,9 @@ This is useful, for example, if you merged sensitive information by error.
 
 First of all, connect to your git repository in command line.
 
+> If the history is on another branch than "main", puth the name of the actual branch or you won't delete anything.
+{.is-danger}
+
 Checkout the actual repository
 ```
 git checkout --orphan latest_branch
@@ -37,8 +40,6 @@ git commit -am "Deleting history"
 ```
 
 Delete the branch
-> If the history is on another branch, puth the name of the actual branch or you won't delete anything.
-{.is-danger}
 
 ```
 git branch -D main
