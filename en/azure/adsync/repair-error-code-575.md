@@ -2,7 +2,7 @@
 title: Azure Ad Sync won't start: Repair error code 575
 description: Fix the Azure AD Sync service that won't start after upgrade
 published: true
-date: 2022-02-17T07:30:22.574Z
+date: 2022-02-17T07:47:05.772Z
 tags: azure, microsoft, adsync, office 365
 editor: markdown
 dateCreated: 2022-02-17T07:30:22.574Z
@@ -12,7 +12,7 @@ dateCreated: 2022-02-17T07:30:22.574Z
 
 The goal here is to fix the Microsoft Azure AD Sync service that stays stuck in "Starting" after rebooting the server where the service is installed (mostly after auto-update I think).
 
-![azureadsync-error-575-1.png](/azure/azureadsync-error-575-1.png)
+![azureadsync-error-575-1.png](/azure/azureadsync-error-575-1.png.webp)
 
 
 # Checking the error
@@ -24,12 +24,12 @@ Windows API call WaitForMultipleObjects returned error code: 575. Windows system
 The application was unable to start correctly (0x%lx). Click OK to close the application.
 ```
 
-![azureadsync-error-575-2.png](/azure/azureadsync-error-575-2.png)
+![azureadsync-error-575-2.png](/azure/azureadsync-error-575-2.png.webp)
 
 # Fixing the error
 
 If your service is blocked is "starting" kill the service first by killing the process "AD-IAM-HybridSync master":
-![azureadsync-error-575-3.png](/azure/azureadsync-error-575-3.png)
+![azureadsync-error-575-3.png](/azure/azureadsync-error-575-3.png.webp)
 
 Now you need to copy to following files:
 ```
@@ -48,4 +48,4 @@ C:\Windows\ServiceProfiles\ADSync\AppData\Local\Microsoft\Microsoft SQL Server L
 ```
 
 When the files are overwritten, just restart the service:
-![azureadsync-error-575-3.png](/azure/azureadsync-error-575-4.png)
+![azureadsync-error-575-3.png](/azure/azureadsync-error-575-4.png.webp)
