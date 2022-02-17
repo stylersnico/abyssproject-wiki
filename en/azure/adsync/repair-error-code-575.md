@@ -2,7 +2,7 @@
 title: Azure Ad Sync won't start: Repair error code 575
 description: Fix the Azure AD Sync service that won't start after upgrade
 published: true
-date: 2022-02-17T07:47:05.772Z
+date: 2022-02-17T07:50:10.141Z
 tags: azure, microsoft, adsync, office 365
 editor: markdown
 dateCreated: 2022-02-17T07:30:22.574Z
@@ -39,13 +39,18 @@ C:\Program Files\Microsoft SQL Server\150\LocalDB\Binn\Templates\modellog.ldf
 
 Now, copy these two files to the following folder if you use a dedicated service account:
 ```
-C:\Users\ADSyncxxxxx$\AppData\Local\Microsoft\Microsoft SQL Server Local DB\Instances\ADSync2019.
+C:\Users\ADSyncxxxxx$\AppData\Local\Microsoft\Microsoft SQL Server Local DB\Instances\ADSync2019\
 ```
 
 Or this folder:
 ```
-C:\Windows\ServiceProfiles\ADSync\AppData\Local\Microsoft\Microsoft SQL Server Local DB\Instances\ADSync2019
+C:\Windows\ServiceProfiles\ADSync\AppData\Local\Microsoft\Microsoft SQL Server Local DB\Instances\ADSync2019\
 ```
 
 When the files are overwritten, just restart the service:
 ![azureadsync-error-575-3.png](/azure/azureadsync-error-575-4.png.webp)
+
+## Source
+
+Thanks to PatD442: https://www.reddit.com/r/sysadmin/comments/rxkd7m/has_your_azure_ad_connect_been_unable_to_start/
+
