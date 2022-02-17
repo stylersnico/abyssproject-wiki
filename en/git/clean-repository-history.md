@@ -2,7 +2,7 @@
 title: Clean history of a GIT repository
 description: Clean all history in a repository
 published: true
-date: 2022-02-17T08:29:08.222Z
+date: 2022-02-17T08:30:11.640Z
 tags: git
 editor: markdown
 dateCreated: 2022-02-17T08:18:06.733Z
