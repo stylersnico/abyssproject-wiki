@@ -2,7 +2,7 @@
 title: Create an object store container in Infomaniak Public Cloud
 description: Creating a s3 compatible container in CLI
 published: true
-date: 2022-02-18T13:28:13.570Z
+date: 2022-02-18T13:29:33.063Z
 tags: infomaniak, cloud, s3
 editor: markdown
 dateCreated: 2022-02-18T13:28:13.570Z
@@ -11,7 +11,7 @@ dateCreated: 2022-02-18T13:28:13.570Z
 # Introduction
 For this procedure, we use Debian 11.
 
-> All the secrets and IDs in this procedure have been auto-generated, they don't exists.
+> All the secrets and IDs in this procedure have been auto-generated, they don't exist.
 {.is-info}
 
 
@@ -75,7 +75,7 @@ Now, configure your AWS client (for speaking the S3 protocol):
 aws configure
 ```
 
-Your will need your Access Key and Secret key from the step before:
+You will need your Access Key and Secret key from the step before:
 
 ```bash
 root@abyssproject:~# aws configure
