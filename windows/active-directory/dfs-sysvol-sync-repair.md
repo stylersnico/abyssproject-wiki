@@ -2,7 +2,7 @@
 title: Réparer la synchronisation DFS du dossier SYSVOL
 description: Réparer la synchronisation DFS du dossier SYSVOL après un crash de la synchronisation AD
 published: true
-date: 2022-02-19T07:09:29.522Z
+date: 2022-02-19T07:10:08.338Z
 tags: active directory, dfs
 editor: markdown
 dateCreated: 2021-08-24T16:03:04.514Z
@@ -17,6 +17,7 @@ Nous allons voir comment réparer la synchronisation DFSR du dossier SYSVOL apr�
 Voici le message d'erreur que j'avais :
 
  ![dfrs-01.webp](/activedirectory/dfrs-01.webp)
+ 
 Voici ce que j'ai fait pour réparer.
 
  
