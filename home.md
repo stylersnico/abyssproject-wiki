@@ -2,7 +2,7 @@
 title: Accueil
 description: Bienvenue sur mon wiki
 published: true
-date: 2021-08-13T15:18:38.941Z
+date: 2022-03-18T10:50:41.982Z
 tags: 
 editor: markdown
 dateCreated: 2021-08-11T11:56:50.951Z
@@ -10,7 +10,7 @@ dateCreated: 2021-08-11T11:56:50.951Z
 
 Bonjour et bienvenue sur le Wiki de The Abyss Project.
 
-Le wiki d’un administrateur systèmes et réseaux qui vous partagent ses procédures et ses divagations dans son métier, le monde du libre, le réseau et la virtualisation entre autres.
+Le wiki d’un Ingénieur Systèmes et Réseaux qui vous partagent ses procédures et ses divagations dans son métier, le monde du libre, le réseau et la virtualisation entre autres.
 
 Le partage est important dans notre métier, c’est pourquoi vous pouvez partager et réutiliser tout ce que vous trouverez dans ce blog selon la licence disponible en bas de chaque page.
 
