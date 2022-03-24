@@ -2,14 +2,14 @@
 title: Désactivation de l'agent Sentinel One
 description: Désactivation de l'agent Sentinel One sur un poste pour diagnostic
 published: true
-date: 2022-03-24T13:06:58.631Z
+date: 2022-03-24T13:08:41.750Z
 tags: sentinel one
 editor: markdown
 dateCreated: 2022-03-24T13:06:58.631Z
 ---
 
 # Introduction
-Le but de ce document est de monter comment désactiver l'agent Sentinel One sur un pc.
+Le but de ce document est de montrer comment désactiver l'agent Sentinel One sur un pc.
 
 # Désactivation de l'agent
 
