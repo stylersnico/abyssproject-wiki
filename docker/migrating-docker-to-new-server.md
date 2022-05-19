@@ -2,7 +2,7 @@
 title: Migration d'une installation Docker vers un nouveau serveur
 description: Migration de tous les conteneurs et de leurs données sur un nouveau serveur
 published: true
-date: 2022-05-19T16:38:55.306Z
+date: 2022-05-19T16:44:58.347Z
 tags: docker
 editor: markdown
 dateCreated: 2022-05-19T16:18:33.855Z
@@ -71,7 +71,7 @@ systemctl disable docker.socket && systemctl disable docker.service
 ```
 
 
-Le plus simple, c'est de se mettre directement sur le nouveau serveur et de récupérer les données isolées avec Rsync 
+Le plus simple, c'est de se mettre directement sur le nouveau serveur et de récupérer les données isolées avec Rsync :
 
 ```bash
 rsync -avp --progress root@old_server_ip:/var/lib/docker/ /var/lib/docker/
