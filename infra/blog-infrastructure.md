@@ -2,7 +2,7 @@
 title: Mon infrastructure personnelle
 description: L'infrastructure chez moi et en dehors de chez moi
 published: true
-date: 2021-08-31T09:23:33.438Z
+date: 2022-05-24T09:05:56.329Z
 tags: selfhosting
 editor: markdown
 dateCreated: 2021-08-24T16:01:35.860Z
@@ -16,14 +16,14 @@ Le but de cette page est de vous présenter mon infrastructure et que vous voyez
 
 ## Serveur
 
-Le serveur utilisé est un VPS CX11 de l'hébergeur allemand Hetzner sous Debian 11.
-Le serveur est situé dans leur datacenter de Nuremberg.
+Le serveur utilisé est un VPS BEST-8 de l'hébergeur français PulseHeberg sous Debian 11.
+Le serveur est situé dans leur datacenter de Nice.
 
-Je dispose également d'une StorageBox pour les sauvegardes du blog.
+Je dispose également d'une StorageBox chez Hetzner pour les sauvegardes du blog.
 
 ## Stack technique
 
-- Serveur Web / Reverse Proxy : NGINX (https://github.com/stylersnico/nginx-openssl-chacha-naxsi)
+- Serveur Web / Reverse Proxy : NGINX (https://github.com/stylersnico/nginx-secure-config/)
 - Serveur SQL : MariaDB 10.5
 - Wordpress : CMS mon blog : https://www.abyssproject.net/
 - Grav : CMS pour mon site principal : https://www.nicolas-simond.ch/
@@ -32,14 +32,15 @@ Je dispose également d'une StorageBox pour les sauvegardes du blog.
 - Docker : Pour l'hébergement de Wiki.JS, Commento et leurs bases PostgreSQL respectives.
 - Acme.SH : Pour les certificats SSL : https://wiki.abyssproject.net/fr/debian/webservers/acme_dot_sh-nginx
 - Restic : Pour les sauvegardes
+- Crowdsec : Pour la sécurité et l'analyse des logs
+- UFW : Firewall
 
 
 # L'infrastructre hors blog
 
 ## Serveurs
 
-Je dipose d'un serveur de stockage chez OneProvider à Paris pour externaliser une copie de ma StorageBox Hetzner.
-Je dispose d'un serveur chez Time4Vps pour un serveur OpenVPN.
+Je dipose d'un VPS STOR-2 pour mon Nextcloud chez PulseHerberg.
 
 
 # L'infrastucture @ home
