@@ -2,8 +2,8 @@
 title: Backup d'un serveur Debian avec Restic
 description: Sauvegarde complète d'un serveur Debian avec Restic
 published: true
-date: 2022-05-24T12:15:00.009Z
-tags: debian, backup, restic
+date: 2022-05-24T12:20:10.757Z
+tags: debian, backup, restic, hetzner
 editor: markdown
 dateCreated: 2022-05-24T12:09:38.197Z
 ---
