@@ -2,7 +2,7 @@
 title: My personal infrastructure
 description: My servers at home and on the internet
 published: true
-date: 2021-08-31T09:23:12.282Z
+date: 2022-05-24T09:06:29.678Z
 tags: selfhosting
 editor: markdown
 dateCreated: 2021-08-25T14:14:46.868Z
@@ -16,14 +16,14 @@ The goal of this page is to show you all the servers that I use so you can know 
 
 ## Server
 
-The server used is an Hetzner's CX11 installed with Debian 11.
-The server is located in their datacenter in Nuremberg.
+The server used is an PulseHeberg's BEST-8 installed with Debian 11.
+The server is located in their datacenter in NICE.
 
-I also have a StorageBox for the blog.
+I also have a Hetzner's StorageBox for the blog.
 
 ## Technical stack
 
-- Web server / Reverse Proxy: NGINX (https://github.com/stylersnico/nginx-openssl-chacha-naxsi)
+- Web server / Reverse Proxy: NGINX (https://github.com/stylersnico/nginx-secure-config/)
 - SQL server: MariaDB 10.5
 - Wordpress: CMS for my blog: https://www.abyssproject.net/
 - Grav: CMS for my website: https://www.nicolas-simond.ch/
@@ -32,14 +32,14 @@ I also have a StorageBox for the blog.
 - Docker: For hosting Wiki.JS, Commento and their PostgreSQL databases
 - Acme.SH: For the SSL certificates: https://wiki.abyssproject.net/en/debian/webservers/acme_dot_sh-nginx
 - Restic: For the backups
-
+- Crowdsec : For security and log analysis
+- UFW : Firewall
 
 # Non-blog infrastructre
 
 ## Servers
 
-I have one storage server with OneProvider in Paris to externalize a copy of all my storagebox content at Hetzner.
-I also have a server with Time4VPS to use as a VPN.
+I have one STOR-2 VPS at PulseHeberg for my Nextcloud.
 
 # @Home infrastructure
 
