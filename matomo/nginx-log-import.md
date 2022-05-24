@@ -2,7 +2,7 @@
 title: Import automatique des logs Nginx dans Matomo
 description: Import automatisé des logs Nginx de la veille dans Matomo
 published: true
-date: 2022-05-24T12:53:57.064Z
+date: 2022-05-24T12:55:07.286Z
 tags: matomo, suivi, tracking
 editor: markdown
 dateCreated: 2022-05-24T12:53:57.064Z
@@ -69,7 +69,7 @@ Modifiez uniquement la ligne suivante :
 0 0 * * *   root    test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.daily )
 ```
 
-# Création du script d'importation : 
+# Création du script d'importation
 
 Connectez-vous avec l'utilisateur matomo :
 ```bash
