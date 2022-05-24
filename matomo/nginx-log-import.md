@@ -2,7 +2,7 @@
 title: Import automatique des logs Nginx dans Matomo
 description: Import automatisé des logs Nginx de la veille dans Matomo
 published: true
-date: 2022-05-24T12:55:07.286Z
+date: 2022-05-24T12:55:26.581Z
 tags: matomo, suivi, tracking
 editor: markdown
 dateCreated: 2022-05-24T12:53:57.064Z
@@ -83,7 +83,7 @@ nano /home/matomo/import-log.sh
 
 
 Dedans, vous allez faire une ligne par site, par exemple : 
-> Vous aurez besoin d'une clé d'API
+> Vous aurez besoin d'une clé d'API.
 > Vous pouvez générer cette dernier depuis les paramètres de sécurité de votre utilisateur.
 {.is-info}
 
