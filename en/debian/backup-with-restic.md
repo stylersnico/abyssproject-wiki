@@ -2,8 +2,8 @@
 title: Backup of a Debian server with Restic
 description: Full disk backup of a Debian server with Restic
 published: true
-date: 2022-05-24T12:18:39.994Z
-tags: debian, backup, restic
+date: 2022-05-24T12:19:50.510Z
+tags: debian, backup, restic, hetzner
 editor: markdown
 dateCreated: 2022-05-24T12:18:39.994Z
 ---
