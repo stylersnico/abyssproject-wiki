@@ -2,8 +2,8 @@
 title: Import automatique des logs Nginx dans Matomo
 description: Import automatisé des logs Nginx de la veille dans Matomo
 published: true
-date: 2022-05-24T12:55:26.581Z
-tags: matomo, suivi, tracking
+date: 2022-05-24T12:57:12.883Z
+tags: nginx, selfhosting, matomo, suivi, tracking
 editor: markdown
 dateCreated: 2022-05-24T12:53:57.064Z
 ---
