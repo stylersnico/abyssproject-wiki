@@ -2,7 +2,7 @@
 title: Backup d'un serveur Debian avec Restic
 description: Sauvegarde complète d'un serveur Debian avec Restic
 published: true
-date: 2022-05-24T12:09:38.197Z
+date: 2022-05-24T12:15:00.009Z
 tags: debian, backup, restic
 editor: markdown
 dateCreated: 2022-05-24T12:09:38.197Z
@@ -75,8 +75,14 @@ Si vous souhaitez automatiser le processus (ce que vous devriez faire), ajoutez 
  | cat
 ```
 
+Vous devez aussi indiquer le mot de passe de votre repository Restic dans une variable comme ceci par exemple :
+```bash
+export RESTIC_PASSWORD=repo_password
+```
+
 Par exemple : 
 
 ```bash
+export RESTIC_PASSWORD=repo_password
 restic -v -r sftp:uXXXXXX@uXXXXXX.your-storagebox.de:/srv/restic-repo backup --exclude /var/swap.img --one-file-system /  | cat
 ```
