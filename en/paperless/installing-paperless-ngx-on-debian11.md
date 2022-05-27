@@ -2,7 +2,7 @@
 title: Installing Paperless-NGX on Debian 11
 description: Installing Paperless-NGX on Debian 11 with dedicated user
 published: true
-date: 2022-05-27T06:19:48.473Z
+date: 2022-05-27T06:22:13.197Z
 tags: paperless, dms, edm
 editor: markdown
 dateCreated: 2022-05-27T06:19:48.473Z
@@ -10,7 +10,7 @@ dateCreated: 2022-05-27T06:19:48.473Z
 
 # Introduction
 
-The goal here is to set up Electronic Document Management with the Open source product Paperless-NGX.
+The goal here is to set up an Electronic Document Management system with the Open source product Paperless-NGX.
 
 > We won't talk about external access here since the system doesn't have two factor authentication right now. 
 {.is-info}
