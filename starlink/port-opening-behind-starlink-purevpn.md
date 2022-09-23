@@ -2,7 +2,7 @@
 title: Ouverture de ports sur une connexion Starlink
 description: Ouverture de ports sur une connexion Starlink via PureVPN
 published: false
-date: 2022-09-23T16:21:53.533Z
+date: 2022-09-23T16:24:22.206Z
 tags: starlink, purevpn
 editor: markdown
 dateCreated: 2022-09-23T12:34:44.967Z
@@ -11,7 +11,7 @@ dateCreated: 2022-09-23T12:34:44.967Z
 # Introduction
 Le but de cette procédure est de pouvoir ouvrir des ports en entrée sur une connexion Starlink via un prestataire VPN externe comme PureVPN dans cet exemple.
 
-> Dans cet exemple, PureVPN sera utilisé, il n'y aucune affiliation avec eux.
+> Dans cet exemple, PureVPN sera utilisé, mais il n'y aucune affiliation avec eux.
 > Vous devez avoir l'abonnement avec l'add-on **Port Forwarding** : https://www.purevpn.com/port-forwarding
 {.is-info}
 
