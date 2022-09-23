@@ -2,7 +2,7 @@
 title: Ouverture de ports sur une connexion Starlink
 description: Ouverture de ports sur une connexion Starlink via PureVPN
 published: false
-date: 2022-09-23T12:34:44.967Z
+date: 2022-09-23T16:21:53.533Z
 tags: starlink, purevpn
 editor: markdown
 dateCreated: 2022-09-23T12:34:44.967Z
@@ -27,7 +27,7 @@ Ouvrez votre souscription chez PureVPN et configurez le port Forwarding : https:
 ![port-opening-behind-starlink-purevpn-01.png](/starlink/nat-behind-starlink/port-opening-behind-starlink-purevpn-01.png)
 
 
-Activez-tous les ports, ceci est uniquement sécurisé si vous utilisez un firewall comme OPNSense en tant que client, sinon ne faites pas cela.
+Activez-tous les ports, ceci est uniquement sécurisé si vous utilisez un firewall comme OPNSense comme client, sinon ne faites pas cela.
 
 ![port-opening-behind-starlink-purevpn-02.png](/starlink/nat-behind-starlink/port-opening-behind-starlink-purevpn-02.png)
 
@@ -54,7 +54,7 @@ Maintenant, allez dans **VPN** -> **OpenVPN** -> **Clients** et cliquez sur le *
 {.is-info}
 
 
-Vous pourez également trouver les informations du serveur dans le fichier de configuration OpenVPN que vous souhaitez utiliser, par exemple dans **fr2-ovpn-udp.ovpn** :
+Vous pourrez également trouver les informations du serveur dans le fichier de configuration OpenVPN que vous souhaitez utiliser, par exemple, dans **fr2-ovpn-udp.ovpn** :
 
 ![port-opening-behind-starlink-purevpn-07.png](/starlink/nat-behind-starlink/port-opening-behind-starlink-purevpn-07.png)
 
@@ -69,7 +69,7 @@ Allez dans **VPN** -> **OpenVPN** -> **Connection Status** et vérifiez que la c
 
 ## Configuration de l'interface virtuelle OpenVPN :
 
-Allez dans **Intefaces** -> **Assignments** et asignez l'interface client OpenVPN sur OPT1 (ou la première interface disponible) :
+Allez dans **Intefaces** -> **Assignments** et assignez l'interface client OpenVPN sur OPT1 (ou la première interface disponible) :
 ![port-opening-behind-starlink-purevpn-09.png](/starlink/nat-behind-starlink/port-opening-behind-starlink-purevpn-09.png)
 
 
@@ -78,6 +78,41 @@ Configurez uniquement la description et activez l'interface :
 
 
 ## Configuration du routage
+
+Allez dans **Firewall** -> **Aliases** et créez un Alias qui regroupera les IP de vos machines qui doivent sortir sur Internet via le VPN nouvellement mis en place :
+
+![port-opening-behind-starlink-purevpn-11.png](/starlink/nat-behind-starlink/port-opening-behind-starlink-purevpn-11.png)
+
+Maintenant, allez dans **Firewall** -> **LAN** et créez les deux règles suivantes :
+
+- La première règle permet à vos clients dans l'alias **PureVPNClients** de sortir et d'entrer via le tunnel VPN.
+- La seconde règle laisse tout le reste de sortir via le WAN Starlink.
+
+![port-opening-behind-starlink-purevpn-12.png](/starlink/nat-behind-starlink/port-opening-behind-starlink-purevpn-12.png)
+
+## Configuration du NAT sortant
+
+Allez dans **Firewall** -> **Outbound** et passez votre firewall en **Hybrid outbound NAT rule generation**.
+
+Ensuite, créez les 3 règles suivantes (qui sont sur l'interface PureVPN) afin que le trafic sortant soit fonctionnel :
+
+![port-opening-behind-starlink-purevpn-13.png](/starlink/nat-behind-starlink/port-opening-behind-starlink-purevpn-13.png)
+
+
+## Ouverture des ports
+
+Créez d'abord vos transferts de ports en allant dans **Firewall** -> **NAT** -> **Port Forward**.
+Vous devez utiliser l'interface **PureVPN** et non pas le **WAN** comme ceci : 
+![port-opening-behind-starlink-purevpn-14.png](/starlink/nat-behind-starlink/port-opening-behind-starlink-purevpn-14.png)
+
+Maintenant, créez les règles de pare-feu pour autoriser la connexion distante depuis **Firewall** -> **Rules** -> **PureVPN** comme ceci : 
+
+![port-opening-behind-starlink-purevpn-15.png](/starlink/nat-behind-starlink/port-opening-behind-starlink-purevpn-15.png)
+
+
+Vous pourrez ensuite vérifier l'ouverture de vos ports avec un outil comme https://www.yougetsignal.com/tools/open-ports/ :
+
+![port-opening-behind-starlink-purevpn-16.png](/starlink/nat-behind-starlink/port-opening-behind-starlink-purevpn-16.png)
 
 ## Sources
 - M4DM4NZ : https://forum.opnsense.org/index.php?topic=4979.0
