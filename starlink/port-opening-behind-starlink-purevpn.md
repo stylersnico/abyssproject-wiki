@@ -1,9 +1,9 @@
 ---
 title: Ouverture de ports sur une connexion Starlink
 description: Ouverture de ports sur une connexion Starlink via PureVPN
-published: false
-date: 2022-09-23T16:24:22.206Z
-tags: starlink, purevpn
+published: true
+date: 2022-09-24T13:56:46.924Z
+tags: opnsense, starlink, purevpn, nat
 editor: markdown
 dateCreated: 2022-09-23T12:34:44.967Z
 ---
@@ -58,7 +58,7 @@ Vous pourrez également trouver les informations du serveur dans le fichier de c
 
 ![port-opening-behind-starlink-purevpn-07.png](/starlink/nat-behind-starlink/port-opening-behind-starlink-purevpn-07.png)
 
-Remplissez maintenant toutes les informations importantes comme ceci, vous aurez besoin du contenu du fichier **wdc.key** :
+Remplissez maintenant toutes les informations importantes comme ceci, vous aurez besoin du contenu du fichier **wdc.key** dans le champ **TLS Shared Key** :
 
 ![port-opening-behind-starlink-purevpn-06.png](/starlink/nat-behind-starlink/port-opening-behind-starlink-purevpn-06.png)
 
@@ -67,7 +67,7 @@ Allez dans **VPN** -> **OpenVPN** -> **Connection Status** et vérifiez que la c
 ![port-opening-behind-starlink-purevpn-08.png](/starlink/nat-behind-starlink/port-opening-behind-starlink-purevpn-08.png)
 
 
-## Configuration de l'interface virtuelle OpenVPN :
+## Configuration de l'interface virtuelle OpenVPN
 
 Allez dans **Intefaces** -> **Assignments** et assignez l'interface client OpenVPN sur OPT1 (ou la première interface disponible) :
 ![port-opening-behind-starlink-purevpn-09.png](/starlink/nat-behind-starlink/port-opening-behind-starlink-purevpn-09.png)
@@ -86,7 +86,7 @@ Allez dans **Firewall** -> **Aliases** et créez un Alias qui regroupera les IP 
 Maintenant, allez dans **Firewall** -> **LAN** et créez les deux règles suivantes :
 
 - La première règle permet à vos clients dans l'alias **PureVPNClients** de sortir et d'entrer via le tunnel VPN.
-- La seconde règle laisse tout le reste de sortir via le WAN Starlink.
+- La seconde règle laisse tout le reste de sortir via le **WAN** Starlink.
 
 ![port-opening-behind-starlink-purevpn-12.png](/starlink/nat-behind-starlink/port-opening-behind-starlink-purevpn-12.png)
 
