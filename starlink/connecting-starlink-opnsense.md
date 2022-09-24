@@ -2,7 +2,7 @@
 title: Connexion de Starlink à OPNSense
 description: Connexion de Starlink à OPNSense en mode bridge
 published: false
-date: 2022-09-23T11:34:44.005Z
+date: 2022-09-24T13:34:06.873Z
 tags: opnsense, starlink, bridge
 editor: markdown
 dateCreated: 2022-09-23T11:34:44.005Z
@@ -29,7 +29,7 @@ Attendez 5 minutes que le routeur redémarre et connectez le câble ethernet à 
 
 # Configuration de OPNSense
 
-Allez dans Interfaces -> Wan et configurez l'interface comme ceci via DHCPv4.
+Allez dans **Interfaces** -> **Wan** et configurez l'interface comme ceci via **DHCPv4**.
 > Décochez impérativement **Block private networks** sinon vous n'obtiendrez aucune adresse vu que starlink vous fournira une adresse IP sur un range pour du Carrier Grade Nat (100.64/10).
 {.is-warning}
 
