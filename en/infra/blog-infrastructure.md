@@ -2,7 +2,7 @@
 title: My personal infrastructure
 description: My servers at home and on the internet
 published: true
-date: 2022-05-24T09:06:29.678Z
+date: 2022-09-24T14:30:27.492Z
 tags: selfhosting
 editor: markdown
 dateCreated: 2021-08-25T14:14:46.868Z
@@ -88,3 +88,10 @@ The storage is the following:
 ### Virtual Machines
 
 - PBS : Virtualized Proxmox Backup Server with 3Tb of disk storage for the backup of the virtual machines.
+
+## Internet connection
+
+By internet connection is provided by Starlink.
+The configuration is explained here: 
+- https://wiki.abyssproject.net/en/starlink/connecting-starlink-opnsense
+- https://wiki.abyssproject.net/en/starlink/port-opening-behind-starlink-purevpn
