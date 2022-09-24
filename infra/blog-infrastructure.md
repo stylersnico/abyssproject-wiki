@@ -2,7 +2,7 @@
 title: Mon infrastructure personnelle
 description: L'infrastructure chez moi et en dehors de chez moi
 published: true
-date: 2022-05-24T09:05:56.329Z
+date: 2022-09-24T14:29:00.683Z
 tags: selfhosting
 editor: markdown
 dateCreated: 2021-08-24T16:01:35.860Z
@@ -91,3 +91,10 @@ Le stockage est le suivant :
 ### Machines virtuelles
 
 - PBS : Proxmox Backup Server virtualisé avec 3To d'espace disque pour la sauvegarde des machines virtuelles.
+
+## Arrivée internet
+
+Mon arrivée internet est fournie par Starlink.
+La configuration est expliquée ici : 
+- https://wiki.abyssproject.net/fr/starlink/connecting-starlink-opnsense
+- https://wiki.abyssproject.net/fr/starlink/port-opening-behind-starlink-purevpn
