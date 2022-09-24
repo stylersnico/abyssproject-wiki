@@ -1,8 +1,8 @@
 ---
 title: Connexion de Starlink à OPNSense
 description: Connexion de Starlink à OPNSense en mode bridge
-published: false
-date: 2022-09-24T13:34:06.873Z
+published: true
+date: 2022-09-24T13:57:07.888Z
 tags: opnsense, starlink, bridge
 editor: markdown
 dateCreated: 2022-09-23T11:34:44.005Z
