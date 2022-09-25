@@ -2,7 +2,7 @@
 title: DynDNS avec un script bash chez Gandi
 description: DynDNS avec un script bash sur le LiveDNS Gandi
 published: true
-date: 2022-09-25T07:40:51.263Z
+date: 2022-09-25T07:46:20.186Z
 tags: dns, gandi, dyndns
 editor: markdown
 dateCreated: 2022-09-25T07:40:51.263Z
@@ -26,7 +26,7 @@ Créez votre fichier de script :
 nano /root/dyndns.sh
 ```
 
-Ensuite, remplissez-le avec le contenu suivant, éditez votre domaine et votre clé d'API Gandi :
+Ensuite, remplissez-le avec le contenu suivant, éditez votre domaine, votre sous-domaine et votre clé d'API Gandi :
 
 ```bash
 #!/bin/bash
