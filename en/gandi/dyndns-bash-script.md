@@ -2,7 +2,7 @@
 title: DynDNS with bash script at Gandi
 description: DynDNS with a bash script on Gandi's LiveDNS
 published: true
-date: 2022-09-25T07:45:48.796Z
+date: 2022-09-26T15:21:37.412Z
 tags: dns, gandi, dyndns
 editor: markdown
 dateCreated: 2022-09-25T07:45:48.796Z
@@ -105,7 +105,6 @@ Add this line to launch the script every 30 minutes:
 */30 * * * * /bin/bash /root/dyndns.sh
 ```
 
-
 ## Sources
 
-- I can't retrieve the source, if you have it, feel free to write a comment
+- Tony Davis : https://virtuallytd.com/post/dynamic-dns-using-gandi/
