@@ -2,7 +2,7 @@
 title: Ouverture de ports sur une connexion Starlink via un tunnel Wireguard
 description: Ouverture de ports sur une connexion Starlink via un tunnel Wireguard sur un VPS
 published: true
-date: 2022-10-05T13:41:32.292Z
+date: 2022-10-05T13:42:27.765Z
 tags: opnsense, starlink, nat, wireguard
 editor: markdown
 dateCreated: 2022-10-05T13:41:32.292Z
@@ -31,7 +31,7 @@ wget https://git.io/wireguard -O wireguard-install.sh && bash wireguard-install.
 
 A la fin, le fichier conf sera créé avec toutes les informations nécessaires :
 ```bash
-root@vps-3e4f18a7:~# cat opnsense.conf
+root@vps:~# cat opnsense.conf
 [Interface]
 Address = 10.7.0.2/24
 DNS = 1.1.1.1, 1.0.0.1
@@ -42,7 +42,7 @@ PresharedKey = XXX
 AllowedIPs = 0.0.0.0/0, ::/0
 Endpoint = XXX:51820
 PersistentKeepalive = 25
-root@vps-3e4f18a7:~#
+root@vps:~#
 ```
 
 # Configuration du firewall OPNSense
