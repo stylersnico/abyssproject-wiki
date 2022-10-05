@@ -2,11 +2,18 @@
 title: Ouverture de ports sur une connexion Starlink
 description: Ouverture de ports sur une connexion Starlink via PureVPN
 published: true
-date: 2022-09-24T13:56:46.924Z
+date: 2022-10-05T14:03:22.086Z
 tags: opnsense, starlink, purevpn, nat
 editor: markdown
 dateCreated: 2022-09-23T12:34:44.967Z
 ---
+
+> **Le service de PureVPN n'est pas bon**, je laisse ce guide en archive.
+> Si vous voulez utiliser votre propre VPS pour faire un VPN, voici un guide : https://wiki.abyssproject.net/en/starlink/port-opening-behind-starlink-wireguard
+{.is-danger}
+
+
+
 
 # Introduction
 Le but de cette procédure est de pouvoir ouvrir des ports en entrée sur une connexion Starlink via un prestataire VPN externe comme PureVPN dans cet exemple.
