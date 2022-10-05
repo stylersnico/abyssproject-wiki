@@ -2,7 +2,7 @@
 title: Opening ports behind a Starlink connection with a WireGuard tunnel
 description: Opening ports behind a Starlink connection with a WireGuard tunnel
 published: true
-date: 2022-10-05T14:00:33.476Z
+date: 2022-10-05T14:13:01.496Z
 tags: opnsense, starlink, nat, wireguard
 editor: markdown
 dateCreated: 2022-10-05T14:00:33.476Z
@@ -136,6 +136,44 @@ Go to **Firewall** -> **NAT** -> **Port Forward** et create the rules you need l
 Go to **Firewall** -> **Rules** -> **Wireguard**  and create the rules according to the port forward you did before:
 ![opnsense-wireguard-nat-17.png](/starlink/nat-behind-starlink/wireguard/opnsense-wireguard-nat-17.png)
 
+
+# Forwarding port on the VPS
+Now we are back on the VPS, we don't need to do anything else on OPNSense.
+
+## Port forwarding with IPTables
+Enable port forwarding on the system with this command:
+```bash
+sysctl -w net.ipv4.ip_forward=1
+```
+
+Enable it permanently by adding this line in the file `/etc/sysctl.conf`: 
+```bash
+net.ipv4.ip_forward = 1
+```
+
+Redirect the port that you want with the following command (adapt to the port you want to open):
+
+```bash
+iptables -t nat -A PREROUTING -p tcp --dport 443 -j DNAT --to-destination 10.7.0.2:443
+iptables -t nat -A PREROUTING -p tcp --dport 80 -j DNAT --to-destination 10.7.0.2:80
+iptables -t nat -A PREROUTING -p udp --dport 1194 -j DNAT --to-destination 10.7.0.2:1194
+iptables -t nat -A PREROUTING -p udp --dport 514 -j DNAT --to-destination 10.7.0.2:1194
+iptables -t nat -A POSTROUTING -j MASQUERADE
+```
+
+## Saving IPTables config
+
+Install the following package:
+```bash
+apt-get install iptables-persistent
+```
+
+Backup the rules with this command: 
+```bash
+iptables-save > /etc/iptables/rules.v4
+```
+
+## Test
 
 At the end, you will be able to check that the port is open with tools like https://www.yougetsignal.com/tools/open-ports/:
 
