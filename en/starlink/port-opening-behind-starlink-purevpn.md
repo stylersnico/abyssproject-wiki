@@ -2,11 +2,17 @@
 title: Opening ports behind a Starlink connection 
 description: Opening ports behind a Starlink connection with PureVPN
 published: true
-date: 2022-09-24T13:56:37.351Z
+date: 2022-10-05T14:01:45.870Z
 tags: opnsense, starlink, purevpn, nat
 editor: markdown
 dateCreated: 2022-09-24T13:56:37.351Z
 ---
+
+> **PureVPN isn't that great**, it let this here to help you configure OpenVPN.
+> If you wish to use your own VPS to do a VPN, here is a new guide: https://wiki.abyssproject.net/en/starlink/port-opening-behind-starlink-wireguard
+{.is-danger}
+
+
 
 # Introduction
 The goal of this guide is to be able to open an inboud port on a Starlink connection by using an external VPN like PureVPN here.
