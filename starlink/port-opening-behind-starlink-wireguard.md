@@ -2,7 +2,7 @@
 title: Ouverture de ports sur une connexion Starlink via un tunnel Wireguard
 description: Ouverture de ports sur une connexion Starlink via un tunnel Wireguard sur un VPS
 published: true
-date: 2022-10-05T13:42:27.765Z
+date: 2022-10-05T13:43:52.774Z
 tags: opnsense, starlink, nat, wireguard
 editor: markdown
 dateCreated: 2022-10-05T13:41:32.292Z
@@ -139,3 +139,9 @@ Allez dans **Firewall** -> **Rules** -> **Wireguard**  et créez les règles cor
 Vous pourrez ensuite vérifier l'ouverture de vos ports avec un outil comme https://www.yougetsignal.com/tools/open-ports/ :
 
 ![port-opening-behind-starlink-purevpn-16.png](/starlink/nat-behind-starlink/port-opening-behind-starlink-purevpn-16.png)
+
+
+## Sources
+
+- https://github.com/Nyr/wireguard-install
+- https://docs.opnsense.org/manual/how-tos/wireguard-selective-routing.html
