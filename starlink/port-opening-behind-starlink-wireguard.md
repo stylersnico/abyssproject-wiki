@@ -2,7 +2,7 @@
 title: Ouverture de ports sur une connexion Starlink via un tunnel Wireguard
 description: Ouverture de ports sur une connexion Starlink via un tunnel Wireguard sur un VPS
 published: true
-date: 2022-10-05T13:43:52.774Z
+date: 2022-10-05T14:09:59.743Z
 tags: opnsense, starlink, nat, wireguard
 editor: markdown
 dateCreated: 2022-10-05T13:41:32.292Z
@@ -136,6 +136,45 @@ Allez dans **Firewall** -> **Rules** -> **Wireguard**  et créez les règles cor
 ![opnsense-wireguard-nat-17.png](/starlink/nat-behind-starlink/wireguard/opnsense-wireguard-nat-17.png)
 
 
+
+
+# Redirection des ports sur le VPS
+Nous sommes maintenant revenus sur votre VPS et non plus l'OPNSense.
+
+## Redirection avec IPtables
+Activez la redirection de port dans Debian avec la commande suivante :
+```bash
+sysctl -w net.ipv4.ip_forward=1
+```
+
+Activez le forward permanent en ajoutant la ligne suivante dans `/etc/sysctl.conf` : 
+```bash
+net.ipv4.ip_forward = 1
+```
+
+Redirigez ensuite les ports avec les commandes suivantes (adaptez selon vos ouvertures précédentes) :
+
+```bash
+iptables -t nat -A PREROUTING -p tcp --dport 443 -j DNAT --to-destination 10.7.0.2:443
+iptables -t nat -A PREROUTING -p tcp --dport 80 -j DNAT --to-destination 10.7.0.2:80
+iptables -t nat -A PREROUTING -p udp --dport 1194 -j DNAT --to-destination 10.7.0.2:1194
+iptables -t nat -A PREROUTING -p udp --dport 514 -j DNAT --to-destination 10.7.0.2:1194
+iptables -t nat -A POSTROUTING -j MASQUERADE
+```
+
+## Sauvegarde de la configuration IPTables
+
+Installez le paquet suivant :
+```bash
+apt-get install iptables-persistent
+```
+
+Sauvegardez ensuite les règles avec la commande suivante : 
+```bash
+iptables-save > /etc/iptables/rules.v4
+```
+
+## Test
 Vous pourrez ensuite vérifier l'ouverture de vos ports avec un outil comme https://www.yougetsignal.com/tools/open-ports/ :
 
 ![port-opening-behind-starlink-purevpn-16.png](/starlink/nat-behind-starlink/port-opening-behind-starlink-purevpn-16.png)
