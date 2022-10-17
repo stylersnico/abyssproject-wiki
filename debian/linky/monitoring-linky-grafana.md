@@ -2,7 +2,7 @@
 title: Monitoring d'un compteur Linky avec Grafana et InfluxDB
 description: Monitoring d'un compteur Linky avec Grafana et InfluxDB sur un raspberry pi
 published: true
-date: 2022-10-17T13:13:00.566Z
+date: 2022-10-17T13:24:03.031Z
 tags: raspberry, linky, grafana, influx
 editor: markdown
 dateCreated: 2022-10-17T13:13:00.566Z
@@ -25,7 +25,7 @@ Vous aurez besoin :
 - D'un module série, j'utilise ceci : https://www.tindie.com/products/hallard/micro-teleinfo-v20/
 - De deux câbles cuivres (j'utilise du 1,5mm^2^ rigide)
 
-Le but, est de finir avec un Dashboard Grafana semblable :
+Le but est de finir avec un dashboard Grafana semblable :
 
 ![raspi-teleinfo-01.png](/debian/linky/raspi-teleinfo-01.png)
 
@@ -167,7 +167,7 @@ Lancez InfluxDB afin de vérifier la présence des données :
 influx
 ```
 
-Connectez- vous à la base teleinfo et affichez les différentes séries :
+Connectez-vous à la base teleinfo et affichez les différentes séries :
 
 ```
 USE teleinfo
@@ -250,3 +250,14 @@ Configurez la source comme ceci :
 
 ## Importation du Dashboard Grafana
 
+Téléchargez le fichier **.JSON** depuis Github : https://github.com/stylersnico/teleinfo-linky-with-raspberry/blob/master/grafana_dashboard_teleinfo.json
+
+Maintenant, importez le dashboard avec ce fichier directement depuis Grafana : 
+![raspi-teleinfo-05.png](/debian/linky/raspi-teleinfo-05.png)
+
+![raspi-teleinfo-06.png](/debian/linky/raspi-teleinfo-06.png)
+
+
+Vous devriez maintenant voir le dashboard comme celui au début :)
+
+N'oubliez pas d'adapter les tarifs dans le calcul des prix.
