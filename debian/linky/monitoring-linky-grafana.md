@@ -2,7 +2,7 @@
 title: Monitoring d'un compteur Linky avec Grafana et InfluxDB
 description: Monitoring d'un compteur Linky avec Grafana et InfluxDB sur un raspberry pi
 published: true
-date: 2022-10-17T13:24:03.031Z
+date: 2022-10-17T13:26:27.527Z
 tags: raspberry, linky, grafana, influx
 editor: markdown
 dateCreated: 2022-10-17T13:13:00.566Z
@@ -261,3 +261,7 @@ Maintenant, importez le dashboard avec ce fichier directement depuis Grafana :
 Vous devriez maintenant voir le dashboard comme celui au début :)
 
 N'oubliez pas d'adapter les tarifs dans le calcul des prix.
+
+## Sources
+
+- https://sebastienreuiller.fr/blog/monitorer-son-compteur-linky-avec-grafana-cest-possible-et-ca-tourne-sur-un-raspberry-pi/
