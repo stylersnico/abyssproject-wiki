@@ -2,7 +2,7 @@
 title: Mon infrastructure personnelle
 description: L'infrastructure chez moi et en dehors de chez moi
 published: true
-date: 2023-02-10T07:48:11.091Z
+date: 2023-02-10T07:48:36.037Z
 tags: selfhosting
 editor: markdown
 dateCreated: 2021-08-24T16:01:35.860Z
@@ -34,13 +34,6 @@ Les sauvegardes se font sur un VPS STOR-2 de PulseHeberg sous Proxmox Backup Ser
 - Restic : Pour les sauvegardes
 - Crowdsec : Pour la sécurité et l'analyse des logs
 - UFW : Firewall
-
-
-# L'infrastructre hors blog
-
-## Serveurs
-
-Je dipose d'un VPS STOR-2 pour mon Nextcloud chez PulseHerberg.
 
 
 # L'infrastucture @ home
