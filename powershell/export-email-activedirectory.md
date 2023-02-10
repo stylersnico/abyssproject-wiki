@@ -2,7 +2,7 @@
 title: Export des utilisateurs et des emails en Powershell
 description: Export des utilisateurs et des emails en Powershell
 published: true
-date: 2023-02-10T08:16:42.584Z
+date: 2023-02-10T08:18:46.425Z
 tags: powershell, email, ad, active directory
 editor: markdown
 dateCreated: 2023-02-10T08:16:42.584Z
@@ -13,20 +13,20 @@ dateCreated: 2023-02-10T08:16:42.584Z
 Dans une commande Powershell, lancez la commande suivante en modifiant votre Search Base pour extraire une OU précise sous la forme "Nom d'affichage, Adresse Email" :
 
 ```powershell
-Get-ADUser -Filter * -SearchBase "OU=Administration,OU=Antaes USER and Group,DC=antaes,DC=ch" -Properties DisplayName, EmailAddress | select DisplayName, EmailAddress | Export-CSV C:\Email_Addresses.csv
+Get-ADUser -Filter * -SearchBase "OU=Administration,OU=USER and Group,DC=domain,DC=ch" -Properties DisplayName, EmailAddress | select DisplayName, EmailAddress | Export-CSV C:\Email_Addresses.csv
 ```
 
 # Export automatique et envoi par email
 
-Il est possible de faire un export automatique par email avec ce genre de script (fait pour Antaes à la base) : 
+Il est possible de faire un export automatique par email avec ce genre de script (fait pour domain à la base) : 
 
 ```powershell
 #####Define Variables#####
 
-$fromaddress = “it@antaes.ch”
-$toaddress = “backoffice@antaes.ch”
-$Subject = “Export AD Antaes”
-$body = "Export automatique de l'AD Antaes"
+$fromaddress = “it@domain.ch”
+$toaddress = “backoffice@domain.ch”
+$Subject = “Export AD domain”
+$body = "Export automatique de l'AD domain"
 $attachment = “C:\_Scripts\Export.Zip”
 $smtpserver = “outbound-eu1.ppe-hosted.com”
 
@@ -40,8 +40,8 @@ Remove-Item -Path "C:\_Scripts\Administration_Email_Addresses.csv"
 
 # Exports all users
 
-Get-ADUser -Filter * -SearchBase "OU=Administration,OU=Antaes USER and Group,DC=antaes,DC=ch" -Properties UserPrincipalName, GivenName, Surname, EmailAddress | select UserPrincipalName, GivenName, Surname, EmailAddress | Export-CSV "C:\_Scripts\Administration_Email_Addresses.csv"
-Get-ADUser -Filter * -SearchBase "OU=Consultants,OU=Antaes USER and Group,DC=antaes,DC=ch" -Properties UserPrincipalName, GivenName, Surname, EmailAddress | select UserPrincipalName, GivenName, Surname, EmailAddress | Export-CSV "C:\_Scripts\Consultants_Email_Addresses.csv"
+Get-ADUser -Filter * -SearchBase "OU=Administration,OU=domain USER and Group,DC=domain,DC=ch" -Properties UserPrincipalName, GivenName, Surname, EmailAddress | select UserPrincipalName, GivenName, Surname, EmailAddress | Export-CSV "C:\_Scripts\Administration_Email_Addresses.csv"
+Get-ADUser -Filter * -SearchBase "OU=Consultants,OU=domain USER and Group,DC=domain,DC=ch" -Properties UserPrincipalName, GivenName, Surname, EmailAddress | select UserPrincipalName, GivenName, Surname, EmailAddress | Export-CSV "C:\_Scripts\Consultants_Email_Addresses.csv"
 
 # Compress files 
 
