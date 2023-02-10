@@ -1,8 +1,8 @@
 ---
-title: Configuration de Storage Sense en Powershell
-description: Configuration de Storage Sense en Powershell
+title: Configuring Storage Sense with PowerShell
+description: Configuring Storage Sense with PowerShell
 published: true
-date: 2023-02-10T08:00:16.474Z
+date: 2023-02-10T08:00:42.648Z
 tags: powershell, storage sense
 editor: markdown
 dateCreated: 2023-02-10T08:00:16.474Z
