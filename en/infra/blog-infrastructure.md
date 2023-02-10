@@ -2,7 +2,7 @@
 title: My personal infrastructure
 description: My servers at home and on the internet
 published: true
-date: 2022-09-24T14:30:27.492Z
+date: 2023-02-10T07:50:46.576Z
 tags: selfhosting
 editor: markdown
 dateCreated: 2021-08-25T14:14:46.868Z
@@ -16,10 +16,12 @@ The goal of this page is to show you all the servers that I use so you can know 
 
 ## Server
 
-The server used is an PulseHeberg's BEST-8 installed with Debian 11.
-The server is located in their datacenter in NICE.
+The server is a Kimsufi KS-LE-2 at French hoster OVH.
 
-I also have a Hetzner's StorageBox for the blog.
+Server runs Proxmox and all data are inside Debian 11 virtual machines.
+
+The backup are done on a VPS STOR-2 at Pulseheberg who is running Proxmox Backup Server and replicate backups to a Hetzner storage box.
+
 
 ## Technical stack
 
@@ -35,11 +37,6 @@ I also have a Hetzner's StorageBox for the blog.
 - Crowdsec : For security and log analysis
 - UFW : Firewall
 
-# Non-blog infrastructre
-
-## Servers
-
-I have one STOR-2 VPS at PulseHeberg for my Nextcloud.
 
 # @Home infrastructure
 
