@@ -2,7 +2,7 @@
 title: Mon infrastructure personnelle
 description: L'infrastructure chez moi et en dehors de chez moi
 published: true
-date: 2022-09-24T14:29:00.683Z
+date: 2023-02-10T07:48:11.091Z
 tags: selfhosting
 editor: markdown
 dateCreated: 2021-08-24T16:01:35.860Z
@@ -12,14 +12,14 @@ dateCreated: 2021-08-24T16:01:35.860Z
 Le but de cette page est de vous présenter mon infrastructure et que vous voyez ce qui se cache derrière mes sites web.
 
 
-# L'infrastructure du blog
+# L'infrastructure
 
 ## Serveur
 
-Le serveur utilisé est un VPS BEST-8 de l'hébergeur français PulseHeberg sous Debian 11.
-Le serveur est situé dans leur datacenter de Nice.
+Le serveur utilisé est un Kimsufi KS-LE-2 de l'hébergeur français OVH.
+Le serveur tourne sous Proxmox et les données se trouvent dans des VMs Debian 11.
 
-Je dispose également d'une StorageBox chez Hetzner pour les sauvegardes du blog.
+Les sauvegardes se font sur un VPS STOR-2 de PulseHeberg sous Proxmox Backup Server qui réplique lui même vers une Storage Box de Hetzner.
 
 ## Stack technique
 
