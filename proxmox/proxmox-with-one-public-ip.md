@@ -2,7 +2,7 @@
 title: Utiliser Proxmox avec une adresse ip publique
 description: Utilisation de Proxmox chez Kimsufi, Hetzner, avec ouverture des ports pour les VMs et IPv6
 published: false
-date: 2023-02-20T14:40:31.326Z
+date: 2023-02-20T14:54:36.686Z
 tags: debian, hetzner, proxmox, kimsufi
 editor: markdown
 dateCreated: 2023-02-20T13:29:53.546Z
@@ -261,8 +261,17 @@ Créez un script pour rentrer vos configurations :
 nano /root/dnat.sh
 ```
 
-Mettez 
+Ouvrez par exemple le port 80 sur la machine virtuelle en .104 en ipv4 et en ipv6 : 
+
 ```bash
+sleep 60
 iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 80 -j DNAT --to-destination 192.168.100.104:80
 ip6tables -t nat -A PREROUTING -i vmbr0 -p tcp -m tcp --dport 80 -j DNAT --to-destination [fde8:b429:841e:b651::104]:80
 ```
+
+Attention, si avez configurer UFW, vous devrez aussi ouvrir le port : 
+```bash
+ufw allow 80
+```
+
+Ensuite
