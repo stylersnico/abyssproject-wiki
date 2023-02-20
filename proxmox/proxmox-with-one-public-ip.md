@@ -2,7 +2,7 @@
 title: Utiliser Proxmox avec une adresse ip publique
 description: Utilisation de Proxmox chez Kimsufi, Hetzner, avec ouverture des ports pour les VMs et IPv6
 published: false
-date: 2023-02-20T14:04:32.591Z
+date: 2023-02-20T14:10:02.275Z
 tags: debian, hetzner, proxmox, kimsufi
 editor: markdown
 dateCreated: 2023-02-20T13:29:53.546Z
@@ -244,3 +244,9 @@ server=8.8.8.8
 dhcp-leasefile=/var/lib/misc/dnsmasq.leases
 ```
 
+Activez et lancez le service : 
+```bash
+systemctl enable dnsmasq && systemctl start dnsmasq
+```
+
+# Configuration 
