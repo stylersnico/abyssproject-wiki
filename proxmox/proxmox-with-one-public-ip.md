@@ -2,7 +2,7 @@
 title: Utiliser Proxmox avec une adresse ip publique
 description: Utilisation de Proxmox chez Kimsufi, Hetzner, avec ouverture des ports pour les VMs et IPv6
 published: false
-date: 2023-02-20T14:54:45.469Z
+date: 2023-02-20T15:21:24.838Z
 tags: debian, hetzner, proxmox, kimsufi
 editor: markdown
 dateCreated: 2023-02-20T13:29:53.546Z
@@ -257,6 +257,7 @@ Dans notre exemple le port 80 sera ouvert en IPv4 et IPv6 en redirigeant sur l'a
 
 
 Créez un script pour rentrer vos configurations :
+
 ```bash
 nano /root/dnat.sh
 ```
@@ -270,8 +271,65 @@ ip6tables -t nat -A PREROUTING -i vmbr0 -p tcp -m tcp --dport 80 -j DNAT --to-de
 ```
 
 Attention, si avez configurer UFW, vous devrez aussi ouvrir le port : 
+
 ```bash
 ufw allow 80
 ```
 
-Ensuite 
+Ensuite vous devez activer le script dans le fichier interface : 
+
+```bash
+nano /etc/network/interfaces
+```
+
+Ajoutez les lignes suivantes sur la carte VMBR1 en IPv4 :
+
+```bash
+post-up echo 1 > /proc/sys/net/ipv4/ip_forward
+post-up iptables -t nat -A POSTROUTING -s 192.168.100.0/24 -o vmbr0 -j MASQUERADE
+post-up /root/dnat.sh
+post-down iptables -t nat -D POSTROUTING -s 192.168.100.0/24 -o vmbr0 -j MASQUERADE
+```
+
+De cette façon, le NAT sera appliqué à chaque redémarrage.
+
+Voici l'exemple de fichier que j'utilise pour mes services : 
+
+```bash
+sleep 60
+
+#SSH
+iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 2201 -j DNAT --to-destination 192.168.100.101:22
+iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 2202 -j DNAT --to-destination 192.168.100.102:22
+iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 2203 -j DNAT --to-destination 192.168.100.103:22
+iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 2204 -j DNAT --to-destination 192.168.100.104:22
+iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 2205 -j DNAT --to-destination 192.168.100.105:22
+iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 2206 -j DNAT --to-destination 192.168.100.106:22
+
+#SNMP
+iptables -t nat -A PREROUTING -i vmbr0 -p udp --dport 2161 -j DNAT --to-destination 192.168.100.101:161
+iptables -t nat -A PREROUTING -i vmbr0 -p udp --dport 2162 -j DNAT --to-destination 192.168.100.102:161
+iptables -t nat -A PREROUTING -i vmbr0 -p udp --dport 2163 -j DNAT --to-destination 192.168.100.103:161
+iptables -t nat -A PREROUTING -i vmbr0 -p udp --dport 2164 -j DNAT --to-destination 192.168.100.104:161
+iptables -t nat -A PREROUTING -i vmbr0 -p udp --dport 2165 -j DNAT --to-destination 192.168.100.105:161
+
+#RDP Kali
+iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 2389 -j DNAT --to-destination 192.168.100.105:3389
+
+#Swizzin
+iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 7443 -j DNAT --to-destination 192.168.100.106:7443
+
+#reverse proxy
+iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 80 -j DNAT --to-destination 192.168.100.104:80
+iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 443 -j DNAT --to-destination 192.168.100.104:443
+ip6tables -t nat -A PREROUTING -i vmbr0 -p tcp -m tcp --dport 80 -j DNAT --to-destination [fde8:b429:841e:b651::104]:80
+ip6tables -t nat -A PREROUTING -i vmbr0 -p tcp -m tcp --dport 443 -j DNAT --to-destination [fde8:b429:841e:b651::104]:443
+
+#VPN
+iptables -t nat -A PREROUTING -i vmbr0 -p udp --dport 2194 -j DNAT --to-destination 192.168.100.103:2194
+ip6tables -t nat -A PREROUTING -i vmbr0 -p udp -m udp --dport 2194 -j DNAT --to-destination [fde8:b429:841e:b651::103]:2194
+
+#Bastillion
+iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 8443 -j DNAT --to-destination 192.168.100.101:8443
+ip6tables -t nat -A PREROUTING -i vmbr0 -p tcp -m tcp --dport 8443 -j DNAT --to-destination [fde8:b429:841e:b651::101]:8443
+```
