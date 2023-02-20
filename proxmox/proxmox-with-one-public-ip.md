@@ -2,7 +2,7 @@
 title: Utiliser Proxmox avec une adresse ip publique
 description: Utilisation de Proxmox chez Kimsufi, Hetzner, avec ouverture des ports pour les VMs et IPv6
 published: false
-date: 2023-02-20T15:21:24.838Z
+date: 2023-02-20T15:23:46.170Z
 tags: debian, hetzner, proxmox, kimsufi
 editor: markdown
 dateCreated: 2023-02-20T13:29:53.546Z
@@ -270,6 +270,10 @@ iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 80 -j DNAT --to-destinatio
 ip6tables -t nat -A PREROUTING -i vmbr0 -p tcp -m tcp --dport 80 -j DNAT --to-destination [fde8:b429:841e:b651::104]:80
 ```
 
+> **iptables** gère les tables de NAT en **IPv4**. **ip6tables** gère les tables de NAT en **IPv6**.
+{.is-info}
+
+
 Attention, si avez configurer UFW, vous devrez aussi ouvrir le port : 
 
 ```bash
@@ -312,9 +316,6 @@ iptables -t nat -A PREROUTING -i vmbr0 -p udp --dport 2162 -j DNAT --to-destinat
 iptables -t nat -A PREROUTING -i vmbr0 -p udp --dport 2163 -j DNAT --to-destination 192.168.100.103:161
 iptables -t nat -A PREROUTING -i vmbr0 -p udp --dport 2164 -j DNAT --to-destination 192.168.100.104:161
 iptables -t nat -A PREROUTING -i vmbr0 -p udp --dport 2165 -j DNAT --to-destination 192.168.100.105:161
-
-#RDP Kali
-iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 2389 -j DNAT --to-destination 192.168.100.105:3389
 
 #Swizzin
 iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 7443 -j DNAT --to-destination 192.168.100.106:7443
