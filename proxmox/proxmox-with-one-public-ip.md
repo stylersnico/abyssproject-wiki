@@ -2,7 +2,7 @@
 title: Utiliser Proxmox avec une adresse ip publique
 description: Utilisation de Proxmox chez Kimsufi, Hetzner, avec ouverture des ports pour les VMs et IPv6
 published: false
-date: 2023-02-20T13:54:01.532Z
+date: 2023-02-20T14:04:32.591Z
 tags: debian, hetzner, proxmox, kimsufi
 editor: markdown
 dateCreated: 2023-02-20T13:29:53.546Z
@@ -58,9 +58,7 @@ iface ens18 inet6 static
 Le proxmox va évidemment gérer une partie NAT.
 
 
-# Configuration du Proxmox
-
-## Configuration de UFW
+# Configuration de UFW
 
 Pour la protection du Proxmox, je vais installer UFW afin de protéger un minimum l'hyperviseur (ce n'est pas obligatoire mais, faites-le).
 
@@ -129,7 +127,7 @@ ufw enable
 
 
 
-## Configuration du réseau interne (VMBR1)
+# Configuration du réseau interne (VMBR1)
 
 Ouvrez l'interface web et de proxmox et créez votre nouvelle interface depuis Proxmox (**System** -> **Network** -> **Create** -> **Linux Bridge**) :
 
@@ -144,8 +142,105 @@ Remplissez l'interface comme ceci avec les réseaux privés que nous avons vu av
 {.is-danger}
 
 
-## Configuration du routage
+# Configuration du routage
 
 Nous allons configurer le **MASQUERADE** sous Linux.
 Pour faire très simple, le **MASQUERADE** est un **NAT de type 1-to-many**.
+
+Derrière cette explication sauvage se cache en fait le type de NAT commun derrière votre box ou n'importe quelle pare-feu.
+Tous les PC du réseau internet peuvent sortir sur internet avec une seule adresse publique.
+
+Ouvrez votre fichier d'interface :
+```bash
+nano /etc/network/interfaces
+```
+
+Ajoutez les lignes suivantes sur la carte VMBR1 en IPv4 :
+```bash
+post-up echo 1 > /proc/sys/net/ipv4/ip_forward
+post-up iptables -t nat -A POSTROUTING -s 192.168.100.0/24 -o vmbr0 -j MASQUERADE
+post-down iptables -t nat -D POSTROUTING -s 192.168.100.0/24 -o vmbr0 -j MASQUERADE
+```
+
+Ajoutez les lignes suivantes sur la carte VMBR1 en IPv6 : 
+```bash
+post-up echo 1 > /proc/sys/net/ipv6/conf/all/forwarding
+post-up ip6tables -t nat -A POSTROUTING -s fde8:b429:841e:b651::1/64 -o vmbr0 -j MASQUERADE
+post-down ip6tables -t nat -D POSTROUTING -s fde8:b429:841e:b651::1/64 -o vmbr0 -j MASQUERADE
+```
+
+De façon très concrète, votre fichier d'interface devrait ressembler à ceci : 
+
+```bash
+auto lo
+iface lo inet loopback
+
+iface eno1 inet manual
+
+iface eno2 inet manual
+
+auto vmbr0
+iface vmbr0 inet static
+        address 37.187.147.215/24
+        gateway 37.187.147.254
+        bridge-ports eno1
+        bridge-stp off
+        bridge-fd 0
+        hwaddress 0C:C4:7A:47:DA:4C
+
+iface vmbr0 inet6 static
+        address 2001:41d0:a:53d7::1/128
+        gateway 2001:41d0:000a:53ff:00ff:00ff:00ff:00ff
+
+auto vmbr1
+iface vmbr1 inet static
+        address 192.168.100.1/24
+        bridge-ports none
+        bridge-stp off
+        bridge-fd 0
+        post-up echo 1 > /proc/sys/net/ipv4/ip_forward
+        post-up iptables -t nat -A POSTROUTING -s 192.168.100.0/24 -o vmbr0 -j MASQUERADE
+        post-up /root/dnat.sh
+        post-down iptables -t nat -D POSTROUTING -s 192.168.100.0/24 -o vmbr0 -j MASQUERADE
+
+iface vmbr1 inet6 static
+        address fde8:b429:841e:b651::1/64
+        post-up echo 1 > /proc/sys/net/ipv6/conf/all/forwarding
+        post-up ip6tables -t nat -A POSTROUTING -s fde8:b429:841e:b651::1/64 -o vmbr0 -j MASQUERADE
+        post-down ip6tables -t nat -D POSTROUTING -s fde8:b429:841e:b651::1/64 -o vmbr0 -j MASQUERADE
+```
+
+Dès cet instant, **redémarrez** vos machines virtuelles pourront avoir internet si vous mettez des adresses IP fixes sur leurs cartes réseaux.
+
+
+# Configuration d'un DHCP pour les machines virtuelles
+
+Pour simplifier l'installation de vos machines, vous pouvez faire un petit serveur DHCPv4 qui donnera un pool d'IP à vos machines virtuelles.
+
+Installez DNSMasq : 
+
+```bash
+apt install dnsmasq -y
+```
+
+Ouvrez le fichier de configuration :
+```bash
+nano /etc/dnsmasq.conf
+```
+
+Configurez un range sur VMBR1 comme ceci :
+
+```bash
+# interface to listen to
+interface=vmbr1
+# IP range to handout
+dhcp-range=192.168.100.200,192.168.100.210,30d
+# set gateway
+dhcp-option=vmbr1,3,192.168.100.1
+# DNS server
+server=1.1.1.1
+server=8.8.8.8
+# DHCP database location (to save to)
+dhcp-leasefile=/var/lib/misc/dnsmasq.leases
+```
 
