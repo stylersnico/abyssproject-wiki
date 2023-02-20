@@ -2,7 +2,7 @@
 title: Utiliser Proxmox avec une adresse ip publique
 description: Utilisation de Proxmox chez Kimsufi, Hetzner, avec ouverture des ports pour les VMs et IPv6
 published: false
-date: 2023-02-20T14:54:36.686Z
+date: 2023-02-20T14:54:45.469Z
 tags: debian, hetzner, proxmox, kimsufi
 editor: markdown
 dateCreated: 2023-02-20T13:29:53.546Z
@@ -274,4 +274,4 @@ Attention, si avez configurer UFW, vous devrez aussi ouvrir le port :
 ufw allow 80
 ```
 
-Ensuite
+Ensuite 
