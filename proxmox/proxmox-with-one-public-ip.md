@@ -2,7 +2,7 @@
 title: Utiliser Proxmox avec une adresse ip publique
 description: Utilisation de Proxmox chez Kimsufi, Hetzner, avec ouverture des ports pour les VMs et IPv6
 published: false
-date: 2023-02-20T13:48:00.299Z
+date: 2023-02-20T13:54:01.532Z
 tags: debian, hetzner, proxmox, kimsufi
 editor: markdown
 dateCreated: 2023-02-20T13:29:53.546Z
@@ -146,4 +146,6 @@ Remplissez l'interface comme ceci avec les réseaux privés que nous avons vu av
 
 ## Configuration du routage
 
+Nous allons configurer le **MASQUERADE** sous Linux.
+Pour faire très simple, le **MASQUERADE** est un **NAT de type 1-to-many**.
 
