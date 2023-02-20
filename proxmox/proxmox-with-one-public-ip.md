@@ -2,7 +2,7 @@
 title: Utiliser Proxmox avec une adresse ip publique
 description: Utilisation de Proxmox chez Kimsufi, Hetzner, avec ouverture des ports pour les VMs et IPv6
 published: false
-date: 2023-02-20T14:38:55.491Z
+date: 2023-02-20T14:40:31.326Z
 tags: debian, hetzner, proxmox, kimsufi
 editor: markdown
 dateCreated: 2023-02-20T13:29:53.546Z
@@ -253,8 +253,7 @@ systemctl enable dnsmasq && systemctl start dnsmasq
 
 Ici on va créer un script pour ouvrir les ports selon le modèle de NAT 1-to-1 (ouverture de ports classiques).
 
-Dans notre exemple le port 80 sera ouvert en IPv4 et IPv6 en redirigeant sur l'adresse IP. 
-
+Dans notre exemple le port 80 sera ouvert en IPv4 et IPv6 en redirigeant sur l'adresse IP.
 
 
 Créez un script pour rentrer vos configurations :
