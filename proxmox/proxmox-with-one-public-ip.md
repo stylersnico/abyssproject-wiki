@@ -2,7 +2,7 @@
 title: Utiliser Proxmox avec une adresse ip publique
 description: Utilisation de Proxmox chez Kimsufi, Hetzner, avec ouverture des ports pour les VMs et IPv6
 published: false
-date: 2023-02-20T14:28:23.445Z
+date: 2023-02-20T14:30:59.283Z
 tags: debian, hetzner, proxmox, kimsufi
 editor: markdown
 dateCreated: 2023-02-20T13:29:53.546Z
