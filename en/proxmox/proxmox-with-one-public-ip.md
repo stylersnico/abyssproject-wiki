@@ -2,49 +2,47 @@
 title: Using Proxmox with one public IP address
 description: Using Proxmox at Kimsufi, Hetzner, or others with only one IP, NATfor VMs and IPv6
 published: false
-date: 2023-02-20T17:23:47.585Z
+date: 2023-02-21T08:23:57.932Z
 tags: debian, hetzner, proxmox, kimsufi
 editor: markdown
 dateCreated: 2023-02-20T17:23:47.585Z
 ---
 
 # Introduction
+The goal of this guide is to set up a Proxmox at a hoster who gives you only one public IP (V4 and / or V6) on a dedicated server.
+The goal is that all virtual machines have Internet and that you can forward port to them.
 
-Le but de cet article est de mettre en place un Proxmox chez un hébergeur ne proposant qu'une unique IP (v4 et/ou v6) disponible sur un serveur dédié.
-Le but sera que les machines virtuelles disposent d'internet et qu'il soit possible de rediriger des ports en local vers des services derrière les machines virtuelles.
-
-> Il est évident que le montage ci-dessous doit-être considéré comme un bricolage plus qu'une bonne pratique.
-> Toutefois, c'est l'infrastructure qui héberge mon blog et mes services et pour un usage personnel cela fonctionne correctement.
+> This guide is clearly not a best practice.
+> However, all my services are hosted on this, it's working and for personnal use it's just fine.
 {.is-warning}
 
 
-# Pré-requis
+# Prerequisite
 
- 
-Votre serveur doit déjà être installé avec la dernière version de Proxmox et l'adresse IP doit être configurée statiquement comme ceci par exemple : 
+Your server should already have the latest Proxmox release on it and the IP address should be static like this:
 
 ![proxmox-with-one-public-ip-00.png](/proxmox/proxmox-with-one-public-ip/proxmox-with-one-public-ip-00.png)
 
 
-# Description du fonctionnement
+# How it's working
 
-Le réseau externe (VMBR0) dispose d'une adresse IPv4 et d'une adresse IPv6 disponible : 
-- `Réseau IPv4 : 37.187.147.215/24`
-- `Réseau IPv6 : 2001:41d0:a:53d7::1/128`
+The external network (VMBR0) has a public IPv4 and a public IPv6 available:
+- `IPv4 network: 37.187.147.215/24`
+- `IPv6 network: 2001:41d0:a:53d7::1/128`
 
-Avant tout, nous allons devoir faire un réseau interne.
+Before starting, we need to create a private network.
 
-Dans cet exemple, le réseau interne (VMBR1) disposera d'IPv4 et d'IPv6 : 
-- `Réseau IPv4 : 192.168.100.1/24`
-- `Réseau IPv6 : fde8:b429:841e:b651::1/64`
+In this guide, the internal network (VMBR1) will have IPv4 and IPv6:
+- `IPv4 network: 192.168.100.1/24`
+- `IPv6 network: fde8:b429:841e:b651::1/64`
 
-> Le range IPv6 est arbitraite et a été généré avec cet outil : https://simpledns.plus/private-ipv6.
-Il est parfaitement valide pour l'usage qui va en être fait.
+> The IPv6 range is arbitrary and generated with this tool: https://simpledns.plus/private-ipv6.
+He is valid for our usage.
 {.is-info}
 
-La communication se fera ainsi : **VMBR0 <-> VMBR1 <-> Machines virtuelles**.
+The communication will behave like this: **VMBR0 <-> VMBR1 <-> Virtual machines**.
 
-Les machines virtuelles auront des adresses dans le réseau interne (VMBR1), voici un exemple pour une machine virtuelle : 
+The virtual machines will have address on the internal network (VMBR1), here is an example for a virtual machine:
 ```bash
 iface ens18 inet static
         address 192.168.100.104/24
@@ -58,116 +56,116 @@ iface ens18 inet6 static
         dns-nameservers 2606:4700:4700::1111 2606:4700:4700::1001
 ```
 
-Le Proxmox va évidemment gérer une partie NAT.
+The Proxmox will manage the NAT.
 
 
-# Configuration de UFW
+# Configuring UFW
 
-Pour la protection du Proxmox, on installe UFW afin de protéger un minimum l'hyperviseur (ce n'est pas obligatoire, mais faites-le).
+To protect Proxmox, we will install UFW (this is not mandatory, but do it anyway).
 
-Installez d'abord UFW : 
+Install UFW: 
 ```bash
 apt-get install ufw -y
 ```
 
-Ouvrez ensuite le fichier de configuration par défaut : 
+Open the default config file: 
 ```bash
 nano /etc/default/ufw
 ```
 
-Configurez les lignes suivantes : 
+Configure the following options: 
 ```bash
 IPV6=yes
 DEFAULT_FORWARD_POLICY="ACCEPT"
 ```
 
-Ouvrez ensuite le fichier de configuration suivant : 
+Then open this configuration file: 
 ```bash
 nano /etc/ufw/sysctl.conf
 ```
 
-Configurez les lignes suivantes : 
+And configure the following lines: 
 ```bash
 net/ipv4/ip_forward=1
 net/ipv6/conf/default/forwarding=1
 net/ipv6/conf/all/forwarding=1
 ```
 
-Ensuite, désactivez le pare-feu :
+Disable the firewall:
 ```bash
 ufw disable
 ```
 
-Autorisez toutes les connexions sortantes et refusez toutes les connexions entrantes :
+Allow all outside connections and deny all incoming connections:
 ```bash
 ufw default deny incoming
 ufw default allow outgoing
 ```
 
-Si vous disposez d'une adresse IP Fixe, vous pouvez autoriser toutes les connexions depuis celle-ci, par exemple :
+If you have a fixed IP address at home, you can allow all connections from it:
 ```bash
 ufw allow from 45.23.28.24
 ```
 
-Si vous n'avez pas encore d'IP fixe, autorisez juste le port 22 et le port de Proxmox : 
+If you don't have any, allow all connections to SSH and Proxmox: 
 ```bash
 ufw allow 22
 ufw allow 8006
 ```
 
-Ensuite, activez le firewall : 
+Finally, enable the firewall: 
 ```bash
 ufw enable
 ```
 
-> Bonus, si vous souhaitez utiliser UFW avec une IP dynamique : https://www.abyssproject.net/2017/07/utiliser-ip-dynamique-nginx-ufw/
+> If you want to use a dynamic IP with UFW (in French): https://www.abyssproject.net/2017/07/utiliser-ip-dynamique-nginx-ufw/
 {.is-info}
 
 
 
-# Configuration du réseau interne (VMBR1)
+# Internal Network setup (VMBR1)
 
-Ouvrez l'interface web et de Proxmox et créez votre nouvelle interface depuis Proxmox (**System** -> **Network** -> **Create** -> **Linux Bridge**) :
+Open the Proxmox web interface and create the new interface from here (**System** -> **Network** -> **Create** -> **Linux Bridge**):
 
 ![proxmox-with-one-public-ip-01.png](/proxmox/proxmox-with-one-public-ip/proxmox-with-one-public-ip-01.png)
 
-Remplissez l'interface comme ceci avec les réseaux privés que nous avons vus avant : 
+Configure the interface like this with the private networks we've seen before: 
 
 ![proxmox-with-one-public-ip-02.png](/proxmox/proxmox-with-one-public-ip/proxmox-with-one-public-ip-02.png)
 
-> Vous remarquerez que je ne mets pas de **Bridge Port**.
-> Si vous mettez une machine virtuelle ou un switch virtuel directement sur votre **VMBR0** sans avoir les adresses IP additionelles il est possible que votre port réseau soit automatiquement coupé au Datacenter.
+> You will seen that I don't put a **Bridge port**.
+> If you put a virtual machine or virtual switch on **VMBR0** without additional IP, it is possible than your network port will be shutdown at the datacenter.
 {.is-danger}
 
 
-# Configuration du routage
+# Routing configuration
 
-Nous allons configurer le **MASQUERADE** sous Linux.
-Pour faire très simple, le **MASQUERADE** est un **NAT de type 1-to-many**.
+We will configure **MASQUERADE** under Linux.
+To be easy, **MASQUERADE** is a **1-to-many NAT type**.
 
-Derrière cette explication sauvage se cache en fait le type de NAT commun derrière votre box ou n'importe quelle pare-feu.
-Tous les PC du réseau interne peuvent sortir sur internet avec une seule adresse publique.
+Behind that rude explanation is hidden the most common NAT type that you have behind your provider router and behind any firewall.
+All the computers from the internal network can go to the Internet with only one public IP address.
 
-Ouvrez votre fichier d'interface :
+Open your interfaces' configuration:
 ```bash
 nano /etc/network/interfaces
 ```
 
-Ajoutez les lignes suivantes sur la carte **VMBR1** en **IPv4** :
+Add the following lines to **VMBR1** in **IPv4**:
 ```bash
 post-up echo 1 > /proc/sys/net/ipv4/ip_forward
 post-up iptables -t nat -A POSTROUTING -s 192.168.100.0/24 -o vmbr0 -j MASQUERADE
 post-down iptables -t nat -D POSTROUTING -s 192.168.100.0/24 -o vmbr0 -j MASQUERADE
 ```
 
-Ajoutez les lignes suivantes sur la carte **VMBR1** en **IPv6** : 
+Add the following lines to **VMBR1** in **IPv6**: 
 ```bash
 post-up echo 1 > /proc/sys/net/ipv6/conf/all/forwarding
 post-up ip6tables -t nat -A POSTROUTING -s fde8:b429:841e:b651::1/64 -o vmbr0 -j MASQUERADE
 post-down ip6tables -t nat -D POSTROUTING -s fde8:b429:841e:b651::1/64 -o vmbr0 -j MASQUERADE
 ```
 
-De façon très concrète, votre fichier d'interface devrait ressembler à ceci : 
+In a meaningful way, your full interface config should look just like this: 
 
 ```bash
 auto lo
@@ -208,25 +206,25 @@ iface vmbr1 inet6 static
         post-down ip6tables -t nat -D POSTROUTING -s fde8:b429:841e:b651::1/64 -o vmbr0 -j MASQUERADE
 ```
 
-Dès cet instant, **redémarrez** vos machines virtuelles pourront avoir internet si vous mettez des adresses IP fixes sur leurs cartes réseaux.
+From here, **restart** your Proxmox and your virtual machines will have internet if you put fixed IP address on their network cards.
 
 
-# Configuration d'un DHCP pour les machines virtuelles
+# DHCP for virtual machines
 
-Pour simplifier l'installation de vos machines, vous pouvez faire un petit serveur DHCPv4 qui donnera un pool d'IP à vos machines virtuelles.
+To ease your life and virtual machines installation, you can set up a small DHCPv4 server that will give a pool of adress to your virtual machines.
 
-Installez DNSMasq : 
+Install DNSMasq: 
 
 ```bash
 apt install dnsmasq -y
 ```
 
-Ouvrez le fichier de configuration :
+Open the config file:
 ```bash
 nano /etc/dnsmasq.conf
 ```
 
-Configurez un range sur VMBR1 comme ceci :
+Configure a range for VMBR1 like this:
 
 ```bash
 # interface to listen to
@@ -242,14 +240,14 @@ server=8.8.8.8
 dhcp-leasefile=/var/lib/misc/dnsmasq.leases
 ```
 
-Activez et lancez le service : 
+Enable and start the service: 
 ```bash
 systemctl enable dnsmasq && systemctl start dnsmasq
 ```
 
-# Configuration d'une adresse IP fixe sur les machines virtuelles
+# Fixed IP setup for virtual machines
 
-Dans cet exemple, je prends le cas d'une machine virtuelle sous Debian 11 dont le réseau est sur le switch virtuel **VMBR1** :
+Here, we will take the case of a virtual machine under Debian 11 with the virtual network card on the **VMBR1** virtual switch:
 
 ```bash
 # The loopback network interface
@@ -270,20 +268,20 @@ iface ens18 inet6 static
         dns-nameservers 2606:4700:4700::1111 2606:4700:4700::1001
 ```
 
-# Ouverture des ports sur les machines virtuelles
-
-Ici, on va créer un script pour ouvrir les ports selon le modèle de NAT 1-to-1 (ouverture de port classique).
-
-Dans notre exemple, le port 80 sera ouvert en IPv4 et IPv6 en redirigeant sur l'adresse IP 192.168.100.104.
+# Port forwarding to virtual machines
 
 
-Créez un script pour rentrer vos configurations :
+Here we will create a script to open ports needed on the VMs.
+
+Here, the port 80 will be open in both IPv4 and IPv6 by redirecting to the IP **.104**.
+
+Create this script for your configuration:
 
 ```bash
 nano /root/dnat.sh
 ```
 
-Ouvrez, par exemple, le port 80 sur la machine virtuelle en .104 en IPv4 et en IPv6 : 
+Here, open the port 80 on the virtual machine **.104** in both IPv4 and IPv6: 
 
 ```bash
 sleep 60
@@ -291,23 +289,22 @@ iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 80 -j DNAT --to-destinatio
 ip6tables -t nat -A PREROUTING -i vmbr0 -p tcp -m tcp --dport 80 -j DNAT --to-destination [fde8:b429:841e:b651::104]:80
 ```
 
-> **iptables** gère les tables de NAT en **IPv4**. **ip6tables** gère les tables de NAT en **IPv6**.
+> **iptables** manage NAT rules in **IPv4**. **ip6tables** manage NAT rules in **IPv6**.
 {.is-info}
 
-
-Attention, si vous avez configuré UFW, vous devrez aussi ouvrir le port : 
+Beware, if you configured UFW you also need to allow the port in the firewall:
 
 ```bash
 ufw allow 80
 ```
 
-Ensuite, vous devez activer le script dans le fichier interface : 
+Then, you need to set up the script in the interfaces' config file: 
 
 ```bash
 nano /etc/network/interfaces
 ```
 
-Ajoutez les lignes suivantes sur la carte VMBR1 en IPv4 :
+Add the following lines to VMBR1 in IPv4:
 
 ```bash
 post-up echo 1 > /proc/sys/net/ipv4/ip_forward
@@ -316,9 +313,9 @@ post-up /root/dnat.sh
 post-down iptables -t nat -D POSTROUTING -s 192.168.100.0/24 -o vmbr0 -j MASQUERADE
 ```
 
-Ainsi, le NAT sera appliqué à chaque redémarrage.
+Like this, the NAT will be applied at each restart.
 
-Voici l'exemple de fichier que j'utilise pour mes services : 
+Here is the file that I personally use: 
 
 ```bash
 sleep 60
@@ -356,7 +353,7 @@ iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 8443 -j DNAT --to-destinat
 ip6tables -t nat -A PREROUTING -i vmbr0 -p tcp -m tcp --dport 8443 -j DNAT --to-destination [fde8:b429:841e:b651::101]:8443
 ```
 
-Mon fichier interface complet ressemble à ceci : 
+The complete interface file looks like this: 
 
 ```bash
 auto lo
