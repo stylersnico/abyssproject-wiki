@@ -2,7 +2,7 @@
 title: Utiliser Proxmox avec une adresse ip publique
 description: Utilisation de Proxmox chez Kimsufi, Hetzner, avec ouverture des ports pour les VMs et IPv6
 published: false
-date: 2023-02-21T08:14:54.909Z
+date: 2023-02-21T08:15:47.300Z
 tags: debian, hetzner, proxmox, kimsufi
 editor: markdown
 dateCreated: 2023-02-20T13:29:53.546Z
@@ -274,7 +274,7 @@ iface ens18 inet6 static
 
 Ici, on va créer un script pour ouvrir les ports voulus sur les VMs.
 
-Dans notre exemple, le port 80 sera ouvert en IPv4 et IPv6 en redirigeant sur l'adresse IP 192.168.100.104.
+Dans notre exemple, le port 80 sera ouvert en IPv4 et IPv6 en redirigeant sur l'adresse IP **.104**.
 
 
 Créez un script pour rentrer vos configurations :
