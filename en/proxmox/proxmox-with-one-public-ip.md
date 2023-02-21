@@ -2,7 +2,7 @@
 title: Using Proxmox with one public IP address
 description: Using Proxmox at Kimsufi, Hetzner, or others with only one IP, NATfor VMs and IPv6
 published: true
-date: 2023-02-21T08:24:17.715Z
+date: 2023-02-21T08:32:40.565Z
 tags: debian, hetzner, proxmox, kimsufi
 editor: markdown
 dateCreated: 2023-02-20T17:23:47.585Z
@@ -272,8 +272,7 @@ iface ens18 inet6 static
 
 
 Here we will create a script to open ports needed on the VMs.
-
-Here, the port 80 will be open in both IPv4 and IPv6 by redirecting to the IP **.104**.
+The port 80 will be open in both IPv4 and IPv6 by redirecting to the IP **.104**.
 
 Create this script for your configuration:
 
@@ -289,7 +288,8 @@ iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 80 -j DNAT --to-destinatio
 ip6tables -t nat -A PREROUTING -i vmbr0 -p tcp -m tcp --dport 80 -j DNAT --to-destination [fde8:b429:841e:b651::104]:80
 ```
 
-> **iptables** manage NAT rules in **IPv4**. **ip6tables** manage NAT rules in **IPv6**.
+> **iptables** manage NAT rules in **IPv4**.
+> **ip6tables** manage NAT rules in **IPv6**.
 {.is-info}
 
 Beware, if you configured UFW you also need to allow the port in the firewall:
