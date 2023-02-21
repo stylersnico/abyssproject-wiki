@@ -2,7 +2,7 @@
 title: Utiliser Proxmox avec une adresse ip publique
 description: Utilisation de Proxmox chez Kimsufi, Hetzner, avec ouverture des ports pour les VMs et IPv6
 published: true
-date: 2023-02-21T08:24:18.958Z
+date: 2023-02-21T08:28:58.260Z
 tags: debian, hetzner, proxmox, kimsufi
 editor: markdown
 dateCreated: 2023-02-20T13:29:53.546Z
@@ -291,7 +291,8 @@ iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 80 -j DNAT --to-destinatio
 ip6tables -t nat -A PREROUTING -i vmbr0 -p tcp -m tcp --dport 80 -j DNAT --to-destination [fde8:b429:841e:b651::104]:80
 ```
 
-> **iptables** gère les tables de NAT en **IPv4**. **ip6tables** gère les tables de NAT en **IPv6**.
+> **iptables** gère les tables de NAT en **IPv4**.
+> **ip6tables** gère les tables de NAT en **IPv6**.
 {.is-info}
 
 
