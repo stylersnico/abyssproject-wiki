@@ -1,8 +1,8 @@
 ---
 title: Using Proxmox with one public IP address
 description: Using Proxmox at Kimsufi, Hetzner, or others with only one IP, NATfor VMs and IPv6
-published: false
-date: 2023-02-21T08:23:57.932Z
+published: true
+date: 2023-02-21T08:24:17.715Z
 tags: debian, hetzner, proxmox, kimsufi
 editor: markdown
 dateCreated: 2023-02-20T17:23:47.585Z
