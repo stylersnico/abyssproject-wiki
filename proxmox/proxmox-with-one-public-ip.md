@@ -2,7 +2,7 @@
 title: Utiliser Proxmox avec une adresse ip publique
 description: Utilisation de Proxmox chez Kimsufi, Hetzner, avec ouverture des ports pour les VMs et IPv6
 published: false
-date: 2023-02-20T17:10:10.997Z
+date: 2023-02-21T08:08:34.108Z
 tags: debian, hetzner, proxmox, kimsufi
 editor: markdown
 dateCreated: 2023-02-20T13:29:53.546Z
@@ -208,7 +208,7 @@ iface vmbr1 inet6 static
         post-down ip6tables -t nat -D POSTROUTING -s fde8:b429:841e:b651::1/64 -o vmbr0 -j MASQUERADE
 ```
 
-Dès cet instant, **redémarrez** vos machines virtuelles pourront avoir internet si vous mettez des adresses IP fixes sur leurs cartes réseaux.
+Dès cet instant, **redémarrez** votre Proxmox et vos machines virtuelles pourront avoir internet si vous mettez des adresses IP fixes sur leurs cartes réseaux.
 
 
 # Configuration d'un DHCP pour les machines virtuelles
