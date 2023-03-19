@@ -2,7 +2,7 @@
 title: Monitoring d'un compteur Linky avec Grafana et InfluxDB
 description: Monitoring d'un compteur Linky avec Grafana et InfluxDB sur un raspberry pi
 published: true
-date: 2022-10-17T13:26:27.527Z
+date: 2023-03-19T09:06:18.180Z
 tags: raspberry, linky, grafana, influx
 editor: markdown
 dateCreated: 2022-10-17T13:13:00.566Z
@@ -228,6 +228,7 @@ WantedBy = multi-user.target
 Lancez maintenant le service : 
 
 ```
+touch /var/log/teleinfo/releve.log
 systemctl daemon-reload
 systemctl enable teleinfo.service && systemctl start teleinfo.service
 ```
