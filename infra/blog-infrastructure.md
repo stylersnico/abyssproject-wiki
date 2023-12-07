@@ -2,7 +2,7 @@
 title: Mon infrastructure personnelle
 description: L'infrastructure chez moi et en dehors de chez moi
 published: true
-date: 2023-02-10T07:48:36.037Z
+date: 2023-12-07T08:08:54.506Z
 tags: selfhosting
 editor: markdown
 dateCreated: 2021-08-24T16:01:35.860Z
@@ -73,17 +73,13 @@ Le serveur est un HP Proliant Microserver GEN8.
 
 Le stockage est le suivant : 
 - 1x Samsung 850 evo pour l'OS
-- 4x WD Red 4to
+- 4x Seagate Archive 8To
 
 ### Stack technique
 
-- Virtualisation : Hyper-V 2019
-- Données : Raid 5 HP pour les données
-- Veeam Backup & Replication pour export et chiffrement des sauvegardes PBS sur un volume Veracrypt externe  en rotation.
+- Proxmox Backup Server
+- Données : Raid 10 ZFS
 
-### Machines virtuelles
-
-- PBS : Proxmox Backup Server virtualisé avec 3To d'espace disque pour la sauvegarde des machines virtuelles.
 
 ## Arrivée internet
 
