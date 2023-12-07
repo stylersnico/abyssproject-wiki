@@ -2,7 +2,7 @@
 title: Mon infrastructure personnelle
 description: L'infrastructure chez moi et en dehors de chez moi
 published: true
-date: 2023-12-07T08:08:54.506Z
+date: 2023-12-07T08:11:48.778Z
 tags: selfhosting
 editor: markdown
 dateCreated: 2021-08-24T16:01:35.860Z
@@ -42,9 +42,9 @@ Les sauvegardes se font sur un VPS STOR-2 de PulseHeberg sous Proxmox Backup Ser
 
 Le serveur est un Supermicro X10SDV-4C-TLN4F : https://www.supermicro.com/en/products/motherboard/X10SDV-4C-TLN4F.
 Le stockage est le suivant : 
-- 1x Samsung 870 evo NVME pour l'OS
-- 2x Samsung 850 evo pour les datas
-- 1x WD Red 6to pour les films et les gros fichiers
+- 1x Samsung 870 evo NVME 250Go pour l'OS
+- 2x Samsung 850 evo 500Go pour les datas
+- Seagate Barracuda 2.5" 5To pour les films et les gros fichiers
 
 ### Stack technique
 
