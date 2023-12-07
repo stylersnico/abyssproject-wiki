@@ -2,7 +2,7 @@
 title: My personal infrastructure
 description: My servers at home and on the internet
 published: true
-date: 2023-02-10T07:50:46.576Z
+date: 2023-12-07T08:11:21.061Z
 tags: selfhosting
 editor: markdown
 dateCreated: 2021-08-25T14:14:46.868Z
@@ -43,9 +43,9 @@ The backup are done on a VPS STOR-2 at Pulseheberg who is running Proxmox Backup
 ## Virtualisation server and technical stack
 My main server is a supermicro X10SDV-4C-TLN4F: https://www.supermicro.com/en/products/motherboard/X10SDV-4C-TLN4F.
 The storage is the following: 
-- 1x Samsung 870 evo NVME for the OS
-- 2x Samsung 850 evo for the datas
-- 1x WD Red 6to for the movies and the big files
+- 1x Samsung 870 evo NVME 250Go for the OS
+- 2x Samsung 850 evo 500Go for the datas
+- 2x Seagate Barracuda 2.5" 5To for the movies and the big files
 
 ### Technical stack
 
@@ -74,17 +74,13 @@ This server is an HP Proliant Microserver GEN8.
 
 The storage is the following: 
 - 1x Samsung 850 evo for the OS
-- 4x WD Red 4to
+- 4x Seagate Archive 8To
 
 ### Technical stack
 
-- Virtualisation : Hyper-V 2019
-- Data : Raid 5 HP for the datas
-- Veeam Backup & Replication for the export and the encryption of all the data backed up by PBS on an external veracrypt rotated repository.
+- Proxmox Backup Server
+- Data : Raid 10 ZFS for the data
 
-### Virtual Machines
-
-- PBS : Virtualized Proxmox Backup Server with 3Tb of disk storage for the backup of the virtual machines.
 
 ## Internet connection
 
