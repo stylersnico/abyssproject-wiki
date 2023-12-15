@@ -2,7 +2,7 @@
 title: Installation de Ansible Semaphore sur un serveur Debian 12
 description: Installation de Ansible Semaphore sur un serveur Debian12 avec une installation Ansible existante
 published: true
-date: 2023-12-15T10:21:28.511Z
+date: 2023-12-15T10:25:02.634Z
 tags: debian, debian 12, ansible, semaphore
 editor: markdown
 dateCreated: 2023-12-15T10:21:28.511Z
@@ -10,7 +10,7 @@ dateCreated: 2023-12-15T10:21:28.511Z
 
 # Introduction
 
-Le but de cet article est de réaliser l'installation de Ansible Semaphore, une GUI Open-Source pour Ansible.
+Le but de cet article est de réaliser l'installation de Ansible Semaphore, une GUI Open-Source pour Ansible : https://www.semui.co/
 
 > L'article part du principe qu'une installation de Ansible est déjà en place et fonctionnelle sur le système.
 > L'article par également du principe, que le groupe et l'utilisateur "ansible" existe sur le système.
