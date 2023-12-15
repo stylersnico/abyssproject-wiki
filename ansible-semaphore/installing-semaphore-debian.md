@@ -2,7 +2,7 @@
 title: Installation de Ansible Semaphore sur un serveur Debian 12
 description: Installation de Ansible Semaphore sur un serveur Debian12 avec une installation Ansible existante
 published: true
-date: 2023-12-15T10:25:02.634Z
+date: 2023-12-15T10:26:33.977Z
 tags: debian, debian 12, ansible, semaphore
 editor: markdown
 dateCreated: 2023-12-15T10:21:28.511Z
@@ -178,6 +178,8 @@ systemctl daemon-reload
 systemctl enable semaphore.service
 systemctl start semaphore.service
 ```
+
+Semaphore sera maintenant accessible depuis l'URL suivante : http://semaphore.server:3000/
 
 
 # Mise à jour automatique de Semaphore
