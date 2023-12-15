@@ -2,7 +2,7 @@
 title: Installation de Ansible Semaphore sur un serveur Debian 12
 description: Installation de Ansible Semaphore sur un serveur Debian12 avec une installation Ansible existante
 published: true
-date: 2023-12-15T10:26:33.977Z
+date: 2023-12-15T10:29:01.432Z
 tags: debian, debian 12, ansible, semaphore
 editor: markdown
 dateCreated: 2023-12-15T10:21:28.511Z
@@ -227,3 +227,9 @@ Ajoutez une mise à jour automatique selon vos besoins, par exemple, le mercredi
 ```bash
 30 12 * * 3 /usr/bin/ansible-playbook /etc/ansible/playbooks/update-semaphore.yml
 ```
+
+
+## Configuration et utilisation de Ansible Semaphore
+
+Un article séparé est en préparation pour l'utilisable de l'interface et la configuration complète d'un environnement fonctionnel.
+L'URL sera intégrée ici lorsque l'article sera disponible.
