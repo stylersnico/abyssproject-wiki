@@ -2,7 +2,7 @@
 title: Configuration de Ansible Semaphore
 description: Configuration de Ansible Semaphore et des lancement des premières tâches
 published: false
-date: 2023-12-19T14:49:31.772Z
+date: 2023-12-19T14:51:09.259Z
 tags: ansible, semaphore
 editor: markdown
 dateCreated: 2023-12-19T14:49:31.772Z
@@ -137,7 +137,7 @@ Le playbook est le suivant :
 Semaphore ne reconnait pas les ports autres que 22 pour le SSH par défaut.
 Pour contourner cela, vous devrez créer des alias SSH avec la commande suivante : 
 ```bash
-nano /home/nsw-ansible/.ssh/config
+nano /home/ansible/.ssh/config
 ```
 
 ```bash
