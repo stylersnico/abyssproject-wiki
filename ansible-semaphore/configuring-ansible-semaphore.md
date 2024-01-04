@@ -1,8 +1,8 @@
 ---
 title: Configuration de Ansible Semaphore
 description: Configuration de Ansible Semaphore et des lancement des premières tâches
-published: false
-date: 2024-01-04T09:33:07.440Z
+published: true
+date: 2024-01-04T09:33:17.689Z
 tags: ansible, semaphore
 editor: markdown
 dateCreated: 2023-12-19T14:49:31.772Z
