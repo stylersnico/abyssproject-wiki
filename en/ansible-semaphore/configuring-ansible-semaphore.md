@@ -2,7 +2,7 @@
 title: Configuring Ansible Semaphore
 description: Configuring Ansible Semaphore and starting the first tasks
 published: true
-date: 2024-01-04T10:05:17.290Z
+date: 2024-01-04T10:05:34.465Z
 tags: ansible, semaphore
 editor: markdown
 dateCreated: 2024-01-04T10:05:17.290Z
@@ -12,7 +12,7 @@ dateCreated: 2024-01-04T10:05:17.290Z
 
 The goal here is to configure Ansible Semaphore and start using it, Ansible Semaphore is a GUI for Ansible: https://www.semui.co/
 
-> The installation is documented here: https://wiki.abyssproject.net/fr/ansible-semaphore/installing-semaphore-debian
+> The installation is documented here: https://wiki.abyssproject.net/en/ansible-semaphore/installing-semaphore-debian
 {.is-info}
 
 
