@@ -2,7 +2,7 @@
 title: Configuration de Ansible Semaphore
 description: Configuration de Ansible Semaphore et des lancement des premières tâches
 published: false
-date: 2023-12-19T14:51:09.259Z
+date: 2024-01-04T09:33:07.440Z
 tags: ansible, semaphore
 editor: markdown
 dateCreated: 2023-12-19T14:49:31.772Z
@@ -17,7 +17,7 @@ Le but de cet article est de réaliser la configuration de Ansible Semaphore, un
 
 
 
-# Configuration de Sempaphore
+# Configuration de Semaphore
 
 ## Configuration du Key Store
 
@@ -30,11 +30,11 @@ Spécifiez également l'utilisateur SSH cible pour votre clé comme ceci :
 ![ansible-semaphore-config-01.png](/ansible-semaphore/configuring-semaphore/ansible-semaphore-config-01.png)
 
 
-## Configuration de l'envrionnement 
+## Configuration de l'environnement 
 
 La seconde étape est la configuration de l'environnement Semaphore.
 
-> La documentation étant particulièrement mauvaise, j'avoue que je n'ai pas trouvé de réelle utilité sur ce point, mais c'est obligatoire, on va donc crééer un environement vide.
+> La documentation étant particulièrement mauvaise, j'avoue que je n'ai pas trouvé de réelle utilité sur ce point, mais c'est obligatoire, on va donc créer un environement vide.
 {.is-info}
 
 
@@ -71,7 +71,7 @@ Dans mon cas, j'utilise mon dépôt existant du serveur Ansible comme ceci :
 # Utilisation de Semaphore
 
 Pour utiliser ce qu'on appelle un "playbook" dans Ansible, on passe ici par les **Task Templates**.
-Cela intègre en fait la programmation complète du cron et du lien entre les différents playbook et inventaires que vous aurez créer.
+Cela intègre en fait la programmation complète du cron et du lien entre les différents playbook et inventaires que vous aurez mis en place.
 
 Voici un exemple de template que j'utilise : 
 
