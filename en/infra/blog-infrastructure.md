@@ -2,7 +2,7 @@
 title: My personal infrastructure
 description: My servers at home and on the internet
 published: true
-date: 2023-12-07T08:11:21.061Z
+date: 2024-07-01T06:40:54.769Z
 tags: selfhosting
 editor: markdown
 dateCreated: 2021-08-25T14:14:46.868Z
@@ -28,12 +28,11 @@ The backup are done on a VPS STOR-2 at Pulseheberg who is running Proxmox Backup
 - Web server / Reverse Proxy: NGINX (https://github.com/stylersnico/nginx-secure-config/)
 - SQL server: MariaDB 10.5
 - Wordpress: CMS for my blog: https://www.abyssproject.net/
-- Grav: CMS for my website: https://www.nicolas-simond.ch/
+- My website in pure HTML: https://www.nicolas-simond.ch/
 - Wiki.JS: CMS for the wiki (You are here :))
 - Commento: Comment system for the wiki
 - Docker: For hosting Wiki.JS, Commento and their PostgreSQL databases
 - Acme.SH: For the SSL certificates: https://wiki.abyssproject.net/en/debian/webservers/acme_dot_sh-nginx
-- Restic: For the backups
 - Crowdsec : For security and log analysis
 - UFW : Firewall
 
@@ -43,14 +42,14 @@ The backup are done on a VPS STOR-2 at Pulseheberg who is running Proxmox Backup
 ## Virtualisation server and technical stack
 My main server is a supermicro X10SDV-4C-TLN4F: https://www.supermicro.com/en/products/motherboard/X10SDV-4C-TLN4F.
 The storage is the following: 
-- 1x Samsung 870 evo NVME 250Go for the OS
-- 2x Samsung 850 evo 500Go for the datas
+- 2x Firecuda 530 1To for the OS and VMs
+- 2x Samsung 850 evo 500Go for testing things
 - 2x Seagate Barracuda 2.5" 5To for the movies and the big files
 
 ### Technical stack
 
 - Virtualisation : Proxmox
-- Data : Raid 1 with XFS
+- Data : Raid 1 with BTRFS
 - Virtual machines : QEMU with VirtIO drivers
 - Automatic shutdown with Nuts in case of power outage
 
@@ -61,12 +60,11 @@ The storage is the following:
 - Bitwarden : Local Bitwarden hosting
 - LibreNMS : Monitoring
 - Media : PLEX server
-- OPNSense : Virtualized OPNSense for firewalling
 - Proton-backup : Automated backup of my prontonmail emails
 - Reverse : NGINX Reverse proxy to access my services
 - ZoneMinder : Videosurveillance system
 
-
+I also have a small router with Intel N100 and 4*2,5Gbps for OPNSense.
 
 ## Backup server and technical stack
 
@@ -79,7 +77,7 @@ The storage is the following:
 ### Technical stack
 
 - Proxmox Backup Server
-- Data : Raid 10 ZFS for the data
+- Data : Raid 10 BTRFS for the data
 
 
 ## Internet connection
