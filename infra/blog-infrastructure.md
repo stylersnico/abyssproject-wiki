@@ -2,7 +2,7 @@
 title: Mon infrastructure personnelle
 description: L'infrastructure chez moi et en dehors de chez moi
 published: true
-date: 2024-07-01T06:39:19.237Z
+date: 2024-07-01T06:41:20.529Z
 tags: selfhosting
 editor: markdown
 dateCreated: 2021-08-24T16:01:35.860Z
@@ -17,7 +17,7 @@ Le but de cette page est de vous présenter mon infrastructure et que vous voyez
 ## Serveur
 
 Le serveur utilisé est un Kimsufi KS-LE-2 de l'hébergeur français OVH.
-Le serveur tourne sous Proxmox et les données se trouvent dans des VMs Debian 11.
+Le serveur tourne sous Proxmox et les données se trouvent dans des VMs Debian 12.
 
 Les sauvegardes se font sur un VPS STOR-2 de PulseHeberg sous Proxmox Backup Server qui réplique lui même vers une Storage Box de Hetzner.
 
