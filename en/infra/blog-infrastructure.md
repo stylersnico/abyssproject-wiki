@@ -2,7 +2,7 @@
 title: My personal infrastructure
 description: My servers at home and on the internet
 published: true
-date: 2024-07-01T06:40:54.769Z
+date: 2024-07-01T06:41:06.509Z
 tags: selfhosting
 editor: markdown
 dateCreated: 2021-08-25T14:14:46.868Z
@@ -18,7 +18,7 @@ The goal of this page is to show you all the servers that I use so you can know 
 
 The server is a Kimsufi KS-LE-2 at French hoster OVH.
 
-Server runs Proxmox and all data are inside Debian 11 virtual machines.
+Server runs Proxmox and all data are inside Debian 12 virtual machines.
 
 The backup are done on a VPS STOR-2 at Pulseheberg who is running Proxmox Backup Server and replicate backups to a Hetzner storage box.
 
@@ -26,7 +26,7 @@ The backup are done on a VPS STOR-2 at Pulseheberg who is running Proxmox Backup
 ## Technical stack
 
 - Web server / Reverse Proxy: NGINX (https://github.com/stylersnico/nginx-secure-config/)
-- SQL server: MariaDB 10.5
+- SQL server: MariaDB
 - Wordpress: CMS for my blog: https://www.abyssproject.net/
 - My website in pure HTML: https://www.nicolas-simond.ch/
 - Wiki.JS: CMS for the wiki (You are here :))
