@@ -2,7 +2,7 @@
 title: Utiliser Proxmox avec une adresse ip publique
 description: Utilisation de Proxmox chez Kimsufi, Hetzner, avec ouverture des ports pour les VMs et IPv6
 published: true
-date: 2023-02-21T08:28:58.260Z
+date: 2024-08-21T11:43:22.138Z
 tags: debian, hetzner, proxmox, kimsufi
 editor: markdown
 dateCreated: 2023-02-20T13:29:53.546Z
@@ -98,10 +98,11 @@ Ensuite, désactivez le pare-feu :
 ufw disable
 ```
 
-Autorisez toutes les connexions sortantes et refusez toutes les connexions entrantes :
+Autorisez toutes les connexions sortantes et refusez toutes les connexions entrantes sauf sur le réseau interne :
 ```bash
 ufw default deny incoming
 ufw default allow outgoing
+ufw allow in on vmbr1 to any
 ```
 
 Si vous disposez d'une adresse IP Fixe, vous pouvez autoriser toutes les connexions depuis celle-ci, par exemple :
