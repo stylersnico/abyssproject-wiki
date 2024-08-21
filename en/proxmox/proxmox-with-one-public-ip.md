@@ -2,7 +2,7 @@
 title: Using Proxmox with one public IP address
 description: Using Proxmox at Kimsufi, Hetzner, or others with only one IP, NATfor VMs and IPv6
 published: true
-date: 2023-02-21T08:32:40.565Z
+date: 2024-08-21T11:43:03.169Z
 tags: debian, hetzner, proxmox, kimsufi
 editor: markdown
 dateCreated: 2023-02-20T17:23:47.585Z
@@ -96,10 +96,11 @@ Disable the firewall:
 ufw disable
 ```
 
-Allow all outside connections and deny all incoming connections:
+Allow all outside connections and deny all incoming connections except on internal network:
 ```bash
 ufw default deny incoming
 ufw default allow outgoing
+ufw allow in on vmbr1 to any
 ```
 
 If you have a fixed IP address at home, you can allow all connections from it:
