@@ -2,7 +2,7 @@
 title: Mon infrastructure personnelle
 description: L'infrastructure chez moi et en dehors de chez moi
 published: true
-date: 2024-11-02T16:22:34.877Z
+date: 2024-11-02T16:24:33.949Z
 tags: selfhosting
 editor: markdown
 dateCreated: 2021-08-24T16:01:35.860Z
@@ -27,7 +27,7 @@ Le serveur est une machine virtuelle Debian 12 sur mon hyperviseur local.
 - Wiki.JS : CMS pour le wiki (celui sur lequel vous êtes :))
 - Docker : Pour l'hébergement de Wiki.JS et sa base PostgresSQL
 - Crowdsec : Pour la sécurité et l'analyse des logs
-- Cloudflared pour le lien avec Cloudflare et l'accès aux sites
+- Cloudflared : Pour le lien avec Cloudflare et l'accès aux sites
 
 
 # L'infrastucture @ home
