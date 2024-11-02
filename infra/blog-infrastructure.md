@@ -2,7 +2,7 @@
 title: Mon infrastructure personnelle
 description: L'infrastructure chez moi et en dehors de chez moi
 published: true
-date: 2024-07-01T06:41:20.529Z
+date: 2024-11-02T15:57:52.523Z
 tags: selfhosting
 editor: markdown
 dateCreated: 2021-08-24T16:01:35.860Z
@@ -16,10 +16,7 @@ Le but de cette page est de vous présenter mon infrastructure et que vous voyez
 
 ## Serveur
 
-Le serveur utilisé est un Kimsufi KS-LE-2 de l'hébergeur français OVH.
-Le serveur tourne sous Proxmox et les données se trouvent dans des VMs Debian 12.
-
-Les sauvegardes se font sur un VPS STOR-2 de PulseHeberg sous Proxmox Backup Server qui réplique lui même vers une Storage Box de Hetzner.
+Le serveur est une machine virtuelle Debian 12 sur mon hyperviseur local.
 
 ## Stack technique
 
@@ -32,6 +29,7 @@ Les sauvegardes se font sur un VPS STOR-2 de PulseHeberg sous Proxmox Backup Ser
 - Acme.SH : Pour les certificats SSL : https://wiki.abyssproject.net/fr/debian/webservers/acme_dot_sh-nginx
 - Crowdsec : Pour la sécurité et l'analyse des logs
 - UFW : Firewall
+- Cloudflared pour le lien avec Cloudflare et l'accès aux sites
 
 
 # L'infrastucture @ home
@@ -40,7 +38,7 @@ Les sauvegardes se font sur un VPS STOR-2 de PulseHeberg sous Proxmox Backup Ser
 
 Le serveur est un Supermicro X10SDV-4C-TLN4F : https://www.supermicro.com/en/products/motherboard/X10SDV-4C-TLN4F.
 Le stockage est le suivant : 
-- 2x Firecuda 530 Nvme pour l'OS et les machines virtuelles
+- 2x Firecuda 530 Nvme 1To pour l'OS et les machines virtuelles
 - 2x Samsung 850 evo 500Go pour les machines de test
 - 2x Seagate Barracuda 2.5" 5To pour les films et les gros fichiers
 
@@ -57,10 +55,10 @@ Le stockage est le suivant :
 - Ansible : Serveur Ansible de contrôle de l'infrastructure
 - Bitwarden : Hébergement d'un serveur Bitwarden local
 - LibreNMS : Monitoring de l'infrastructure
-- Media : Serveur PLEX
+- Media : Serveur Jellyfin
 - Proton-backup : Serveur de backup de mes emails prontonmail
-- Reverse : Reverse proxy nginx pour accès à mes services
-- ZoneMinder : Machine pour la surveillance vidéo
+- VPN : Mon VPN distant
+- Webhost : Le serveur web
 
 Avec ceci, j'ai un mini-routeur en Intel N100 et 4*2,5gbps pour l'OPNSense.
 
@@ -74,13 +72,10 @@ Le stockage est le suivant :
 
 ### Stack technique
 
-- Proxmox Backup Server
-- Données : Raid 10 BTRFS
+- Windows Server 2022 Datacenter et Veeam 
+- Données : Raid 10 hardware
 
 
 ## Arrivée internet
 
 Mon arrivée internet est fournie par Starlink.
-La configuration est expliquée ici : 
-- https://wiki.abyssproject.net/fr/starlink/connecting-starlink-opnsense
-- https://wiki.abyssproject.net/fr/starlink/port-opening-behind-starlink-purevpn
