@@ -2,7 +2,7 @@
 title: My personal infrastructure
 description: My servers at home and on the internet
 published: true
-date: 2024-07-01T06:41:06.509Z
+date: 2024-11-02T16:00:03.953Z
 tags: selfhosting
 editor: markdown
 dateCreated: 2021-08-25T14:14:46.868Z
@@ -16,11 +16,7 @@ The goal of this page is to show you all the servers that I use so you can know 
 
 ## Server
 
-The server is a Kimsufi KS-LE-2 at French hoster OVH.
-
-Server runs Proxmox and all data are inside Debian 12 virtual machines.
-
-The backup are done on a VPS STOR-2 at Pulseheberg who is running Proxmox Backup Server and replicate backups to a Hetzner storage box.
+Server runs inside a Debian 12 virtual machine.
 
 
 ## Technical stack
@@ -33,8 +29,8 @@ The backup are done on a VPS STOR-2 at Pulseheberg who is running Proxmox Backup
 - Commento: Comment system for the wiki
 - Docker: For hosting Wiki.JS, Commento and their PostgreSQL databases
 - Acme.SH: For the SSL certificates: https://wiki.abyssproject.net/en/debian/webservers/acme_dot_sh-nginx
-- Crowdsec : For security and log analysis
-- UFW : Firewall
+- Crowdsec: For security and log analysis
+- Cloudflare: For remote tunnel and access with cloudflare
 
 
 # @Home infrastructure
@@ -55,14 +51,14 @@ The storage is the following:
 
 ### Virtual machines
 
-- Adguard : Ad guard solution for blocking AD's and malware at DNS level
-- Ansible : Ansible master to manage the infrastructure
-- Bitwarden : Local Bitwarden hosting
-- LibreNMS : Monitoring
-- Media : PLEX server
-- Proton-backup : Automated backup of my prontonmail emails
-- Reverse : NGINX Reverse proxy to access my services
-- ZoneMinder : Videosurveillance system
+- Adguard: Ad guard solution for blocking AD's and malware at DNS level
+- Ansible: Ansible master to manage the infrastructure
+- Bitwarden: Local Bitwarden hosting
+- LibreNMS: Monitoring
+- Media: Jellyfin server
+- Proton-backup: Automated backup of my prontonmail emails
+- Reverse: NGINX Reverse proxy to access my services
+- Webhost: My webhost
 
 I also have a small router with Intel N100 and 4*2,5Gbps for OPNSense.
 
@@ -76,13 +72,10 @@ The storage is the following:
 
 ### Technical stack
 
-- Proxmox Backup Server
-- Data : Raid 10 BTRFS for the data
+- Windows Server 2022 Datacenter with Veeam
+- Data : Hardware Raid 10 for the data
 
 
 ## Internet connection
 
 By internet connection is provided by Starlink.
-The configuration is explained here: 
-- https://wiki.abyssproject.net/en/starlink/connecting-starlink-opnsense
-- https://wiki.abyssproject.net/en/starlink/port-opening-behind-starlink-purevpn
