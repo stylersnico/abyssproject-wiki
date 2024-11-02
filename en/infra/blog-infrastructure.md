@@ -2,7 +2,7 @@
 title: My personal infrastructure
 description: My servers at home and on the internet
 published: true
-date: 2024-11-02T16:23:15.497Z
+date: 2024-11-02T16:23:34.166Z
 tags: selfhosting
 editor: markdown
 dateCreated: 2021-08-25T14:14:46.868Z
@@ -26,7 +26,6 @@ Server runs inside a Debian 12 virtual machine.
 - Wordpress: CMS for my blog: https://www.abyssproject.net/
 - My website in pure HTML: https://www.nicolas-simond.ch/
 - Wiki.JS: CMS for the wiki (You are here :))
-- Commento: Comment system for the wiki
 - Docker: For hosting Wiki.JS, Commento and their PostgreSQL databases
 - Crowdsec: For security and log analysis
 - Cloudflared: For remote tunnel and access with cloudflare
