@@ -2,7 +2,7 @@
 title: My personal infrastructure
 description: My servers at home and on the internet
 published: true
-date: 2024-11-02T16:00:03.953Z
+date: 2024-11-02T16:23:15.497Z
 tags: selfhosting
 editor: markdown
 dateCreated: 2021-08-25T14:14:46.868Z
@@ -28,9 +28,8 @@ Server runs inside a Debian 12 virtual machine.
 - Wiki.JS: CMS for the wiki (You are here :))
 - Commento: Comment system for the wiki
 - Docker: For hosting Wiki.JS, Commento and their PostgreSQL databases
-- Acme.SH: For the SSL certificates: https://wiki.abyssproject.net/en/debian/webservers/acme_dot_sh-nginx
 - Crowdsec: For security and log analysis
-- Cloudflare: For remote tunnel and access with cloudflare
+- Cloudflared: For remote tunnel and access with cloudflare
 
 
 # @Home infrastructure
