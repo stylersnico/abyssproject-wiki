@@ -2,7 +2,7 @@
 title: Mon infrastructure personnelle
 description: L'infrastructure chez moi et en dehors de chez moi
 published: true
-date: 2024-11-02T16:22:01.193Z
+date: 2024-11-02T16:22:34.877Z
 tags: selfhosting
 editor: markdown
 dateCreated: 2021-08-24T16:01:35.860Z
@@ -26,7 +26,6 @@ Le serveur est une machine virtuelle Debian 12 sur mon hyperviseur local.
 - Mon site principal en HTML Statique : https://www.nicolas-simond.ch/
 - Wiki.JS : CMS pour le wiki (celui sur lequel vous êtes :))
 - Docker : Pour l'hébergement de Wiki.JS et sa base PostgresSQL
-- Acme.SH : Pour les certificats SSL : https://wiki.abyssproject.net/fr/debian/webservers/acme_dot_sh-nginx
 - Crowdsec : Pour la sécurité et l'analyse des logs
 - Cloudflared pour le lien avec Cloudflare et l'accès aux sites
 
