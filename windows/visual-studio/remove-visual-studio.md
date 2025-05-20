@@ -2,7 +2,7 @@
 title: Nettoyer toutes les installations de Visual Studio
 description: Nettoyer toutes les installations de Visual Studio en ligne de commande
 published: true
-date: 2025-05-20T08:00:17.576Z
+date: 2025-05-20T08:01:25.242Z
 tags: visual studio
 editor: markdown
 dateCreated: 2025-05-20T08:00:17.576Z
@@ -17,5 +17,7 @@ Le but est de désinstaller complètement Visual Studio pour récupérer un envi
 
 Ouvrez CMD en admin et placez-vous dans le dossier comme sur la capture.
 Utilisez ensuite le `InstallCleanup.exe` en admin sans switch particulier :
- 
+
 ![uninstall-vs.png](/generique/windows/visual-studio/uninstall-vs.png)
+
+![proxmox-with-one-public-ip-00.png](/proxmox/proxmox-with-one-public-ip/proxmox-with-one-public-ip-00.png)
