@@ -2,7 +2,7 @@
 title: Configuration d'un GPU dans une machine virtuelle via DDA
 description: Configuration d'un GPU dans une machine virtuelle via DDA
 published: true
-date: 2025-05-20T08:03:31.810Z
+date: 2025-05-20T08:04:51.196Z
 tags: dda, gpu, nvidia
 editor: markdown
 dateCreated: 2025-05-20T08:03:31.810Z
@@ -25,7 +25,7 @@ Redémarrez le serveur à la fin.
 
 Depuis le serveur physique, récupérez les "PCI locations" de la carte depuis le gestionnaire de périphérique du serveur physique, l'information ressemble à cela : 
 
-![dda-pcie-location.png](/generique/windows/rds-dda/dda-pcie-location.png)
+![dda-pcie-location.png](/windows/rds/dda/dda-pcie-location.png)
 
 
 Configurez d'abord le Write-Combining sur la machine virtuelle :
@@ -62,7 +62,7 @@ nvidia-smi.exe
 
 Vérifiez que votre carte est reconnue et qu'elle est bien en mode **WDDM** comme ceci : 
 
-![dda-wddm.png](/generique/windows/rds-dda/dda-wddm.png)
+![dda-wddm.png](/windows/rds/dda/dda-wddm.png)
 
 
 Si ce n'est pas le cas, passez la en mode **WDDM** comme ceci :
