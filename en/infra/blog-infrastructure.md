@@ -2,7 +2,7 @@
 title: My personal infrastructure
 description: My servers at home and on the internet
 published: true
-date: 2024-11-02T16:23:54.589Z
+date: 2025-08-15T06:30:01.151Z
 tags: selfhosting
 editor: markdown
 dateCreated: 2021-08-25T14:14:46.868Z
@@ -27,7 +27,7 @@ Server runs inside a Debian 12 virtual machine.
 - My website in pure HTML: https://www.nicolas-simond.ch/
 - Wiki.JS: CMS for the wiki (You are here :))
 - Docker: For hosting Wiki.JS and psql database
-- Crowdsec: For security and log analysis
+- Wazuh: For security and log analysis
 - Cloudflared: For remote tunnel and access with cloudflare
 
 
@@ -37,26 +37,25 @@ Server runs inside a Debian 12 virtual machine.
 My main server is a supermicro X10SDV-4C-TLN4F: https://www.supermicro.com/en/products/motherboard/X10SDV-4C-TLN4F.
 The storage is the following: 
 - 2x Firecuda 530 1To for the OS and VMs
-- 2x Samsung 850 evo 500Go for testing things
-- 2x Seagate Barracuda 2.5" 5To for the movies and the big files
+- 2x Seagate Exos X16 14To for the movies and the big files
 
 ### Technical stack
 
-- Virtualisation : Proxmox
-- Data : Raid 1 with BTRFS
-- Virtual machines : QEMU with VirtIO drivers
-- Automatic shutdown with Nuts in case of power outage
+- Virtualisation : Windows Server 2022 Datacenter and Hyper-V
+- DATA : Raid 1
+- Powerchute shutdown in case of power outage
 
 ### Virtual machines
 
-- Adguard: Ad guard solution for blocking AD's and malware at DNS level
-- Ansible: Ansible master to manage the infrastructure
-- Bitwarden: Local Bitwarden hosting
-- LibreNMS: Monitoring
-- Media: Jellyfin server
-- Proton-backup: Automated backup of my prontonmail emails
-- Reverse: NGINX Reverse proxy to access my services
-- Webhost: My webhost
+- Ansible : Infrastructure management
+- LibreNMS : Monitoring
+- HAOS : Home Assistant server
+- Paperless : paperless-ngx edm software
+- Media : Jellyfin
+- Passbolt : Password manager
+- Proton-backup : Protonmail backup server
+- Wazuh : SIEM / XDR
+- Webhost : Web server
 
 I also have a small router with Intel N100 and 4*2,5Gbps for OPNSense.
 
@@ -65,13 +64,13 @@ I also have a small router with Intel N100 and 4*2,5Gbps for OPNSense.
 This server is an HP Proliant Microserver GEN8.
 
 The storage is the following: 
-- 1x Samsung 850 evo for the OS
-- 4x Seagate Archive 8To
+- 2x WD Red SA500 500Go
+- 2x Seagate Exos X16 16To
 
 ### Technical stack
 
 - Windows Server 2022 Datacenter with Veeam
-- Data : Hardware Raid 10 for the data
+- Data : Hardware Raid 1 for the data
 
 
 ## Internet connection
