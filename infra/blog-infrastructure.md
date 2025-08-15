@@ -2,7 +2,7 @@
 title: Mon infrastructure personnelle
 description: L'infrastructure chez moi et en dehors de chez moi
 published: true
-date: 2025-08-15T06:24:23.648Z
+date: 2025-08-15T06:25:50.914Z
 tags: selfhosting
 editor: markdown
 dateCreated: 2021-08-24T16:01:35.860Z
@@ -59,8 +59,8 @@ Sauf indication contraire, tout est sous Debian 12.
 - Wazuh : SIEM / XDR
 - Webhost : Le serveur web
 
-
 Avec ceci, j'ai un mini-routeur en Intel N100 et 4*2,5gbps pour l'OPNSense.
+
 
 ## Serveur de backup et stack technique
 
