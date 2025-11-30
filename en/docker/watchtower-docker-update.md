@@ -2,7 +2,7 @@
 title: Docker update automation with Watchtower
 description: Update all your docker image that you have launched with Docker run or create.
 published: true
-date: 2025-11-30T06:39:56.558Z
+date: 2025-11-30T06:41:16.879Z
 tags: docker, watchtower
 editor: markdown
 dateCreated: 2021-08-25T13:22:09.612Z
@@ -29,7 +29,7 @@ docker run -d \
     -v /var/run/docker.sock:/var/run/docker.sock \
     --restart always \
     marrrrrrrrry/watchtower \
-    --schedule "0 4 * * *" \
+    --schedule "0 23 * * *" \
     --cleanup
 ```
 
