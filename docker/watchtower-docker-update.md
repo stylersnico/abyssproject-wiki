@@ -2,7 +2,7 @@
 title: Automatisation des updates Docker avec Watchtower
 description: Mettez à jour toutes les images lancées avec des docker run / create.
 published: true
-date: 2021-08-26T15:22:48.143Z
+date: 2025-11-30T06:40:46.321Z
 tags: docker, watchtower
 editor: markdown
 dateCreated: 2021-08-24T16:06:06.326Z
@@ -29,8 +29,8 @@ docker run -d \
     --name watchtower \
     -v /var/run/docker.sock:/var/run/docker.sock \
     --restart always \
-    containrrr/watchtower \
-    --schedule "0 23 * * *" \
+    marrrrrrrrry/watchtower \
+    --schedule "0 4 * * *" \
     --cleanup
 ```
 
