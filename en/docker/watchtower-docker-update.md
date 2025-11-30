@@ -2,7 +2,7 @@
 title: Docker update automation with Watchtower
 description: Update all your docker image that you have launched with Docker run or create.
 published: true
-date: 2025-11-30T06:41:16.879Z
+date: 2025-11-30T06:45:48.388Z
 tags: docker, watchtower
 editor: markdown
 dateCreated: 2021-08-25T13:22:09.612Z
@@ -64,4 +64,4 @@ Then, you will see this kind of logs when a new image is found and installed:
 
 ### Sources
 
-Official documentation : https://containrrr.dev/watchtower/arguments/
+Official documentation : https://marrrrrrrrry.github.io/watchtower-docs/
