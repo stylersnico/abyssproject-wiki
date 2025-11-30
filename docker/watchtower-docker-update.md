@@ -2,7 +2,7 @@
 title: Automatisation des updates Docker avec Watchtower
 description: Mettez à jour toutes les images lancées avec des docker run / create.
 published: true
-date: 2025-11-30T06:40:59.906Z
+date: 2025-11-30T06:45:59.374Z
 tags: docker, watchtower
 editor: markdown
 dateCreated: 2021-08-24T16:06:06.326Z
@@ -66,4 +66,4 @@ Ensuite, vous verrez des logs comme ceux-ci lorsqu'une nouvelle image est trouv�
     
 ### Sources
 
-Documentation officielle : https://containrrr.dev/watchtower/arguments/
+Documentation officielle : https://marrrrrrrrry.github.io/watchtower-docs/
