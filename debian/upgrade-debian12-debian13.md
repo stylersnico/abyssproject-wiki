@@ -2,7 +2,7 @@
 title: Upgrade de Debian 12 vers Debian 13
 description: Mise à jour de Debian Bookworm vers Debian Trixie
 published: true
-date: 2025-12-04T07:58:18.146Z
+date: 2025-12-04T07:59:49.640Z
 tags: debian, trixie
 editor: markdown
 dateCreated: 2025-12-04T07:58:18.146Z
@@ -37,7 +37,7 @@ deb-src http://deb.debian.org/debian/ trixie main
 deb http://security.debian.org/debian-security trixie-security/updates main
 deb-src http://security.debian.org/debian-security trixie-security/updates main
 
-# bookworm-updates, previously known as 'volatile'
+# trixie-updates, previously known as 'volatile'
 deb http://deb.debian.org/debian/ trixie-updates main
 deb-src http://deb.debian.org/debian/ trixie-updates main
 ```
