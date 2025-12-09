@@ -2,7 +2,7 @@
 title: Mon infrastructure personnelle
 description: L'infrastructure chez moi et en dehors de chez moi
 published: true
-date: 2025-08-15T06:25:50.914Z
+date: 2025-12-09T08:10:59.833Z
 tags: selfhosting
 editor: markdown
 dateCreated: 2021-08-24T16:01:35.860Z
@@ -78,4 +78,5 @@ Le stockage est le suivant :
 
 ## Arrivée internet
 
-Mon arrivée internet est fournie par Starlink.
+Mon arrivée internet est fournie par Orange.
+La ligne de secours est assurée par Starlink.
