@@ -2,7 +2,7 @@
 title: My personal infrastructure
 description: My servers at home and on the internet
 published: true
-date: 2025-08-15T06:30:01.151Z
+date: 2025-12-09T08:13:04.761Z
 tags: selfhosting
 editor: markdown
 dateCreated: 2021-08-25T14:14:46.868Z
@@ -75,4 +75,5 @@ The storage is the following:
 
 ## Internet connection
 
-By internet connection is provided by Starlink.
+My internet connection is provided by Orange.
+Backup connection is provided by Starlink.
