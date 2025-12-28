@@ -2,7 +2,7 @@
 title: Mon infrastructure personnelle
 description: L'infrastructure chez moi et en dehors de chez moi
 published: true
-date: 2025-12-09T08:10:59.833Z
+date: 2025-12-28T09:17:19.290Z
 tags: selfhosting
 editor: markdown
 dateCreated: 2021-08-24T16:01:35.860Z
@@ -16,7 +16,7 @@ Le but de cette page est de vous présenter mon infrastructure et que vous voyez
 
 ## Serveur
 
-Le serveur est une machine virtuelle Debian 12 sur mon hyperviseur local.
+Le serveur est une machine virtuelle Debian 13 sur mon hyperviseur local.
 
 ## Stack technique
 
@@ -36,27 +36,27 @@ Le serveur est une machine virtuelle Debian 12 sur mon hyperviseur local.
 
 Le serveur est un Supermicro X10SDV-4C-TLN4F : https://www.supermicro.com/en/products/motherboard/X10SDV-4C-TLN4F.
 Le stockage est le suivant : 
-- 2x Firecuda 530 Nvme 1To pour l'OS et les machines virtuelles
+- 2x Firecuda 530 Nvme 1To pour l'OS et les machines virtuelles (avec le nouveau driver NVME natif Windows)
 - 2x Seagate Exos X16 14To pour les films et les gros fichiers
 
 ### Stack technique
 
-- Virtualisation : Windows Server 2022 Datacenter et Hyper-V
+- Virtualisation : Windows Server 2025 Datacenter et Hyper-V
 - Données : Raid 1
 - Extinction automatique via Powerchute en cas de coupure de courant
 
 ### Machines virtuelles
 
-Sauf indication contraire, tout est sous Debian 12.
+Sauf indication contraire, tout est sous Debian 13.
 
 - Ansible : Serveur Ansible de contrôle de l'infrastructure
 - LibreNMS : Monitoring de l'infrastructure
 - HAOS : Serveur Home Assistant
 - Paperless : GED paperless-ngx
-- Media : Serveur Jellyfin
+- Media : Serveur Jellyfin (Debian 12)
 - Passbolt : Gestionnaire de mots de passes
 - Proton-backup : Serveur de backup de mes emails prontonmail
-- Wazuh : SIEM / XDR
+- Wazuh : SIEM / XDR (Ubuntu 24.04)
 - Webhost : Le serveur web
 
 Avec ceci, j'ai un mini-routeur en Intel N100 et 4*2,5gbps pour l'OPNSense.
@@ -72,7 +72,7 @@ Le stockage est le suivant :
 
 ### Stack technique
 
-- Windows Server 2022 Datacenter et Veeam 
+- Windows Server 2025 Datacenter et Veeam
 - Données : Raid 1
 
 
