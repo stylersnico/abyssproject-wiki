@@ -1,8 +1,8 @@
 ---
 title: ECDSA Wildcard certificate with Let's Encrypt and Infomaniak
 description: ECDSA Wildcard certificate with Let's Encrypt and Infomaniak on Debian 13
-published: false
-date: 2026-01-12T09:58:47.373Z
+published: true
+date: 2026-01-12T14:51:29.732Z
 tags: let's encrypt, debian, infomaniak
 editor: markdown
 dateCreated: 2026-01-12T09:58:47.373Z
