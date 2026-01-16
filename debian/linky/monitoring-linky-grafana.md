@@ -2,7 +2,7 @@
 title: Monitoring d'un compteur Linky avec Grafana et InfluxDB
 description: Monitoring d'un compteur Linky avec Grafana et InfluxDB sur un raspberry pi
 published: true
-date: 2023-03-19T09:06:18.180Z
+date: 2026-01-16T11:40:01.191Z
 tags: raspberry, linky, grafana, influx
 editor: markdown
 dateCreated: 2022-10-17T13:13:00.566Z
@@ -148,6 +148,12 @@ Installez les pré-requis :
 ```bash
 apt install python3-pip
 pip3 install pySerial influxdb
+```
+
+Ou sur les dernières Debian 13 : 
+
+```bash
+apt installpython3-serial python3-influxdb
 ```
 
 Téléchargez et lancez le script pour le tester : 
