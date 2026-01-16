@@ -2,7 +2,7 @@
 title: Monitoring a Linky meter with Grafana and InfluxDB
 description: Monitoring a Linky meter with Grafana and InfluxDB on a Raspberry Pi
 published: true
-date: 2022-10-17T13:43:06.065Z
+date: 2026-01-16T11:40:28.944Z
 tags: raspberry, linky, grafana, influx
 editor: markdown
 dateCreated: 2022-10-17T13:43:06.065Z
@@ -149,6 +149,12 @@ Install the prerequisites:
 ```bash
 apt install python3-pip
 pip3 install pySerial influxdb
+```
+
+Or on the latest Debian 13: 
+
+```bash
+apt installpython3-serial python3-influxdb
 ```
 
 Download and launch the script to test it: 
