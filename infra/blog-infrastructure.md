@@ -2,7 +2,7 @@
 title: Mon infrastructure personnelle
 description: L'infrastructure chez moi et en dehors de chez moi
 published: true
-date: 2025-12-28T09:17:19.290Z
+date: 2026-03-31T06:57:52.590Z
 tags: selfhosting
 editor: markdown
 dateCreated: 2021-08-24T16:01:35.860Z
@@ -27,7 +27,6 @@ Le serveur est une machine virtuelle Debian 13 sur mon hyperviseur local.
 - Wiki.JS : CMS pour le wiki (celui sur lequel vous êtes :))
 - Docker : Pour l'hébergement de Wiki.JS et sa base PostgresSQL
 - Wazuh : Pour la sécurité et l'analyse des logs
-- Cloudflared : Pour le lien avec Cloudflare et l'accès aux sites
 
 
 # L'infrastucture @ home
@@ -50,12 +49,11 @@ Le stockage est le suivant :
 Sauf indication contraire, tout est sous Debian 13.
 
 - Ansible : Serveur Ansible de contrôle de l'infrastructure
-- LibreNMS : Monitoring de l'infrastructure
+- PRTG : Monitoring de l'infrastructure
 - HAOS : Serveur Home Assistant
 - Paperless : GED paperless-ngx
 - Media : Serveur Jellyfin (Debian 12)
 - Passbolt : Gestionnaire de mots de passes
-- Proton-backup : Serveur de backup de mes emails prontonmail
 - Wazuh : SIEM / XDR (Ubuntu 24.04)
 - Webhost : Le serveur web
 
