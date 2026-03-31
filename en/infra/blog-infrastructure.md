@@ -2,7 +2,7 @@
 title: My personal infrastructure
 description: My servers at home and on the internet
 published: true
-date: 2025-12-28T09:18:30.861Z
+date: 2026-03-31T06:58:18.515Z
 tags: selfhosting
 editor: markdown
 dateCreated: 2021-08-25T14:14:46.868Z
@@ -28,7 +28,6 @@ Server runs inside a Debian 13 virtual machine.
 - Wiki.JS: CMS for the wiki (You are here :))
 - Docker: For hosting Wiki.JS and psql database
 - Wazuh: For security and log analysis
-- Cloudflared: For remote tunnel and access with cloudflare
 
 
 # @Home infrastructure
@@ -49,12 +48,11 @@ The storage is the following:
 Everything is under Debian 13.
 
 - Ansible : Infrastructure management
-- LibreNMS : Monitoring
+- PRTG : Monitoring
 - HAOS : Home Assistant server
 - Paperless : paperless-ngx edm software
 - Media : Jellyfin (Debian 12)
 - Passbolt : Password manager
-- Proton-backup : Protonmail backup server
 - Wazuh : SIEM / XDR (Ubuntu 24.04)
 - Webhost : Web server
 
