@@ -2,7 +2,7 @@
 title: ECDSA Wildcard certificate with Let's Encrypt and Infomaniak
 description: ECDSA Wildcard certificate with Let's Encrypt and Infomaniak on Debian 13
 published: true
-date: 2026-01-12T14:51:29.732Z
+date: 2026-09-21T13:28:27.489Z
 tags: let's encrypt, debian, infomaniak
 editor: markdown
 dateCreated: 2026-01-12T09:58:47.373Z
@@ -27,6 +27,9 @@ apt install certbot python3 python3-certbot-dns-infomaniak
 Go into your Infomaniak Manager, in your profile, in the **developer** section:
 
 ![letsencrypt-infomaniak-dns01.png](/debian/webserver/ecdsa-letsencrypt/letsencrypt-infomaniak-dns01.png)
+
+> Recently, you need to add **dns.read** and **dns.write** scopes also!
+{.is-warning}
 
 Then, go to **Tokens API** and create a new api key with the access scope set to  **domain** : 
 ![letsencrypt-infomaniak-dns02.png](/debian/webserver/ecdsa-letsencrypt/letsencrypt-infomaniak-dns02.png)
