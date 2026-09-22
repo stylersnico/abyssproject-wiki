@@ -2,7 +2,7 @@
 title: Azure Ad Sync ne démarre pas : Réparer l'erreur 575
 description: Réparer le service Azure ADSync qui ne redémarre pas après une mise à jour 
 published: true
-date: 2026-09-22T08:03:40.938Z
+date: 2026-09-22T08:03:54.432Z
 tags: azure, microsoft, adsync, office 365
 editor: markdown
 dateCreated: 2022-02-17T07:55:33.550Z
@@ -14,7 +14,7 @@ Le but ici est de réparer le service Microsoft Azure AD Sync qui reste bloqué 
 
 ![azureadsync-error-575-1.png](/azure/azureadsync-error-575-1.png.webp)
 
-.
+
 # Vérification de l'erreur
 
 Vérifiez que vous avez l'erreur suivante dans le gestionnaire d'évenement : 
