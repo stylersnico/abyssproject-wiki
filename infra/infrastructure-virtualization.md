@@ -2,7 +2,7 @@
 title: 3 - Virtualisation Hyper-V
 description: Virtualisation Hyper-V
 published: true
-date: 2026-10-08T14:04:28.562Z
+date: 2026-10-08T14:04:45.540Z
 tags: infra
 editor: markdown
 dateCreated: 2026-10-08T14:04:28.562Z
@@ -34,9 +34,9 @@ Toutes les machines sont en génération 2, avec mémoire statique, et démarren
 | 112-Reverse | FreeBSD | 4 | 4 Go | 20 Go (dynamique) | reverse proxy NGINX, CrowdSec |
 | 113-Ansible | Debian | 4 | 1 Go | 40 Go (dynamique) | Ansible et Semaphore |
 | 114-Paperless | Debian | 4 | 2 Go | 40 Go (dynamique) | gestion documentaire Paperless |
-| 115-CheckMK | Non documenté | 6 | 8 Go | 50 Go (fixe) | supervision Checkmk |
+| 115-CheckMK | Debian | 6 | 8 Go | 50 Go (fixe) | supervision Checkmk |
 | 116-Wazuh | Ubuntu | 6 | 6 Go | 100 Go (dynamique) | SIEM Wazuh |
 | 117-Media | Debian | 6 | 12 Go | 8 To (dynamique, volume de données) | médiathèque Jellyfin |
-| 118-Passbolt | Non documenté | 4 | 2 Go | 30 Go (fixe) | gestionnaire de mots de passe Passbolt |
+| 118-Passbolt | Debian | 4 | 2 Go | 30 Go (fixe) | gestionnaire de mots de passe Passbolt |
 
 Au total, 44 vCPU et 47 Go de mémoire sont alloués sur 8 threads et 64 Go.
