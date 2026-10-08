@@ -1,8 +1,8 @@
 ---
-title: Réseau et pare-feu
+title: 1 - Réseau et pare-feu
 description: Réseau et pare-feu
 published: true
-date: 2026-10-08T14:00:35.967Z
+date: 2026-10-08T14:01:24.764Z
 tags: infra
 editor: markdown
 dateCreated: 2026-10-08T14:00:35.967Z
