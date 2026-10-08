@@ -1,8 +1,8 @@
 ---
-title: Sommaire de mon infrastructure
+title: 0 - Sommaire de mon infrastructure
 description: Documentation de la configuration de mon infrastructure personnelle : réseau, pare-feu, reverse proxy, virtualisation, sauvegarde, automatisation et supervision.
 published: true
-date: 2026-10-08T13:59:14.141Z
+date: 2026-10-08T14:01:06.475Z
 tags: infra
 editor: markdown
 dateCreated: 2026-10-08T13:59:14.141Z
