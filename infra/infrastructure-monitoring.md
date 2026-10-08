@@ -1,8 +1,8 @@
 ---
-title: 06 - Supervision Checkmk
+title: 6 - Supervision Checkmk
 description: Supervision Checkmk
 published: true
-date: 2026-10-08T14:08:44.364Z
+date: 2026-10-08T14:09:03.616Z
 tags: infra
 editor: markdown
 dateCreated: 2026-10-08T14:08:44.364Z
