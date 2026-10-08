@@ -1,8 +1,8 @@
 ---
-title: 05 - Automatisation : Ansible et Semaphore
+title: 5 - Automatisation : Ansible et Semaphore
 description: Automatisation : Ansible et Semaphore
 published: true
-date: 2026-10-08T14:07:30.108Z
+date: 2026-10-08T14:09:17.184Z
 tags: infra
 editor: markdown
 dateCreated: 2026-10-08T14:06:38.977Z
