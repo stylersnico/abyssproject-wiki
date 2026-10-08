@@ -1,8 +1,8 @@
 ---
-title: Reverse proxy NGINX
+title: 2 - Reverse proxy NGINX
 description: Reverse proxy NGINX
 published: true
-date: 2026-10-08T14:02:37.943Z
+date: 2026-10-08T14:02:55.390Z
 tags: infra
 editor: markdown
 dateCreated: 2026-10-08T14:02:37.943Z
