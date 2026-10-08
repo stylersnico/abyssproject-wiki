@@ -2,14 +2,14 @@
 title: 05 - Automatisation : Ansible et Semaphore
 description: Automatisation : Ansible et Semaphore
 published: true
-date: 2026-10-08T14:06:38.977Z
+date: 2026-10-08T14:07:30.108Z
 tags: infra
 editor: markdown
 dateCreated: 2026-10-08T14:06:38.977Z
 ---
 
 # Automatisation : Ansible et Semaphore
-Les mises à jour et les tâches d’entretien sont écrites en playbooks **Ansible** et lancées par **Semaphore** (interface web et planificateur), sur la machine virtuelle Ansible. Seuls les éléments réellement utilisés sont décrits.
+Les mises à jour et les tâches d’entretien sont écrites en playbooks **Ansible** et lancées par **Semaphore** (interface web et planificateur), sur la machine virtuelle Ansible.
 
 # Configuration de Semaphore
 
@@ -52,12 +52,11 @@ Le week-end, un instantané de chaque VM est pris avant les mises à jour, pour 
 | --- | --- | --- |
 | Nettoyage de l’index Wazuh | Wazuh | script de nettoyage, puis redémarrage du manager, de l’indexeur et du tableau de bord |
 | Mise à jour des agents Wazuh | Wazuh | met à jour chaque agent signalé comme obsolète |
-| Mises à jour Windows du poste IA | poste IA | mêmes étapes que les serveurs Windows |
-| Logiciels du poste IA | poste IA | script PowerShell de mise à jour des outils IA |
+
 
 # Ce que font les playbooks
 
-- **Windows** (serveur de sauvegarde, hyperviseur, poste IA) : redémarrage préalable si un redémarrage est en attente, installation des mises à jour critiques et de sécurité, puis redémarrage si nécessaire.
+- **Windows** (serveur de sauvegarde, hyperviseur) : redémarrage préalable si un redémarrage est en attente, installation des mises à jour critiques et de sécurité, puis redémarrage si nécessaire.
 - **Debian / Ubuntu** : `apt update` puis `dist-upgrade` en conservant les fichiers de configuration locaux ; `needrestart` redémarre les services concernés ou toute la machine si le noyau a changé.
 - **FreeBSD** : `freebsd-update fetch` et `install`, `pkg upgrade`, nettoyage du cache des paquets, redémarrage si le système de base a changé.
 - **Instantanés** : `Checkpoint-VM` sur toutes les VM avant les mises à jour, `Remove-VMSnapshot` le dimanche soir.
