@@ -43,7 +43,7 @@ Maintenant, allez dans **System** -> **Gateways** -> **Single** et modifiez la p
 
 ![connecting-starlink-opnsense-03.png](/starlink/connecting-starlink-opnsense-03.png)
 
-Mettez l'adresse IP d'un DNS publique, par exemple, en monitoring plutôt que la passerelle fournie par Starlink afin d'avoir un monitoring cohérent (la passerelle par défaut sera toujours UP comme elle est en local logiquement) :
+Mettez l'adresse IP d'un DNS public, par exemple, en monitoring plutôt que la passerelle fournie par Starlink afin d'avoir un monitoring cohérent (la passerelle par défaut sera toujours UP comme elle est en local logiquement) :
 
 ![connecting-starlink-opnsense-04.png](/starlink/connecting-starlink-opnsense-04.png)
 

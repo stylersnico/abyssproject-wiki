@@ -28,7 +28,7 @@ Wait 5 minutes for the starlink router to restart, then connect the ethernet cab
 # Configuring OPNSense
 
 Go to **Interfaces** -> **WAN** then configure the interface like this with **DHCPv4**.
-> You must untick **Block private networks** or you will not get any IP address since starlink user carrier grade NAT network (100.64/10).
+> You must untick **Block private networks** or you will not get any IP address since Starlink uses carrier-grade NAT network (100.64/10).
 {.is-warning}
 
 
@@ -41,7 +41,7 @@ Now, go to **System** -> **Gateways** -> **Single** and edit the default gateway
 
 ![connecting-starlink-opnsense-03.png](/starlink/connecting-starlink-opnsense-03.png)
 
-Put the IP address of a public DNS for example in monitoring in place of the default gateway provided by Starlink to have consistent monitoring (the default gateway will be always up because she is in local):
+Put the IP address of a public DNS for example in monitoring in place of the default gateway provided by Starlink to have consistent monitoring (the default gateway will be always up because it is local):
 
 ![connecting-starlink-opnsense-04.png](/starlink/connecting-starlink-opnsense-04.png)
 

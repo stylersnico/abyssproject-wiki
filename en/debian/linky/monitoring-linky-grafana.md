@@ -13,7 +13,7 @@ dateCreated: 2022-10-17T13:43:06.065Z
 The goal of this guide is to achieve a complete monitoring of your Linky energy meter with a Raspberry, a teleinfo module and the information plugs of your energy meter.
 
 > Here, we have a Raspberry Pi 2 model B, however it will work on any Linux or BSD with some tuning.
-> This should work on any european energy meter with L1/L2 plugs, not only the Linky.
+> This should work on any European energy meter with L1/L2 plugs, not only the Linky.
 {.is-info}
 
 
@@ -21,9 +21,9 @@ The goal of this guide is to achieve a complete monitoring of your Linky energy 
 
 You must have:
 
-- A raspberry with a good SD card
+- A Raspberry Pi with a good SD card
 - A serial module, I use this: https://www.tindie.com/products/hallard/micro-teleinfo-v20/
-- Two copper cables (I use 1,5mm^2^)
+- Two copper cables (I use 1.5mm^2^)
 
 At the end, you will have this kind of Grafana Dashboard:
 
@@ -249,7 +249,7 @@ Open Grafana from the following URL:
 http://IP_RASPBERRY:3000
 ```
 
-Go to **Configuration** -> **Datasources** -> Add a **InfluxDB** datasource.
+Go to **Configuration** -> **Datasources** -> Add an **InfluxDB** datasource.
 Configure it like this: 
 
 ![raspi-teleinfo-03.png](/debian/linky/raspi-teleinfo-03.png)
@@ -258,7 +258,7 @@ Configure it like this:
 
 ## Importing Grafana dashboard
 
-Download the **.JSON** file from github: https://github.com/stylersnico/teleinfo-linky-with-raspberry/blob/master/grafana_dashboard_teleinfo.json
+Download the **.JSON** file from GitHub: https://github.com/stylersnico/teleinfo-linky-with-raspberry/blob/master/grafana_dashboard_teleinfo.json
 
 Now, import the file in Grafana: 
 ![raspi-teleinfo-05.png](/debian/linky/raspi-teleinfo-05.png)

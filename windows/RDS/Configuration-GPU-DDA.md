@@ -10,7 +10,7 @@ dateCreated: 2025-05-20T08:03:31.810Z
 
 # Configuration d'un GPU dans une machine virtuelle via DDA
 
-Cette procédure permets le passage d'un GPU directement dans une machine virtuelle Windows ainsi que sa configuration pour l'utilisation dans un système.
+Cette procédure permet le passage d'un GPU directement dans une machine virtuelle Windows ainsi que sa configuration pour l'utilisation dans un système.
 
 
 # Installation des drivers sur l'hôte Hyper-V
@@ -65,7 +65,7 @@ Vérifiez que votre carte est reconnue et qu'elle est bien en mode **WDDM** comm
 ![dda-wddm.png](/windows/rds/dda/dda-wddm.png)
 
 
-Si ce n'est pas le cas, passez la en mode **WDDM** comme ceci :
+Si ce n'est pas le cas, passez-la en mode **WDDM** comme ceci :
 
 ```
 nvidia-smi -i 0 -dm WDDM
@@ -79,7 +79,7 @@ Redémarrez le RDS.
 
 ## Activation du support du GPU hardware sur les RDS
 
-Configurez la police suivante sur les RDS : 
+Configurez la stratégie suivante sur les RDS : 
 ```
 "Computer Configuration" > "Administrative Templates" > "Windows Components"
 > "Remote Desktop Services" > "Remote Desktop Session Host"

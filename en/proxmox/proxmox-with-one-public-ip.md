@@ -1,6 +1,6 @@
 ---
 title: Using Proxmox with one public IP address
-description: Using Proxmox at Kimsufi, Hetzner, or others with only one IP, NATfor VMs and IPv6
+description: Using Proxmox at Kimsufi, Hetzner, or others with only one IP, NAT for VMs and IPv6
 published: true
 date: 2024-08-21T11:43:03.169Z
 tags: debian, hetzner, proxmox, kimsufi
@@ -13,7 +13,7 @@ The goal of this guide is to set up a Proxmox at a hoster who gives you only one
 The goal is that all virtual machines have Internet and that you can forward port to them.
 
 > This guide is clearly not a best practice.
-> However, all my services are hosted on this, it's working and for personnal use it's just fine.
+> However, all my services are hosted on this, it's working and for personal use it's just fine.
 {.is-warning}
 
 
@@ -37,7 +37,7 @@ In this guide, the internal network (VMBR1) will have IPv4 and IPv6:
 - `IPv6 network: fde8:b429:841e:b651::1/64`
 
 > The IPv6 range is arbitrary and generated with this tool: https://simpledns.plus/private-ipv6.
-He is valid for our usage.
+It is valid for our usage.
 {.is-info}
 
 The communication will behave like this: **VMBR0 <-> VMBR1 <-> Virtual machines**.
@@ -134,15 +134,15 @@ Configure the interface like this with the private networks we've seen before:
 
 ![proxmox-with-one-public-ip-02.png](/proxmox/proxmox-with-one-public-ip/proxmox-with-one-public-ip-02.png)
 
-> You will seen that I don't put a **Bridge port**.
-> If you put a virtual machine or virtual switch on **VMBR0** without additional IP, it is possible than your network port will be shutdown at the datacenter.
+> You will see that I don't put a **Bridge port**.
+> If you put a virtual machine or virtual switch on **VMBR0** without additional IP, it is possible that your network port will be shut down at the datacenter.
 {.is-danger}
 
 
 # Routing configuration
 
 We will configure **MASQUERADE** under Linux.
-To be easy, **MASQUERADE** is a **1-to-many NAT type**.
+To put it simply, **MASQUERADE** is a **1-to-many NAT type**.
 
 Behind that rude explanation is hidden the most common NAT type that you have behind your provider router and behind any firewall.
 All the computers from the internal network can go to the Internet with only one public IP address.
@@ -212,7 +212,7 @@ From here, **restart** your Proxmox and your virtual machines will have internet
 
 # DHCP for virtual machines
 
-To ease your life and virtual machines installation, you can set up a small DHCPv4 server that will give a pool of adress to your virtual machines.
+To ease your life and virtual machines installation, you can set up a small DHCPv4 server that will give a pool of addresses to your virtual machines.
 
 Install DNSMasq: 
 
@@ -289,8 +289,8 @@ iptables -t nat -A PREROUTING -i vmbr0 -p tcp --dport 80 -j DNAT --to-destinatio
 ip6tables -t nat -A PREROUTING -i vmbr0 -p tcp -m tcp --dport 80 -j DNAT --to-destination [fde8:b429:841e:b651::104]:80
 ```
 
-> **iptables** manage NAT rules in **IPv4**.
-> **ip6tables** manage NAT rules in **IPv6**.
+> **iptables** manages NAT rules in **IPv4**.
+> **ip6tables** manages NAT rules in **IPv6**.
 {.is-info}
 
 Beware, if you configured UFW you also need to allow the port in the firewall:

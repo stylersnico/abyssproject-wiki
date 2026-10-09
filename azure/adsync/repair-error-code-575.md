@@ -1,5 +1,5 @@
 ---
-title: Azure Ad Sync ne démarre pas : Réparer l'erreur 575
+title: Azure AD Sync ne démarre pas : Réparer l'erreur 575
 description: Réparer le service Azure ADSync qui ne redémarre pas après une mise à jour 
 published: true
 date: 2026-09-22T08:03:54.432Z
@@ -17,7 +17,7 @@ Le but ici est de réparer le service Microsoft Azure AD Sync qui reste bloqué 
 
 # Vérification de l'erreur
 
-Vérifiez que vous avez l'erreur suivante dans le gestionnaire d'évenement : 
+Vérifiez que vous avez l'erreur suivante dans le gestionnaire d'événements : 
 
 ```
 Windows API call WaitForMultipleObjects returned error code: 575. Windows system error message is: {Application Error}

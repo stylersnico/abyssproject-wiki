@@ -10,7 +10,7 @@ dateCreated: 2023-08-10T12:09:32.066Z
 
 # Introduction
 
-Ces deux scripts sont faits pour imprimer des lots de PDF qui seront placés dans le dossier ou le script est présent.
+Ces deux scripts sont faits pour imprimer des lots de PDF qui seront placés dans le dossier où le script est présent.
 Il est possible que vous deviez désactiver le mode sécurisé d'Adobe pour le bon fonctionnement du script.
 
 

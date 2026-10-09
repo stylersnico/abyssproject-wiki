@@ -10,7 +10,7 @@ dateCreated: 2023-02-10T08:10:14.147Z
 
 # Introduction
 
-The goal of this script is to unlock all printer spooler in Powershell.
+The goal of this script is to unlock all print spoolers in Powershell.
 
 
 # Script

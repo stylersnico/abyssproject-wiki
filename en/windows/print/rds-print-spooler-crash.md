@@ -10,7 +10,7 @@ dateCreated: 2022-03-15T10:20:58.969Z
 
 # Introduction
 
-The print spooler was frozing completely without any reason or error message and without any printer installed on Windows Server 2016 / 2019 with remote desktop role.
+The print spooler was freezing completely without any reason or error message and without any printer installed on Windows Server 2016 / 2019 with remote desktop role.
 
  
 # Resolving the problem

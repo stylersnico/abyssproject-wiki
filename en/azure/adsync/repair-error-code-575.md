@@ -1,5 +1,5 @@
 ---
-title: Azure Ad Sync won't start: Repair error code 575
+title: Azure AD Sync won't start: Repair error code 575
 description: Fix the Azure AD Sync service that won't start after upgrade
 published: true
 date: 2022-02-17T07:50:10.141Z
@@ -28,10 +28,10 @@ The application was unable to start correctly (0x%lx). Click OK to close the app
 
 # Fixing the error
 
-If your service is blocked is "starting" kill the service first by killing the process "AD-IAM-HybridSync master":
+If your service is stuck in "Starting", kill the service first by killing the process "AD-IAM-HybridSync master":
 ![azureadsync-error-575-3.png](/azure/azureadsync-error-575-3.png.webp)
 
-Now you need to copy to following files:
+Now you need to copy the following files:
 ```
 C:\Program Files\Microsoft SQL Server\150\LocalDB\Binn\Templates\model.mdf
 C:\Program Files\Microsoft SQL Server\150\LocalDB\Binn\Templates\modellog.ldf

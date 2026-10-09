@@ -11,7 +11,7 @@ dateCreated: 2022-10-05T13:41:32.292Z
 # Introduction
 Le but de cette procédure est de pouvoir ouvrir des ports en entrée sur une connexion Starlink via un serveur Wireguard externe.
 
-> Dans cet exemple, un vps chez OVH sera utilisé, mais il n'y aucune affiliation avec eux.
+> Dans cet exemple, un vps chez OVH sera utilisé, mais il n'y a aucune affiliation avec eux.
 {.is-info}
 
 Vous devez également avoir un firewall comme OPNSense sur votre connexion Starlink qui servira déjà de firewall évidemment et ensuite permettra de faire du nat uniquement sur les ports souhaités.
@@ -66,7 +66,7 @@ Allez maintenant dans l'onglet **Local** et cliquez sur le **+** :
 
 ![opnsense-wireguard-nat-04.png](/starlink/nat-behind-starlink/wireguard/opnsense-wireguard-nat-04.png)
 
-ajoutez l'interface locale comme ceci avec les informations de la section **[Interface]** du fichier de configuration de la section précédente, pensez-bien à désactiver les routes : 
+Ajoutez l'interface locale comme ceci avec les informations de la section **[Interface]** du fichier de configuration de la section précédente, pensez bien à désactiver les routes : 
 
 ![opnsense-wireguard-nat-05.png](/starlink/nat-behind-starlink/wireguard/opnsense-wireguard-nat-05.png)
 
@@ -113,7 +113,7 @@ Créez un alias WireguardClients qui contiendra les hôtes qui doivent sortir su
 
 ![opnsense-wireguard-nat-13.png](/starlink/nat-behind-starlink/wireguard/opnsense-wireguard-nat-13.png)
 
-Créez ensuite les deux règles LAN suivante, la 1ère permettra aux clients dans le groupe de sortir via le tunnel et la 2ème fera sortir tout le reste via le WAN :
+Créez ensuite les deux règles LAN suivantes, la 1ère permettra aux clients dans le groupe de sortir via le tunnel et la 2ème fera sortir tout le reste via le WAN :
 
 ![opnsense-wireguard-nat-14.png](/starlink/nat-behind-starlink/wireguard/opnsense-wireguard-nat-14.png)
 
@@ -132,7 +132,7 @@ Créez ensuite les règles manuelles suivantes :
 Allez dans **Firewall** -> **NAT** -> **Port Forward** et créez les règles dont vous avez besoin selon le format suivant : 
 ![opnsense-wireguard-nat-16.png](/starlink/nat-behind-starlink/wireguard/opnsense-wireguard-nat-16.png)
 
-Allez dans **Firewall** -> **Rules** -> **Wireguard**  et créez les règles correspondantes aux Port Forward que vous avez faits :
+Allez dans **Firewall** -> **Rules** -> **Wireguard**  et créez les règles correspondant aux Port Forward que vous avez faits :
 ![opnsense-wireguard-nat-17.png](/starlink/nat-behind-starlink/wireguard/opnsense-wireguard-nat-17.png)
 
 

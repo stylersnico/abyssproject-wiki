@@ -9,7 +9,7 @@ dateCreated: 2025-12-04T07:59:41.319Z
 ---
 
 # Introduction
-The goal of this guide is to migrate Debian 11 to Debian 12.
+The goal of this guide is to migrate Debian 12 to Debian 13.
 
 # Updating the server
  

@@ -78,7 +78,7 @@ Now mount the file system with the following command (Adapt the **endpoint** url
 s3fs backup /mnt/s3-swissbackup -o passwd_file=/etc/s3fs/.passwd-s3fs  -o url=https://s3.swiss-backup03.infomaniak.com -o use_path_request_style  -o umask=0002
 ```
 
-You can put it in a script so the file system mount a launch:
+You can put it in a script so the file system is mounted at boot:
 
 ```bash
 echo "sleep 10" > /root/mount-s3fs.sh
@@ -101,7 +101,7 @@ Go to the Proxmox web interface in **Datacenter** -> **Storage** -> **Add**  -> 
 
 ![proxmox-swissbackup-01.png](/proxmox/swissbackup/proxmox-swissbackup-01.png)
 
-Configure the folder like this, thick **Shared**:
+Configure the folder like this, tick **Shared**:
 
 ![proxmox-swissbackup-02.png](/proxmox/swissbackup/proxmox-swissbackup-02.png)
 

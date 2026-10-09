@@ -19,7 +19,7 @@ The goal of this is to achieve a partial or complete backup of a Debian server w
 # Installation
 
  
-Install Restic :
+Install Restic:
 
 ```bash
 apt update

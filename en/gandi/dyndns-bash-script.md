@@ -92,7 +92,7 @@ Connection: keep-alive
 {"message": "DNS Record Created"}
 ```
 
-# Automatization
+# Automation
 
 Open your crontab:
 

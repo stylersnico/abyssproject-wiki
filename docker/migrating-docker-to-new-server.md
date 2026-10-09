@@ -12,7 +12,7 @@ dateCreated: 2022-05-19T16:18:33.855Z
 
 Le but de ce document est de déplacer une installation Docker complète avec tout ce qui tourne dessus vers un nouveau serveur sans perte de données.
 
-> Idéalement, vous devez disposer de la même version de Docker sur le serveur actuel et le serveur distant afin que la migration s'effectue sans accros.
+> Idéalement, vous devez disposer de la même version de Docker sur le serveur actuel et le serveur distant afin que la migration s'effectue sans accrocs.
 {.is-warning}
 
 > Pour le moment, n'installez pas Docker sur le nouveau serveur !
@@ -60,7 +60,7 @@ Vous pouvez ignorer le socket de Docker, il n'est pas nécessaire de le copier :
 > Par défaut, dans Debian 11, le répertoire Docker contenant les images, les volumes de données et le reste se situe dans **/var/lib/docker**, cela peut différer selon votre distribution.
 {.is-info}
 
-> Il est important que les droits soit identiques, si vous aviez un utilisateur spécial pour le Docker, recréez le avant la copie
+> Il est important que les droits soient identiques, si vous aviez un utilisateur spécial pour le Docker, recréez-le avant la copie
 {.is-warning}
 
 Stoppez d'abord vos conteneurs sur l'ancien serveur : 

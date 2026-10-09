@@ -1,6 +1,6 @@
 ---
 title: Monter son serveur Web avec Debian 11
-description: Découvrez comment monter votre serveur Web compatible HTT2 et TLS 1.3 avec Debian 11, NGINX, MariaDB et PHP-FPM.
+description: Découvrez comment monter votre serveur Web compatible HTTP2 et TLS 1.3 avec Debian 11, NGINX, MariaDB et PHP-FPM.
 published: true
 date: 2021-08-31T09:18:37.394Z
 tags: debian 10, wordpress, web, nginx
@@ -18,7 +18,7 @@ Voici les briques logicielles que nous allons utiliser :
 
 -   Serveur Web : NGINX
 -   Serveur de base de données : MariaDB
--   Moteur PHP : FastCGI Process Manager (FPM) avec gouverneur statique (on en parlera de l'optimisation de FPM, mais pas maintenant)
+-   Moteur PHP : FastCGI Process Manager (FPM) avec gouverneur statique (on parlera de l'optimisation de FPM, mais pas maintenant)
 
   Ce n'est pas tout, pour accélérer tout cela on va également utiliser deux systèmes de cache :
 
@@ -354,7 +354,7 @@ sh acme.sh --set-default-ca  --server  letsencrypt
 sh acme.sh  --issue  -d website.tap.ovh  --nginx /etc/nginx/sites-enabled/wordpress.vhost --keylength ec-384
 ```
 
-  Si l’opération réussie, vous devrez juste configurer le certificat ECDSA dans votre vhost nginx :
+  Si l’opération réussit, vous devrez juste configurer le certificat ECDSA dans votre vhost nginx :
 ```bash
 [Wed 11 Aug 2021 08:21:06 PM CEST] Your cert is in: /root/.acme.sh/website.tap.ovh_ecc/website.tap.ovh.cer
 [Wed 11 Aug 2021 08:21:06 PM CEST] Your cert key is in: /root/.acme.sh/website.tap.ovh_ecc/website.tap.ovh.key

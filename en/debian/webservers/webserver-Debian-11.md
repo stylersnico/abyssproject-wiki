@@ -1,6 +1,6 @@
 ---
 title: Build your webserver with Debian 11
-description: Get your HTT2 and TLS 1.3 compatible webserver with Debian 11, NGINX, MariaDB and PHP-FPM.
+description: Get your HTTP2 and TLS 1.3 compatible webserver with Debian 11, NGINX, MariaDB and PHP-FPM.
 published: true
 date: 2021-08-31T09:19:02.200Z
 tags: web, debian, fpm, mariadb
@@ -10,7 +10,7 @@ dateCreated: 2021-08-12T17:50:18.409Z
 
 # Before starting
 
-The idea is to start with a stable system (Debian 11) to install all the components of a fast and secure Web Server (HTTP2, TLS 1.2 et 1.3 with best practices).
+The idea is to start with a stable system (Debian 11) to install all the components of a fast and secure Web Server (HTTP2, TLS 1.2 and 1.3 with best practices).
 
 Moreover, assuming that a webserver alone is useless without a website on it, we are going to install a Wordpress (because it's the most used CMS in the world at this time).
 
@@ -20,7 +20,7 @@ Here is what we are going to use:
 -   Database Server : MariaDB
 -   PHP Engine : FastCGI Process Manager (FPM) with static governor
 
-  Least but not last, here is the two cache system we are going to use :
+  Last but not least, here are the two cache systems we are going to use:
 
 -   Redis for MariaDB with PHP integration
 -   built-in OPcache in PHP-FPM
@@ -43,7 +43,7 @@ In this first part, we are going to install the packages needed.
 
 ## Repository install for PHP 8.0
 
-> It is mandatory to go throught sury.org's repository to get PHP 8.0 on Debian 11
+> It is mandatory to go through sury.org's repository to get PHP 8.0 on Debian 11
 {.is-warning}
 
 ```bash
@@ -63,7 +63,7 @@ apt install curl git unzip imagemagick haveged mariadb-client mariadb-server ngi
 
 # Setup
 
-We are going to configure all softwares one by one now.
+We are going to configure all software one by one now.
 
 ## NGINX
 
@@ -85,7 +85,7 @@ systemctl restart nginx
 
 ## MariaDB
 
-Nothing special, launch the integrated utility to secure the Sql Server:
+Nothing special, launch the integrated utility to secure the SQL server:
 
 ```bash
 mysql_secure_installation
@@ -335,7 +335,7 @@ exit
 ```
  
 
-## Configuring SSL with Le'ts Encrypt
+## Configuring SSL with Let's Encrypt
 
 Install acme.sh:
 
@@ -451,7 +451,7 @@ nano /var/www/wordpress/wp-config.php
 define('WP_CACHE', true);
 define('WP_CACHE_KEY_SALT', 'website.tap.ovh');
 ```
-  Then, download and activate [Redis Object Cache.](https://fr.wordpress.org/plugins/redis-cache/)
+  Then, download and activate [Redis Object Cache.](https://wordpress.org/plugins/redis-cache/)
   When it's done, check the Redis object cache with this command :
 
 ```bash

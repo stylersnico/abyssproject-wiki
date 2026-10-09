@@ -12,7 +12,7 @@ dateCreated: 2023-12-15T10:38:37.014Z
 
 The goal of this guide is to achieve the installation of Ansible Semaphore, an open-source GUI for Ansible: https://www.semui.co/
 
-> Here, we install Ansible Semaphore on a system that already have a functionnal Ansible installation.
+> Here, we install Ansible Semaphore on a system that already has a functional Ansible installation.
 > We also use the user and the group "ansible" that must be used for the existing Ansible installation.
 {.is-info}
 
@@ -67,7 +67,7 @@ chmod +x /root/semaphore_latest.sh
 bash /root/semaphore_latest.sh
 ```
 
-Create the configuration directory and give it the good rights: 
+Create the configuration directory and give it the right permissions: 
 ```bash
 mkdir /etc/semaphore/
 chown -R ansible:ansible /etc/semaphore/
@@ -78,7 +78,7 @@ Now, launch the Semaphore setup assistant:
 semaphore setup
 ```
 
-Follow it, filling the **database connection info** and **the configuration repertory** like this:
+Follow it, filling the **database connection info** and **the configuration directory** like this:
 
 ```
 root@ansible:~# semaphore setup
@@ -231,5 +231,4 @@ Add the following to auto-update Semaphore, for example in the middle of the day
 
 ## Configuring and using Ansible Semaphore
 
-A separate guide is in preparation for using and configuring the web ui of Semaphore.
-The URL will be put right here when it is available.
+A separate guide covers using and configuring the Semaphore web UI: https://wiki.abyssproject.net/en/ansible-semaphore/configuring-ansible-semaphore

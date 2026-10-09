@@ -13,7 +13,7 @@ The goal of this document is to deactivate the Sentinel One agent on an endpoint
 
 # Deactivating the agent
 
-> The passphrase is unique for every endpoint, you can retreive it from your console
+> The passphrase is unique for every endpoint, you can retrieve it from your console
 {.is-info}
 
 ![sentinelone_-_management_console.webp](/sentinelone/sentinelone_-_management_console.webp)

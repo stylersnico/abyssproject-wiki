@@ -30,7 +30,7 @@ Lancez la commande suivante depuis tous vos contrôleurs de domaines en powershe
 netdom query pdc
 ```
 
-Cela permets de s'assurer que tous les contrôlleurs de domaines dispose du même PDC, ce qui peut ne pas être le cas si le problème est présent depuis longtemps.
+Cela permet de s'assurer que tous les contrôleurs de domaine disposent du même PDC, ce qui peut ne pas être le cas si le problème est présent depuis longtemps.
 
 
 Ensuite, installez directement les outils DFS qui nous serviront pour la suite en powershell (à faire sur chaque contrôleur de domaine) :
@@ -96,7 +96,7 @@ Si vous avez finalement l’évent **4114**, vérifiez que les fichiers du SYSVO
 
 # Synchronisation des autres contrôleurs de domaines
 
-Nettoyer d’abord les dossiers sysvol des autres contrôleurs de domaines :
+Nettoyez d’abord les dossiers sysvol des autres contrôleurs de domaines :
 ```powershell
 %WINDIR%\SYSVOL\domain\Policies
 %WINDIR%\SYSVOL\domain\Scripts

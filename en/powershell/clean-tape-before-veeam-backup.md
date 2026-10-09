@@ -14,13 +14,13 @@ The goal of this script is to clean the tape before a veeam backup to free up th
 
 # Getting the tape library name
 
-Open Veeam and take note of the tape reader:
+Open Veeam and take note of the tape drive:
 
 ![veeam-tape-erase-before-backup-01.png](/scripts/powershell/veeam-tape-erase-before-backup-01.png)
 
 # Script
 
-This script inventory the tape inside the reader and do a quick erase of the data on the tape:
+This script inventories the tape inside the drive and does a quick erase of the data on the tape:
 
 ```powershell
 Start-VBRTapeInventory -library "HP Ultrium 7-SCSI"
@@ -32,7 +32,7 @@ sleep 120
 # Using it
 
 Save this script inside a powershell file.
-Open the job and go into the advanced option:
+Open the job and go into the advanced options:
 
 ![veeam-tape-erase-before-backup-02.png](/scripts/powershell/veeam-tape-erase-before-backup-02.png)
 

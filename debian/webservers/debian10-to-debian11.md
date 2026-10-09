@@ -42,7 +42,7 @@ reboot
 
 ## Erreur sur Debian Security
 
-> Erreur rencontrée sur sur un CX11 avec l'image Debian 10 chez l'hébergeur Hetzner
+> Erreur rencontrée sur un CX11 avec l'image Debian 10 chez l'hébergeur Hetzner
 {.is-info}
 
 

@@ -10,7 +10,7 @@ dateCreated: 2021-09-17T08:00:17.643Z
 
 # Introduction
 
-Le but de ce script est de renommer en masse les utilisateurs dans Active Directory afin d'uniformiser les majuscules et miniscules.
+Le but de ce script est de renommer en masse les utilisateurs dans Active Directory afin d'uniformiser les majuscules et minuscules.
 La première lettre du prénom et du nom de famille seront en majuscules.
 
 

@@ -60,7 +60,7 @@ root@pve01:/mnt/s3-swissbackup#
 
 # Montage du système S3
 
-Créez d'abord les dossiers nécessaire : 
+Créez d'abord les dossiers nécessaires : 
 
 ```bash
 mkdir /mnt/s3-swissbackup
@@ -102,7 +102,7 @@ Allez dans l'interface Proxmox, dans **Datacenter** -> **Storage** -> **Add**  -
 
 ![proxmox-swissbackup-01.png](/proxmox/swissbackup/proxmox-swissbackup-01.png)
 
-Configurez le dossier comme ce qu'il suit, pensez-bien à cocher **Shared** :
+Configurez le dossier comme suit, pensez bien à cocher **Shared** :
 
 ![proxmox-swissbackup-02.png](/proxmox/swissbackup/proxmox-swissbackup-02.png)
 

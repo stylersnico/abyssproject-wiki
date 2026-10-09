@@ -86,13 +86,13 @@ Default output format [None]:
 ```
 
 # Création du conteneur
-Lancez la commande suivante pour créez le conteneur, remplacez le "customer" à la fin par le nom que vous voulez :
+Lancez la commande suivante pour créer le conteneur, remplacez le "customer" à la fin par le nom que vous voulez :
 
 ```bash
 aws --endpoint-url=https://s3.pub1.infomaniak.cloud s3api create-bucket --bucket customer
 ```
 
-Vous aurez ce genre de sortie si cela réussi :
+Vous aurez ce genre de sortie si cela réussit :
 ```json
 nicolas@abyssproject:~$ aws --endpoint-url=https://s3.pub1.infomaniak.cloud s3api create-bucket --bucket customer
 {

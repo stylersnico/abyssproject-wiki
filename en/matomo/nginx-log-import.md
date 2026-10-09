@@ -19,7 +19,7 @@ It is important to understand how the system is working:
 - The daily cron is edited, so it runs at midnight to have one log per day with NGINX.
 - We exclude common bot pages in Wordpress and Wiki.JS
 - My Matomo install is located in **/var/www/matomo**.
-- The unix user is **matomo**, his group is **www-data**.
+- The unix user is **matomo**, its group is **www-data**.
 
 > You obviously need to adapt this howto to your config.
 {.is-warning}
@@ -57,7 +57,7 @@ nano /etc/logrotate.d/nginx
 
 # Rotation of the logs at midnight
 
-Now, edit the cron configuration so cron.daily run at midnight (and so do the NGINX logs):
+Now, edit the cron configuration so cron.daily runs at midnight (and so do the NGINX logs):
 ```bash
 nano /etc/crontab
 ```
@@ -102,12 +102,12 @@ do
 done
 ```
 
-> - **--recorders=2** settings is used to process the log file with two parsers.
+> - **--recorders=2** setting is used to process the log file with two parsers.
 > - Replace **stats.your.matomo** by your Matomo install URL
-> - The first website is a Wordpress, we exclude /feed/ URL as it is only used by bot.
+> - The first website is a Wordpress, we exclude /feed/ URL as it is only used by bots.
 > - The second one is a Grav, without any special configuration.
 > - The third is the wiki that you are reading, we exclude the public API.
-> - The last part launch the forced processing of all stats by Matomo, replace 3 by the number of sites that you will process.
+> - The last part launches the forced processing of all stats by Matomo, replace 3 by the number of sites that you will process.
 
 
 Make it executable: 
@@ -131,7 +131,7 @@ Add the following lines:
 ```
 
 You will have the import every morning at 00:20.
-Next, archiving will launch all the day to keep stats up-to-date on Matomo.
+Next, archiving will launch throughout the day to keep stats up-to-date on Matomo.
 
 ## Sources
 

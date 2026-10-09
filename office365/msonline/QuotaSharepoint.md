@@ -10,19 +10,19 @@ dateCreated: 2025-05-20T07:48:57.898Z
 
 # Appliquer une limite de stockage aux Sharepoint
 
-Dans cet exemple, nous verrons comment mettre un quota sur tous les sharepoints inférieurs à 40Gb et d'appliquer un quota de 40Go avec une alerte fixé à 30Go (75% du quota).
+Dans cet exemple, nous verrons comment mettre un quota sur tous les sharepoints inférieurs à 40 Go et comment appliquer un quota de 40Go avec une alerte fixée à 30Go (75% du quota).
 
 ## Activer la limite de stockage
 
-Pour se faire, il faut déjà activer les quotas pour tous les sharepoints 
-Dans la console admin Sharepoint, aller dans **Settings** et activer la limite sharepoint, passer le en **manuel**.
+Pour ce faire, il faut déjà activer les quotas pour tous les sharepoints 
+Dans la console admin Sharepoint, aller dans **Settings** et activer la limite sharepoint, la passer en **manuel**.
 
 Lorsque vous avez fait ceci, le quota s'applique à tous les sharepoints.
 Le quota appliqué est de **25To**.
 
 ## Modifier toutes les limites en un script
 
-Comme certains Sharepoint dépasse déjà cette limite, nous allons exécuter ce script qui permet d'appliquer le quota à tous les sharepoints inférieurs à 40Go.
+Comme certains SharePoint dépassent déjà cette limite, nous allons exécuter ce script qui permet d'appliquer le quota à tous les sharepoints inférieurs à 40Go.
 
 ````Bash
 Connect-SPOService -Url ....
@@ -44,4 +44,4 @@ foreach ($site in $filteredSites) {
 Write-Host "Configuration des quotas terminée pour tous les sites inférieurs à 40 Go."
 ````
 
-Vous aurez un apperçu de tous les sharepoints ou le quota s'est appliqué.
+Vous aurez un aperçu de tous les SharePoint où le quota s'est appliqué.

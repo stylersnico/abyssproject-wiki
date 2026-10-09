@@ -18,7 +18,7 @@ dateCreated: 2022-09-23T12:34:44.967Z
 # Introduction
 Le but de cette procédure est de pouvoir ouvrir des ports en entrée sur une connexion Starlink via un prestataire VPN externe comme PureVPN dans cet exemple.
 
-> Dans cet exemple, PureVPN sera utilisé, mais il n'y aucune affiliation avec eux.
+> Dans cet exemple, PureVPN sera utilisé, mais il n'y a aucune affiliation avec eux.
 > Vous devez avoir l'abonnement avec l'add-on **Port Forwarding** : https://www.purevpn.com/port-forwarding
 {.is-info}
 
@@ -34,7 +34,7 @@ Ouvrez votre souscription chez PureVPN et configurez le port Forwarding : https:
 ![port-opening-behind-starlink-purevpn-01.png](/starlink/nat-behind-starlink/port-opening-behind-starlink-purevpn-01.png)
 
 
-Activez-tous les ports, ceci est uniquement sécurisé si vous utilisez un firewall comme OPNSense comme client, sinon ne faites pas cela.
+Activez tous les ports, ceci est uniquement sécurisé si vous utilisez un firewall comme OPNSense comme client, sinon ne faites pas cela.
 
 ![port-opening-behind-starlink-purevpn-02.png](/starlink/nat-behind-starlink/port-opening-behind-starlink-purevpn-02.png)
 
@@ -57,7 +57,7 @@ Maintenant, allez dans **VPN** -> **OpenVPN** -> **Clients** et cliquez sur le *
 ![port-opening-behind-starlink-purevpn-05.png](/starlink/nat-behind-starlink/port-opening-behind-starlink-purevpn-05.png)
 
 
-> Votre nom d'utilisateur et votre mot de passe PureVPN sont disponible en bas de cette page : https://my.purevpn.com/v2/dashboard/subscriptions
+> Votre nom d'utilisateur et votre mot de passe PureVPN sont disponibles en bas de cette page : https://my.purevpn.com/v2/dashboard/subscriptions
 {.is-info}
 
 
@@ -76,7 +76,7 @@ Allez dans **VPN** -> **OpenVPN** -> **Connection Status** et vérifiez que la c
 
 ## Configuration de l'interface virtuelle OpenVPN
 
-Allez dans **Intefaces** -> **Assignments** et assignez l'interface client OpenVPN sur OPT1 (ou la première interface disponible) :
+Allez dans **Interfaces** -> **Assignments** et assignez l'interface client OpenVPN sur OPT1 (ou la première interface disponible) :
 ![port-opening-behind-starlink-purevpn-09.png](/starlink/nat-behind-starlink/port-opening-behind-starlink-purevpn-09.png)
 
 

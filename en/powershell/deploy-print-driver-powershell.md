@@ -19,12 +19,12 @@ Download and extract your print driver somewhere on your server like this:
 
 > D:\Data\Deploy\v4_02_PCL6_1712a\PCL6\64bit
 
-Next, install it on your print driver to get the driver exact name and the final location of the driver information file:
+Next, install it on your print server to get the driver exact name and the final location of the driver information file:
 > "SHARP Driver(v4) PCL6"
 > .
 >C:\Windows\System32\DriverStore\FileRepository\su06menu.inf_amd64_aff6b7d3b8d3aed7\su06menu.inf
 
-Finally, prepare the script who will deploy and install the driver on all computers:
+Finally, prepare the script that will deploy and install the driver on all computers:
 
 > "C:\computers.txt" must contain the list of all computers that will receive the driver.
 {.is-info}

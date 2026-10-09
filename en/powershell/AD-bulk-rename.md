@@ -10,7 +10,7 @@ dateCreated: 2021-09-17T08:00:54.353Z
 
 # Introduction
 
-The goal of this script is to standardize all the users in Active Directory so you can have the same uppercase and lowercase everywere.
+The goal of this script is to standardize all the users in Active Directory so you can have the same uppercase and lowercase everywhere.
 
 The first letter of firstname and last name will be uppercase, everything else in lowercase.
 

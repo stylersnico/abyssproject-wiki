@@ -10,13 +10,13 @@ dateCreated: 2026-01-12T09:51:51.177Z
 
 # Introduction
 
-Le but de cet article est de vous expliquer comment générer des certificats ECDSA Wildcard (donc ***.abyssproject.net** par exemple) avec Let's Encrypt et l'API Infomaniak pour la gestion automatique des DNS.
+Le but de cet article est de vous expliquer comment générer des certificats ECDSA Wildcard (donc **\*.abyssproject.net** par exemple) avec Let's Encrypt et l'API Infomaniak pour la gestion automatique des DNS.
 Le tout est fait avec Debian 13 dans cet exemple.
 
 # Installation des prérequis
 
  
-Installez les paquets suivants sous Debian pour avoir Certbot et son plugin pour aller interargir avec les DNS Infomaniak :
+Installez les paquets suivants sous Debian pour avoir Certbot et son plugin pour aller interagir avec les DNS Infomaniak :
 
 ```bash
 apt install certbot python3 python3-certbot-dns-infomaniak
@@ -27,7 +27,7 @@ apt install certbot python3 python3-certbot-dns-infomaniak
 Allez dans votre manager Infomaniak, dans votre profil et dans la section **Développeur** :
 ![letsencrypt-infomaniak-dns01.png](/debian/webserver/ecdsa-letsencrypt/letsencrypt-infomaniak-dns01.png)
 
-> Depuis quelques temps, il faut également ajouter les scopes **dns.read** et **dns.write** !
+> Depuis quelque temps, il faut également ajouter les scopes **dns.read** et **dns.write** !
 {.is-warning}
 
 
@@ -36,7 +36,7 @@ Ensuite, allez dans **Tokens API** et créez un token comme ceci avec le scope d
 ![letsencrypt-infomaniak-dns03.png](/debian/webserver/ecdsa-letsencrypt/letsencrypt-infomaniak-dns03.png)
 
 
-Maintenant, créez un fichier de configuration pour Cerbot avec la clé d'API que vous venez de récupérer : 
+Maintenant, créez un fichier de configuration pour Certbot avec la clé d'API que vous venez de récupérer : 
 ```bash
 echo "dns_infomaniak_token=TOKEN" > /root/infomaniak-credentials.ini
 chmod 600 /root/infomaniak-credentials.ini

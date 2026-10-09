@@ -29,7 +29,7 @@ Sauvegardez le fichier en tant qu'autre format :
 
 ![batch-accent-01.png](/windows/batch/accents/batch-accent-01.png)
 
-Sélectionnez le format **ext Document - MS-DOS Format** :
+Sélectionnez le format **Text Document - MS-DOS Format** :
 
 ![batch-accent-02.png](/windows/batch/accents/batch-accent-02.png)
 

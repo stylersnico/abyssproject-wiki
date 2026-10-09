@@ -1,6 +1,6 @@
 ---
-title: Export des réservations DHCP de WIndows Serveur
-description: Export des réservations DHCP de Wnndows Serveur en Powershell
+title: Export des réservations DHCP de Windows Server
+description: Export des réservations DHCP de Windows Server en Powershell
 published: true
 date: 2023-08-10T12:00:43.919Z
 tags: powershell, dhcp
