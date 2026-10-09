@@ -2,7 +2,7 @@
 title: Overview of my infrastructure
 description: Configuration documentation of my personal infrastructure: network, firewall, reverse proxy, virtualization, backup, automation and monitoring. Addresses, domain names, credentials and serial numbers are deliberately left out.
 published: true
-date: 2026-10-08T14:17:18.470Z
+date: 2026-10-09T07:56:03.448Z
 tags: infra
 editor: markdown
 dateCreated: 2026-10-08T14:17:18.470Z
@@ -21,7 +21,7 @@ graph TB
   FW["OPNsense firewall"]
   RP["NGINX reverse proxy"]
   HV["Hyper-V hypervisor<br>9 virtual machines"]
-  BK["Backup server<br>Veeam"]
+  BK["Backup server<br>Veeam + Hyper-V replicas"]
   CK["Checkmk monitoring"]
   AN["Ansible + Semaphore"]
   CL["Backblaze B2"]
@@ -234,7 +234,7 @@ Every incoming request goes through the same steps:
 
 # Hyper-V virtualization
 
-The services run on a single **Hyper-V** host. Virtual machines are numbered (110 to 118) so they are easy to find in the console and in the backups.
+The services run on a single **Hyper-V** host. A second host, the backup server, only holds the Veeam replicas. Virtual machines are numbered (110 to 118) so they are easy to find in the console and in the backups.
 
 ## Host
 
@@ -246,6 +246,19 @@ The services run on a single **Hyper-V** host. Virtual machines are numbered (11
 | System | Windows Server 2025 Datacenter, workgroup (not domain-joined) |
 | Network | one 10 GbE link (Intel X552) carrying an external virtual switch, shared with the host |
 | Storage | 931 GB system volume (system and virtual machines), 13,039 GB data volume |
+
+## Backup server
+
+| Item | Value |
+| --- | --- |
+| Hardware | HP ProLiant MicroServer Gen8 |
+| Processor | Intel Xeon E3-1220L v2, 2 cores / 4 threads |
+| Memory | 16 GB |
+| System | Windows Server 2025 Datacenter, workgroup (not domain-joined) |
+| Network | one 2.5 GbE link (Realtek) carrying an external virtual switch, shared with the host |
+| Storage | two RAID volumes: 466 GB (system and replicas) and 14,902 GB (Veeam repository and replicas) |
+
+It holds the 7 replicas created by Veeam (110-Webhost, 111-HAOS, 112-Reverse, 114-Paperless, 115-CheckMK, 116-Wazuh, 118-Passbolt, with a `_replica` suffix). They stay powered off, do not start with the host and are only used for failover. Each one has 4 vCPUs and the same memory as the original machine.
 
 ## Virtual machines
 
@@ -267,7 +280,7 @@ In total, 44 vCPUs and 47 GB of memory are allocated on 8 threads and 64 GB.
 
 # Veeam backup
 
-Backups are handled by **Veeam Backup & Replication 13** (Enterprise Plus edition), installed on a dedicated physical server. This server is also a Hyper-V host managed by Veeam, most likely the target of the replicas.
+Backups are handled by **Veeam Backup & Replication 13** (Enterprise Plus edition), installed on a dedicated physical server. This server is also a Hyper-V host managed by Veeam, which holds the replicas.
 
 ```mermaid
 graph LR
@@ -277,7 +290,7 @@ graph LR
   R["Internal repository<br>local disk"]
   B2["Backblaze B2<br>immutable 7 days"]
   USB["USB disks<br>in rotation"]
-  REP["Hyper-V replicas<br>critical VMs"]
+  REP["Hyper-V replicas<br>critical VMs<br>backup server"]
   P -->|"21:00 · 31 d · encrypted"| R
   M -->|"after prod · 7 d"| R
   O -->|"21:00 · 7 d"| R
@@ -296,7 +309,7 @@ graph LR
 
 | Repository | Type | Notes |
 | --- | --- | --- |
-| Internal | backup server local disk | main repository |
+| Internal | 14,902 GB RAID volume on the backup server | main repository |
 | USB disks in rotation | removable local disk | disks swapped in turn |
 | Backblaze B2 | S3-compatible object storage | 7-day immutability, capped at 2 TB |
 
