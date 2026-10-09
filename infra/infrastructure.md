@@ -2,7 +2,7 @@
 title: Descriptif de mon infrastructure
 description: Documentation de la configuration de mon infrastructure personnelle : réseau, pare-feu, reverse proxy, virtualisation, sauvegarde, automatisation et supervision.
 published: true
-date: 2026-10-08T14:13:36.964Z
+date: 2026-10-09T07:56:43.640Z
 tags: infra
 editor: markdown
 dateCreated: 2026-10-08T13:59:14.141Z
@@ -21,7 +21,7 @@ graph TB
   FW["Pare-feu OPNsense"]
   RP["Reverse proxy NGINX"]
   HV["Hyperviseur Hyper-V<br>9 machines virtuelles"]
-  BK["Serveur de sauvegarde<br>Veeam"]
+  BK["Serveur de sauvegarde<br>Veeam + réplicas Hyper-V"]
   CK["Supervision Checkmk"]
   AN["Ansible + Semaphore"]
   CL["Backblaze B2"]
@@ -234,7 +234,7 @@ Chaque requête entrante traverse les mêmes étapes :
 
 # Virtualisation Hyper-V
 
-Les services tournent sur un seul hôte **Hyper-V**. Les machines virtuelles sont numérotées (110 à 118) pour les retrouver facilement dans la console et dans les sauvegardes.
+Les services tournent sur un seul hôte **Hyper-V**. Un second hôte, le serveur de sauvegarde, n’héberge que les réplicas Veeam. Les machines virtuelles sont numérotées (110 à 118) pour les retrouver facilement dans la console et dans les sauvegardes.
 
 ## Hôte
 
@@ -246,6 +246,19 @@ Les services tournent sur un seul hôte **Hyper-V**. Les machines virtuelles son
 | Système | Windows Server 2025 Datacenter, groupe de travail (hors domaine) |
 | Réseau | un lien 10 GbE (Intel X552) portant un commutateur virtuel externe, partagé avec l’hôte |
 | Stockage | volume système de 931 Go (système et machines virtuelles), volume de données de 13 039 Go |
+
+## Serveur de sauvegarde
+
+| Élément | Valeur |
+| --- | --- |
+| Matériel | HP ProLiant MicroServer Gen8 |
+| Processeur | Intel Xeon E3-1220L v2, 2 cœurs / 4 threads |
+| Mémoire | 16 Go |
+| Système | Windows Server 2025 Datacenter, groupe de travail (hors domaine) |
+| Réseau | un lien 2,5 GbE (Realtek) portant un commutateur virtuel externe, partagé avec l’hôte |
+| Stockage | deux volumes RAID : 466 Go (système et réplicas) et 14 902 Go (dépôt Veeam et réplicas) |
+
+Il héberge les 7 réplicas créés par Veeam (110-Webhost, 111-HAOS, 112-Reverse, 114-Paperless, 115-CheckMK, 116-Wazuh, 118-Passbolt, suffixés `_replica`). Ils restent arrêtés, ne démarrent pas avec l’hôte et ne servent qu’en cas de bascule. Chacun dispose de 4 vCPU et de la même mémoire que la machine d’origine.
 
 ## Machines virtuelles
 
@@ -267,7 +280,7 @@ Au total, 44 vCPU et 47 Go de mémoire sont alloués sur 8 threads et 64 Go.
 
 # Sauvegarde Veeam
 
-Les sauvegardes sont gérées par **Veeam Backup & Replication 13** (édition Enterprise Plus), installé sur un serveur physique dédié. Ce serveur est aussi un hôte Hyper-V géré par Veeam, vraisemblablement destinataire des réplicas.
+Les sauvegardes sont gérées par **Veeam Backup & Replication 13** (édition Enterprise Plus), installé sur un serveur physique dédié. Ce serveur est aussi un hôte Hyper-V géré par Veeam, qui héberge les réplicas.
 
 ```mermaid
 graph LR
@@ -277,7 +290,7 @@ graph LR
   R["Dépôt interne<br>disque local"]
   B2["Backblaze B2<br>immuable 7 jours"]
   USB["Disques USB<br>en rotation"]
-  REP["Réplicas Hyper-V<br>VM critiques"]
+  REP["Réplicas Hyper-V<br>VM critiques<br>serveur de sauvegarde"]
   P -->|"21:00 · 31 j · chiffré"| R
   M -->|"après la prod. · 7 j"| R
   O -->|"21:00 · 7 j"| R
@@ -296,7 +309,7 @@ graph LR
 
 | Dépôt | Type | Particularités |
 | --- | --- | --- |
-| Interne | disque local du serveur de sauvegarde | dépôt principal |
+| Interne | volume RAID de 14 902 Go du serveur de sauvegarde | dépôt principal |
 | Disques USB en rotation | disque local amovible | disques échangés à tour de rôle |
 | Backblaze B2 | stockage objet compatible S3 | immuabilité 7 jours, limité à 2 To |
 
