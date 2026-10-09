@@ -19,9 +19,9 @@ The goal of this document is to move a full Docker installation with all the dat
 {.is-danger}
 
 
-# List the existing mounting points
+# List the existing mount points
 
-First, we need to check if we have any mounting point on the local file system with this command:
+First, we need to check if we have any mount point on the local file system with this command:
 
 ```bash
 docker ps -q | xargs docker inspect -f '{{.Name}} : {{ range .HostConfig.Binds }} {{.}}{{end}}'
@@ -57,10 +57,10 @@ You can ignore the Docker listening socket, we don't need it:
 
 # Moving the data with Rsync
 
-> By default in Debian 11, all Docker datas sits in **/var/lib/docker**, this may be different in your distribution.
+> By default in Debian 11, all Docker data sits in **/var/lib/docker**, this may be different in your distribution.
 {.is-info}
 
-> It's important that you keep the same right on old and new server, if you used to have a special user for docker, create it before the move.
+> It's important that you keep the same permissions on the old and new servers, if you used to have a special user for docker, create it before the move.
 {.is-warning}
 
 Stop docker on the old server: 

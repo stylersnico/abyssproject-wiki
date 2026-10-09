@@ -10,11 +10,11 @@ dateCreated: 2023-02-10T08:00:16.474Z
 
 # Introduction
 
-The goal of this script is to configure Stockage Sense in powershell to free up some space of trash bin and download folder automatically.
+The goal of this script is to configure Storage Sense in PowerShell to automatically free up space in the recycle bin and Downloads folder.
 
 # Script
 
-This script free up the documents older thant 14 days in the trash bin and download folder every day:
+This script deletes files older than 14 days in the recycle bin and Downloads folder every day:
 
 ```powershell
 $storagePolicy = "HKCU:\Software\Microsoft\Windows\CurrentVersion\StorageSense\Parameters\StoragePolicy"

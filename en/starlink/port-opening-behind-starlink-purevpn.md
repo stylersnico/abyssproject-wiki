@@ -8,7 +8,7 @@ editor: markdown
 dateCreated: 2022-09-24T13:56:37.351Z
 ---
 
-> **PureVPN isn't that great**, it let this here to help you configure OpenVPN.
+> **PureVPN isn't that great**, I leave this here to help you configure OpenVPN.
 > If you wish to use your own VPS to do a VPN, here is a new guide: https://wiki.abyssproject.net/en/starlink/port-opening-behind-starlink-wireguard
 {.is-danger}
 
@@ -18,10 +18,10 @@ dateCreated: 2022-09-24T13:56:37.351Z
 The goal of this guide is to be able to open an inbound port on a Starlink connection by using an external VPN like PureVPN here.
 
 > We will use PureVPN, but we don't have any affiliation with them.
-> You must have the subscription with the **Port Forwarding** add-on:https://www.purevpn.com/port-forwarding
+> You must have the subscription with the **Port Forwarding** add-on: https://www.purevpn.com/port-forwarding
 {.is-info}
 
-You also need a firewall like OPNSense behind your Starlink connection that already act as a firewall and then, will allow us to manage the ports we need.
+You also need a firewall like OPNSense behind your Starlink connection that already acts as a firewall and then, will allow us to manage the ports we need.
 
 Example of OPNSense configuration with Starlink: https://wiki.abyssproject.net/en/starlink/connecting-starlink-opnsense
 
@@ -33,7 +33,7 @@ Open your subscription at PureVPN and configure the **Port forwarding** add-on l
 ![port-opening-behind-starlink-purevpn-01.png](/starlink/nat-behind-starlink/port-opening-behind-starlink-purevpn-01.png)
 
 
-Enable all ports, it only suitable is you have a firewall like us behind, if you don't have any firewall don't do this:
+Enable all ports, it is only suitable if you have a firewall like us behind, if you don't have any firewall don't do this:
 
 ![port-opening-behind-starlink-purevpn-02.png](/starlink/nat-behind-starlink/port-opening-behind-starlink-purevpn-02.png)
 
@@ -75,7 +75,7 @@ Go to **VPN** -> **OpenVPN** -> **Connection Status** and check that the connect
 
 ## Configuring OpenVPN virtual interface
 
-Go to **Intefaces** -> **Assignments** and assign the OpenVPN client virtual interface to OPT1 (or the first available one) :
+Go to **Interfaces** -> **Assignments** and assign the OpenVPN client virtual interface to OPT1 (or the first available one) :
 ![port-opening-behind-starlink-purevpn-09.png](/starlink/nat-behind-starlink/port-opening-behind-starlink-purevpn-09.png)
 
 

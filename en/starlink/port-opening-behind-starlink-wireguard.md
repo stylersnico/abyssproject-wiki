@@ -9,12 +9,12 @@ dateCreated: 2022-10-05T14:00:33.476Z
 ---
 
 # Introduction
-The goal of this guide is to port forward port on a Starlink connection with an external Wireguard server.
+The goal of this guide is to forward ports on a Starlink connection with an external Wireguard server.
 
-> Is this guide, we will use a OVH vps, I have no affiliation with them.
+> In this guide, we will use an OVH VPS, I have no affiliation with them.
 {.is-info}
 
-You also need a firewall like OPNSense on your Starlink connection that already act as a firewall and after will allow us to open the wanted ports.
+You also need a firewall like OPNSense on your Starlink connection that already acts as a firewall and after will allow us to open the wanted ports.
 
 
 Configuration example with OPNSense: https://wiki.abyssproject.net/en/starlink/connecting-starlink-opnsense
@@ -114,7 +114,7 @@ Create the alias WireguardClients that will contain all the hosts that should go
 
 ![opnsense-wireguard-nat-13.png](/starlink/nat-behind-starlink/wireguard/opnsense-wireguard-nat-13.png)
 
-Now, create the two following rules, the first one allow clients in the Wireguard alias to go on internet with the tunnel, the next one allow everyone else to go outside via the WAN:
+Now, create the two following rules, the first one allows clients in the Wireguard alias to go on internet with the tunnel, the next one allows everyone else to go outside via the WAN:
 
 ![opnsense-wireguard-nat-14.png](/starlink/nat-behind-starlink/wireguard/opnsense-wireguard-nat-14.png)
 
@@ -130,7 +130,7 @@ Then, create the following rules:
 
 ## Port forwarding
 
-Go to **Firewall** -> **NAT** -> **Port Forward** et create the rules you need like this:
+Go to **Firewall** -> **NAT** -> **Port Forward** and create the rules you need like this:
 ![opnsense-wireguard-nat-16.png](/starlink/nat-behind-starlink/wireguard/opnsense-wireguard-nat-16.png)
 
 Go to **Firewall** -> **Rules** -> **Wireguard**  and create the rules according to the port forward you did before:

@@ -10,16 +10,16 @@ dateCreated: 2021-09-17T07:40:41.373Z
 
 # Introduction
 
-We are going to see how to configure to holy trinity that will allow you to be friend with all the antispam in the world.
+We are going to see how to configure the holy trinity that will make you friends with every antispam in the world.
 
 The DKIM, SPF and DMARC records are mandatory today to get into the inbox of your contacts.
 
  
 # SPF record
 
-The **SPF** record, for **Sender Policy Framework**, is a simple record that indicate which email servers are allowed senders for your domain.
+The **SPF** record, for **Sender Policy Framework**, is a simple record that indicates which email servers are allowed senders for your domain.
 
-My tip, is to use your MX record to build automatically the spf, simple as that.
+My tip is to use your MX record to build the SPF automatically, simple as that.
 
 
 You can use the following (for any domain):
@@ -28,10 +28,10 @@ You can use the following (for any domain):
 v=spf1 mx -all
 ```
  
-The first part is the SPF version that we use, **mx** indicate that the server must read the MX records in your domain to grab the list of the allowed servers. 
-The **-all** reject all emails not sent from your servers. 
+The first part is the SPF version that we use, **mx** indicates that the server must read the MX records in your domain to grab the list of the allowed servers. 
+The **-all** rejects all emails not sent from your servers. 
 
-That the simple one, but in case of the remote server is buggy and doesn't read correctly the **mx** record, I add the **A:** records off all my servers like this.
+That's the simple one, but in case the remote server is buggy and doesn't read the **mx** record correctly, I add the **A:** records of all my servers like this.
 
 You can also replace **-all** by **~all**, to not reject everything that is not recognized correctly by the antispam.
 
@@ -42,9 +42,9 @@ v=spf1 mx a:mx1.nicolas-simond.ch a:mx2.nicolas-simond.ch a:mx3.nicolas-simond.c
  
 # DKIM record
 
-Simply, **DKIM** add an encrypted signature to the header of all your sent emails
+Simply, **DKIM** adds an encrypted signature to the header of all your sent emails
 
-With this, we can check during the reception of the email if it as been altered during the transport.
+With this, we can check during the reception of the email if it has been altered during the transport.
 
  
 
@@ -58,7 +58,7 @@ You should setup dkim in your email server before setting up the dns:
  
 # DMARC record
 
-The last one, **DMARC** allow you to indicate how the remote antispam should proccess your emails if it doesn't respond to your security policy.
+The last one, **DMARC** allows you to indicate how the remote antispam should process your emails if it doesn't respond to your security policy.
 
 If you don't want your emails to go in quarantine but you want to receive reports that indicate a problem, you should configure it like this:
 
@@ -69,9 +69,9 @@ Contenu : "v=DMARC1;p=none;sp=none;pct=100;rua=mailto:dmarc@domaine.com"
 ```
  
 
-Like SPF, we begin protocol version:
+Like SPF, we begin with the protocol version:
 
-- **P** and **SP** are the action to apply if the email fail spf or dkim (none, quarantine or block).
+- **P** and **SP** are the actions to apply if the email fails SPF or DKIM (none, quarantine or reject).
 - **PCT** is the percentage of email to filter (always 100%).
 - **RUA** is the address where you want to get your reports.
 
@@ -79,11 +79,11 @@ Like SPF, we begin protocol version:
 # Test
 
 Wait at least 30 minutes before getting into the test.
-epending on your DNS server, please allow 48 hours.
+Depending on your DNS server, please allow 48 hours.
  
 Go on https://www.mail-tester.com/, the website will provide you an email address, simply send a real email to it.
 
-Extent the third part and check for SPF, DKIM and DMARC like in this screenshot :
+Expand the third part and check for SPF, DKIM and DMARC like in this screenshot :
 
 ![dkim-spf-dmarc.webp](/mails/dkim-spf-dmarc.webp)
 

@@ -12,7 +12,7 @@ dateCreated: 2023-08-10T11:59:35.891Z
 
 Le but de ce script est de convertir automatiquement les disques virtuels de toutes les machines présentes sur un serveur Hyper-V.
 
-> Eteignez et sauvegardez vos machines virtuelles avant toute opération
+> Éteignez et sauvegardez vos machines virtuelles avant toute opération
 {.is-danger}
 
 
@@ -57,5 +57,5 @@ Foreach ($vmname in $GetVM) {
 }
 ```
 
-> Si vous aviez des disques en .VHD, ils ont automatiquement étés convertis vers le format VHDX, vous devrez donc indiquer le chemin vers le nouveau disque dans les configurations de vos machines virtuelles.
+> Si vous aviez des disques en .VHD, ils ont automatiquement été convertis vers le format VHDX, vous devrez donc indiquer le chemin vers le nouveau disque dans les configurations de vos machines virtuelles.
 {.is-warning}

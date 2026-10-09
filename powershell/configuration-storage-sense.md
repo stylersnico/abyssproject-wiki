@@ -10,12 +10,12 @@ dateCreated: 2023-02-10T07:57:28.580Z
 
 # Introduction
 
-Le but de ce script est de configurer l'assistant de stockage (Stockage Sense) en powershell afin de libérer automatiquement les corbeilles et le dossier téléchargement.
+Le but de ce script est de configurer l'assistant de stockage (Storage Sense) en powershell afin de libérer automatiquement les corbeilles et le dossier téléchargement.
 
 
 # Script
 
-Les valeurs dans ce script efface les documents vieux de plus de 14 jours dans la corbeille et le dossier téléchargement chaque jour : 
+Les valeurs dans ce script effacent les documents vieux de plus de 14 jours dans la corbeille et le dossier téléchargement chaque jour : 
 
 ```powershell
 $storagePolicy = "HKCU:\Software\Microsoft\Windows\CurrentVersion\StorageSense\Parameters\StoragePolicy"

@@ -37,7 +37,7 @@ The next step is the environment configuration.
 {.is-info}
 
 
-You can set up it with empty brackets ```{}```:
+You can set it up with empty brackets ```{}```:
 
 ![ansible-semaphore-config-02.png](/ansible-semaphore/configuring-semaphore/ansible-semaphore-config-02.png)
 
@@ -46,7 +46,7 @@ You can set up it with empty brackets ```{}```:
 
 For this step, it's like configuring the Ansible inventory (I use a static one).
 
-> The inventory is extremely limited, most of the Ansible option are not taken in account here, like WinRM or special port, we talk about this in the bonus.
+> The inventory is extremely limited, most Ansible options are not taken into account here, like WinRM or special port, we talk about this in the bonus.
 {.is-warning}
 
 ![ansible-semaphore-config-03.png](/ansible-semaphore/configuring-semaphore/ansible-semaphore-config-03.png)
@@ -67,10 +67,10 @@ Now, create your repository, I use the existing Ansible one for my case:
 ![ansible-semaphore-config-05.png](/ansible-semaphore/configuring-semaphore/ansible-semaphore-config-05.png)
 
 
-# Utilisation de Semaphore
+# Using Semaphore
 
 To use an Ansible Playbook, we need to set up **Task Templates** in Semaphore.
-It manages completely cron programmation, links between playbooks and inventory and environment management.
+It fully manages cron scheduling, links between playbooks and inventory and environment management.
 
 Here is a template that I use: 
 
@@ -155,7 +155,7 @@ Host vpnaccess
 
 Then, use the host name directly in the inventory like my previous example.
 
-## Windows machine connection via WinRm
+## Windows machine connection via WinRM
 
 In the **Key Store**, create an access type **Login With password**.
 As you will have found, you need to put the Windows login and password here: 

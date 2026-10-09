@@ -1,6 +1,6 @@
 ---
-title: Deployer Windows 11 et StorageSense via registre
-description: Deployer Windows 11 et StorageSense via registre
+title: Déployer Windows 11 et StorageSense via registre
+description: Déployer Windows 11 et StorageSense via registre
 published: true
 date: 2025-05-20T07:43:00.526Z
 tags: storage sense, windows 11
@@ -9,7 +9,7 @@ dateCreated: 2025-05-20T07:43:00.526Z
 ---
 
 # Introduction
-Ce fichier de registre permet de forcer l'upgrade vers Windows 11 23h2 et de configurer storage sense pour enlever les fichiers temporaires.
+Ce fichier de registre permet de forcer l'upgrade vers Windows 11 23H2 et de configurer storage sense pour enlever les fichiers temporaires.
 
 > L'upgrade sera forcé sous 7 jours avec accord de l'utilisateur.
 > La mise à jour s'installe tous les jours à 12h00.

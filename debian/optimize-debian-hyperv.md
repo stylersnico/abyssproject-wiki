@@ -53,7 +53,7 @@ update-grub
 ```
 
 > **Impacts :**
-> **blk-mq** améliore la gestion du parralélisme sur les disques SCSI et sur le matériel moderne.
+> **blk-mq** améliore la gestion du parallélisme sur les disques SCSI et sur le matériel moderne.
 > **noop** laisse la gestion des I/O à l'Hyper-V plutôt qu'au système Debian, pareil cela améliore les performances sur les systèmes modernes.
 {.is-info}
 
@@ -69,7 +69,7 @@ EOF
 ```
 
 > **Impacts :**
-> **swapinness** : Empêche le swapping sur le disque sauf si la ram libre est très basse.
+> **swappiness** : Empêche le swapping sur le disque sauf si la ram libre est très basse.
 > **dirty_ratio** : Limite les changements en attente de writeback sur le disque dans la ram. Empêche les gros pics d'écritures sur les disques
 > **dirty_background_ratio** : Garde la limite du writeback pdflush/kworker à 5% de la mémoire. Empêche les blocages d'écriture en étant plus bas que le dirty_ratio
 {.is-info}

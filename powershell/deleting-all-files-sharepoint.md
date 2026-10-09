@@ -1,6 +1,6 @@
 ---
-title: Suppression de tous les fichiers d'une bibliothèques Sharepoint
-description: Suppression de tous les fichiers d'une bibliothèques Sharepoint en Powershell
+title: Suppression de tous les fichiers d'une bibliothèque Sharepoint
+description: Suppression de tous les fichiers d'une bibliothèque Sharepoint en Powershell
 published: true
 date: 2023-02-10T08:29:26.755Z
 tags: powershell, sharepoint

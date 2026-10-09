@@ -9,7 +9,7 @@ dateCreated: 2025-05-20T07:43:32.980Z
 ---
 
 # Introduction
-Ce fichier de registre permets d'améliorer les performances d'un RDS.
+Ce fichier de registre permet d'améliorer les performances d'un RDS.
 
 
 # Script

@@ -27,7 +27,7 @@ apt install openstack-clients awscli
 
 # Connecting to the CLI
 
-Source the openrc connection file you download just before like this:
+Source the openrc connection file you downloaded just before like this:
 
 ```bash
 source /home/nicolas/app-cred-ns-openstack-openrc.sh
@@ -92,7 +92,7 @@ Launch the following command to create the bucket, replace "customer" in the end
 aws --endpoint-url=https://s3.pub1.infomaniak.cloud s3api create-bucket --bucket customer
 ```
 
-You will have this kind of output if it succeed:
+You will have this kind of output if it succeeds:
 ```json
 nicolas@abyssproject:~$ aws --endpoint-url=https://s3.pub1.infomaniak.cloud s3api create-bucket --bucket customer
 {

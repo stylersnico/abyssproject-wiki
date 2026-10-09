@@ -18,7 +18,7 @@ Le but de cet article est d'importer automatiquement les logs NGINX de la veille
 Il est important de comprendre le découpage et le fonctionnement du système :
 - Les logs nginx sont séparés pour chaque site (et les erreurs sont encore dans un autre log)
 - Le cron daily du serveur est modifié pour se lancer à minuit, afin d'avoir un fichier de log nginx par jour avec logrotate
-- On exclut les pages à bot connus dans les exemples pour Wordpress et Wiki.JS
+- On exclut les pages connues des bots dans les exemples pour Wordpress et Wiki.JS
 - Mon installation matomo est dans le dossier **/var/www/matomo**.
 - Mon utilisateur est **matomo**, son groupe est **www-data**.
 
@@ -103,9 +103,9 @@ do
 done
 ```
 
-> - Le paramètre **--recorders=2** indique qu'on traite le fichier de logs avec deux processus en parralèle.
+> - Le paramètre **--recorders=2** indique qu'on traite le fichier de logs avec deux processus en parallèle.
 > - Remplacez **stats.your.matomo** par l'URL de votre instance Matomo
-> - Le premier site est un site Wordpress, on exclue ici l'URL /feed/ qui est visité par les robots pour le flux RSS.
+> - Le premier site est un site Wordpress, on exclut ici l'URL /feed/ qui est visitée par les robots pour le flux RSS.
 > - Le deuxième site est un GRAV, sans exclusion spécifique
 > - Le 3ème site est le wiki que vous lisez actuellement, on enlève les statistiques sur l'API publique.
 > - La dernière partie lance le traitement forcé des statistiques par Matomo, remplacez le chiffre 3 par le nombre de sites que vous avez.

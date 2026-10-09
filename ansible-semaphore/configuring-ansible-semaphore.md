@@ -1,6 +1,6 @@
 ---
 title: Configuration de Ansible Semaphore
-description: Configuration de Ansible Semaphore et des lancement des premières tâches
+description: Configuration de Ansible Semaphore et lancement des premières tâches
 published: true
 date: 2024-01-04T09:33:17.689Z
 tags: ansible, semaphore
@@ -34,11 +34,11 @@ Spécifiez également l'utilisateur SSH cible pour votre clé comme ceci :
 
 La seconde étape est la configuration de l'environnement Semaphore.
 
-> La documentation étant particulièrement mauvaise, j'avoue que je n'ai pas trouvé de réelle utilité sur ce point, mais c'est obligatoire, on va donc créer un environement vide.
+> La documentation étant particulièrement mauvaise, j'avoue que je n'ai pas trouvé de réelle utilité sur ce point, mais c'est obligatoire, on va donc créer un environnement vide.
 {.is-info}
 
 
-L'environnement vide mets en place de la façon suivante avec les brackets ```{}``` :
+L'environnement vide se met en place de la façon suivante avec les brackets ```{}``` :
 
 ![ansible-semaphore-config-02.png](/ansible-semaphore/configuring-semaphore/ansible-semaphore-config-02.png)
 
@@ -46,13 +46,13 @@ L'environnement vide mets en place de la façon suivante avec les brackets ```{}
 
 Ici, cela se passe comme pour Ansible, configurez un inventaire (statique dans mon cas) avec vos différentes machines.
 
-> L'inventaire de Semaphore est extrèmement limité ici, la plupart des options d'Ansible ne seront pas prises en compte comme les variables pour WinRM ou les ports spéciaux, on en reparle dans les bonus.
+> L'inventaire de Semaphore est extrêmement limité ici, la plupart des options d'Ansible ne seront pas prises en compte comme les variables pour WinRM ou les ports spéciaux, on en reparle dans les bonus.
 {.is-warning}
 
 ![ansible-semaphore-config-03.png](/ansible-semaphore/configuring-semaphore/ansible-semaphore-config-03.png)
 
 
-## Configuration du dépôt pour les playbook
+## Configuration du dépôt pour les playbooks
 
 ### Configuration d'une clé vide
 
@@ -71,7 +71,7 @@ Dans mon cas, j'utilise mon dépôt existant du serveur Ansible comme ceci :
 # Utilisation de Semaphore
 
 Pour utiliser ce qu'on appelle un "playbook" dans Ansible, on passe ici par les **Task Templates**.
-Cela intègre en fait la programmation complète du cron et du lien entre les différents playbook et inventaires que vous aurez mis en place.
+Cela intègre en fait la programmation complète du cron et du lien entre les différents playbooks et inventaires que vous aurez mis en place.
 
 Voici un exemple de template que j'utilise : 
 
@@ -180,7 +180,7 @@ Cela donne ceci :
 ![ansible-semaphore-config-08.png](/ansible-semaphore/configuring-semaphore/ansible-semaphore-config-08.png)
 
 
-Ensuite, la programmation se fait de la même manière que des playbook pour du Linux.
+Ensuite, la programmation se fait de la même manière que des playbooks pour du Linux.
 
 Voici un exemple de playbook utilisé pour la mise à jour des serveurs Windows : 
 

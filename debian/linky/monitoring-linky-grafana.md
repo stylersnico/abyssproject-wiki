@@ -12,7 +12,7 @@ dateCreated: 2022-10-17T13:13:00.566Z
 
 Le but de cet article est de réaliser une surveillance complète de votre compteur Linky par le biais d'un Raspberry, d'un module teleinfo et des borniers d'informations du compteur.
 
-> Dans ce cas, un Raspberry Pi 2 modèle B, toutefois la manipulation fonctionnerais sur n'importe quel Linux / BSD avec adaptation.
+> Dans ce cas, un Raspberry Pi 2 modèle B, toutefois la manipulation fonctionnerait sur n'importe quel Linux / BSD avec adaptation.
 > Cette manipulation devrait fonctionner sur n'importe quel compteur européen disposant des borniers L1 et L2 et non pas uniquement sur des Linky.
 {.is-info}
 
@@ -23,7 +23,7 @@ Vous aurez besoin :
 
 - D'un Raspberry Pi avec une carte SD de bonne qualité
 - D'un module série, j'utilise ceci : https://www.tindie.com/products/hallard/micro-teleinfo-v20/
-- De deux câbles cuivres (j'utilise du 1,5mm^2^ rigide)
+- De deux câbles en cuivre (j'utilise du 1,5mm^2^ rigide)
 
 Le but est de finir avec un dashboard Grafana semblable :
 
@@ -210,7 +210,7 @@ Créez le service suivant :
 ```bash
 nano /etc/systemd/system/teleinfo.service
 ```
-Remplissez le avec ceci : 
+Remplissez-le avec ceci : 
 
 ```bash
 [Unit]
@@ -257,7 +257,7 @@ Configurez la source comme ceci :
 
 ## Importation du Dashboard Grafana
 
-Téléchargez le fichier **.JSON** depuis Github : https://github.com/stylersnico/teleinfo-linky-with-raspberry/blob/master/grafana_dashboard_teleinfo.json
+Téléchargez le fichier **.JSON** depuis GitHub : https://github.com/stylersnico/teleinfo-linky-with-raspberry/blob/master/grafana_dashboard_teleinfo.json
 
 Maintenant, importez le dashboard avec ce fichier directement depuis Grafana : 
 ![raspi-teleinfo-05.png](/debian/linky/raspi-teleinfo-05.png)

@@ -36,13 +36,13 @@ v=spf1 mx -all
 ```
  
 
-La première partie, c’est la version de SPF, **mx** sert à indiquer que l’on doit se référer aux MX existants sur le domaine pour avoir le serveur d’envoi et le **-all** permets de rejeter tous les emails qui ne sont pas envoyés de vos serveurs.
+La première partie, c’est la version de SPF, **mx** sert à indiquer que l’on doit se référer aux MX existants sur le domaine pour avoir le serveur d’envoi et le **-all** permet de rejeter tous les emails qui ne sont pas envoyés de vos serveurs.
 
 Alors ça c’est la version tout le monde il est beau, tout le monde il est content, en production, j’éviterais quand même.
 
  
 
-Personnellement, j’indique **MX**, au cas où on oublierait de modifier les DNS, mais je rajoute tous les enregistrements **A:** avec les enregistrements de mes serveurs. Aussi, il est possible que les enregistrements MX globaux soit mal traités par l’antispam de destination (problèmes software ou autre).
+Personnellement, j’indique **MX**, au cas où on oublierait de modifier les DNS, mais je rajoute tous les enregistrements **A:** avec les enregistrements de mes serveurs. Aussi, il est possible que les enregistrements MX globaux soient mal traités par l’antispam de destination (problèmes software ou autre).
 
 Dernière chose, je remplace le **-all** par **~all**, ce qui permet de ne pas rejeter tout ce qui ne correspond pas en cas d’erreur légère sur le traitement du SPF (toujours si vous avez un antispam mal foutu de l’autre côté).
 
@@ -61,7 +61,7 @@ Cette signature, lorsque l’on réceptionne l’email permettra de savoir aprè
 
  
 
-La mise en place de DKIM se fait dans votre serveur email avant se faire dans le DNS.
+La mise en place de DKIM se fait dans votre serveur email avant de se faire dans le DNS.
 - Pour Exchange : https://www.abyssproject.net/2020/04/mettre-en-place-dkim-avec-exchange-2019/
 - Pour Office 365 : https://docs.microsoft.com/en-us/microsoft-365/security/office-365-security/use-dkim-to-validate-outbound-email?view=o365-worldwide
 - Pour tout ce qui est basé sur Postfix (le reste en gros) : https://wiki.debian-fr.xyz/Opendkim
@@ -71,7 +71,7 @@ La mise en place de DKIM se fait dans votre serveur email avant se faire dans le
  
 # L’enregistrement DMARC
 
-Le dernier concurrent pour la fin. Toujours de façon simple, **DMARC** permets d’indiquer dans vos DNS ce qui doit se passer au cas où un serveur mail de destination aurait un souci avec vos enregistrements SPF ou DKIM, histoire que vous soyez prévenu.
+Le dernier concurrent pour la fin. Toujours de façon simple, **DMARC** permet d’indiquer dans vos DNS ce qui doit se passer au cas où un serveur mail de destination aurait un souci avec vos enregistrements SPF ou DKIM, histoire que vous soyez prévenu.
 
 Le côté maboulien du truc, c’est que vous pouvez indiquer depuis vos DNS de traiter tous VOS emails si jamais le destinataire n’arrive pas à valider votre SPF ou votre DKIM par exemple.
 
@@ -88,8 +88,8 @@ Contenu : "v=DMARC1;p=none;sp=none;pct=100;rua=mailto:dmarc@domaine.com"
 
 Comme pour le SPF, on commence par la version du protocole.
 
-- **P** et **SP** sont respectivement les actions à appliquer pour les emails non conformes aux enregistrements SPF/DKIM venant de votre domaine ou d’un sous-domaine (none, quarantine ou block).
-- **PCT** c’est le pourcentage d’email qui tombent sous le coup de DMARC, on indique 100 pour filtrer tous les emails.
+- **P** et **SP** sont respectivement les actions à appliquer pour les emails non conformes aux enregistrements SPF/DKIM venant de votre domaine ou d’un sous-domaine (none, quarantine ou reject).
+- **PCT** c’est le pourcentage d’emails qui tombent sous le coup de DMARC, on indique 100 pour filtrer tous les emails.
 - **RUA** c’est l’adresse email qui recevra les rapports en cas de souci de conformité sur SPF et/ou DKIM.
 
  

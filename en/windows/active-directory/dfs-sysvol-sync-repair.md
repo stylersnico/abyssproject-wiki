@@ -82,7 +82,7 @@ Check for event **4114** after **5 minutes**.
 
 
 If you are unlucky, event **2212** will drop, indicating a DFSR database corruption.
-In the log you will find the command to rebuilt it:
+In the log you will find the command to rebuild it:
 ```powershell
 wmic /namespace:\\root\microsoftdfs path dfsrVolumeConfig where volumeGuid=<GUID> call ResumeReplication
 ```
@@ -111,13 +111,13 @@ Change this option:
 msDFSR-Enabled=TRUE
 ```
  
-Then, sync AD and DSFR from command line:
+Then, sync AD and DFSR from command line:
 ```powershell
 DFSRDIAG POLLAD
 repadmin /syncall NOMDUPDC /APed
 ```
  
-You should have both events **2002 et 4602** on the PDC.
+You should have both events **2002 and 4602** on the PDC.
 
 If this is good, enable DFSR sync on all other DC:
 ```powershell
@@ -131,17 +131,17 @@ msDFSR-Enabled=TRUE
 ```
  
 
-Launch this command on each AD:
+Launch this command on each DC:
 ```powershell
 DFSRDIAG POLLAD
 ```
  
 
-You should finally have events **2002 et 4602** on other DCs.
+You should finally have events **2002 and 4602** on other DCs.
 
  
 
-If you have unlucky again, you will have event **4012**.
+If you are unlucky again, you will have event **4012**.
 
 > The DFS Replication service stopped replication on the folder with the following local path: C:\Windows\SYSVOL\domain. This server has been disconnected from other partners for 1821 days, which is longer than the time allowed by the MaxOfflineTimeInDays parameter (60). DFS Replication considers the data in this folder to be stale, and this server will not replicate the folder until this error is corrected.
 

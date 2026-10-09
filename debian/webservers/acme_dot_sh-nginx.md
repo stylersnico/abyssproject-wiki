@@ -31,7 +31,7 @@ Exécutez la commande suivante en indiquant votre vhost pour demander un certifi
 sh acme.sh  --issue  -d website.tap.ovh  --nginx /etc/nginx/sites-enabled/wordpress.vhost --keylength ec-384
 ```
 
-Si l’opération réussie, vous devrez juste configurer le certificat ECDSA dans votre vhost nginx :
+Si l’opération réussit, vous devrez juste configurer le certificat ECDSA dans votre vhost nginx :
 ```bash
 [Wed 11 Aug 2021 08:21:06 PM CEST] Your cert is in: /root/.acme.sh/website.tap.ovh_ecc/website.tap.ovh.cer
 [Wed 11 Aug 2021 08:21:06 PM CEST] Your cert key is in: /root/.acme.sh/website.tap.ovh_ecc/website.tap.ovh.key

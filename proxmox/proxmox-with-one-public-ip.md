@@ -13,7 +13,7 @@ dateCreated: 2023-02-20T13:29:53.546Z
 Le but de cet article est de mettre en place un Proxmox chez un hébergeur ne proposant qu'une unique IP (v4 et/ou v6) disponible sur un serveur dédié.
 Le but sera que les machines virtuelles disposent d'internet et qu'il soit possible de rediriger des ports en local vers des services derrière les machines virtuelles.
 
-> Il est évident que le montage ci-dessous doit-être considéré comme un bricolage plus qu'une bonne pratique.
+> Il est évident que le montage ci-dessous doit être considéré comme un bricolage plus qu'une bonne pratique.
 > Toutefois, c'est l'infrastructure qui héberge mon blog et mes services et pour un usage personnel cela fonctionne correctement.
 {.is-warning}
 
@@ -38,7 +38,7 @@ Dans cet exemple, le réseau interne (VMBR1) disposera d'IPv4 et d'IPv6 :
 - `Réseau IPv4 : 192.168.100.1/24`
 - `Réseau IPv6 : fde8:b429:841e:b651::1/64`
 
-> Le range IPv6 est arbitraite et a été généré avec cet outil : https://simpledns.plus/private-ipv6.
+> Le range IPv6 est arbitraire et a été généré avec cet outil : https://simpledns.plus/private-ipv6.
 Il est parfaitement valide pour l'usage qui va en être fait.
 {.is-info}
 
@@ -128,7 +128,7 @@ ufw enable
 
 # Configuration du réseau interne (VMBR1)
 
-Ouvrez l'interface web et de Proxmox et créez votre nouvelle interface depuis Proxmox (**System** -> **Network** -> **Create** -> **Linux Bridge**) :
+Ouvrez l'interface web de Proxmox et créez votre nouvelle interface depuis Proxmox (**System** -> **Network** -> **Create** -> **Linux Bridge**) :
 
 ![proxmox-with-one-public-ip-01.png](/proxmox/proxmox-with-one-public-ip/proxmox-with-one-public-ip-01.png)
 
@@ -137,7 +137,7 @@ Remplissez l'interface comme ceci avec les réseaux privés que nous avons vus a
 ![proxmox-with-one-public-ip-02.png](/proxmox/proxmox-with-one-public-ip/proxmox-with-one-public-ip-02.png)
 
 > Vous remarquerez que je ne mets pas de **Bridge Port**.
-> Si vous mettez une machine virtuelle ou un switch virtuel directement sur votre **VMBR0** sans avoir les adresses IP additionelles il est possible que votre port réseau soit automatiquement coupé au Datacenter.
+> Si vous mettez une machine virtuelle ou un switch virtuel directement sur votre **VMBR0** sans avoir les adresses IP additionnelles il est possible que votre port réseau soit automatiquement coupé au Datacenter.
 {.is-danger}
 
 
@@ -146,7 +146,7 @@ Remplissez l'interface comme ceci avec les réseaux privés que nous avons vus a
 Nous allons configurer le **MASQUERADE** sous Linux.
 Pour faire très simple, le **MASQUERADE** est un **NAT de type 1-to-many**.
 
-Derrière cette explication sauvage se cache en fait le type de NAT commun derrière votre box ou n'importe quelle pare-feu.
+Derrière cette explication sauvage se cache en fait le type de NAT commun derrière votre box ou n'importe quel pare-feu.
 Tous les PC du réseau interne peuvent sortir sur internet avec une seule adresse publique.
 
 Ouvrez votre fichier d'interface :

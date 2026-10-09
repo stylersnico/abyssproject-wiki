@@ -10,13 +10,13 @@ dateCreated: 2026-01-12T09:58:47.373Z
 
 # Before starting
 
-The goal of this guide is to explain the generation of a wildcard ECDSA certificate (***.abyssproject.net** in this example) with Let's Encrypt and the Infomaniak API for automatic DNS management.
+The goal of this guide is to explain the generation of a wildcard ECDSA certificate (**\*.abyssproject.net** in this example) with Let's Encrypt and the Infomaniak API for automatic DNS management.
 Everything is done on Debian 13 for this example.
 
 # Prerequisite installation
 
 
-Install the following packages to have Certbot and his Infomaniak plugin:
+Install the following packages to have Certbot and its Infomaniak plugin:
 
 ```bash
 apt install certbot python3 python3-certbot-dns-infomaniak

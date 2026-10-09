@@ -10,7 +10,7 @@ dateCreated: 2023-02-10T08:08:54.365Z
 
 # Introduction
 
-Le but de ce script est de débloquer une file d'impression en supprimant automatique tous les fichiers bloquants.
+Le but de ce script est de débloquer une file d'impression en supprimant automatiquement tous les fichiers bloquants.
 
 
 # Script

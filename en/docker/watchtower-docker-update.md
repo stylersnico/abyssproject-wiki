@@ -1,6 +1,6 @@
 ---
 title: Docker update automation with Watchtower
-description: Update all your docker image that you have launched with Docker run or create.
+description: Update all your Docker images that you have launched with Docker run or create.
 published: true
 date: 2025-11-30T06:45:48.388Z
 tags: docker, watchtower
@@ -10,18 +10,18 @@ dateCreated: 2021-08-25T13:22:09.612Z
 
 # Introduction
 
-The goal of this document is to automate the update of all dockers images that you may have on your system.
+The goal of this document is to automate the update of all Docker images that you may have on your system.
 
  It is especially interesting if you use docker standalone and you run all your images with docker run.
  
- > This will update all the docker image but not the system inside.
-If you use images with security problem, this won't help.
+ > This will update all the Docker images but not the system inside.
+If you use images with security problems, this won't help.
 Do regular audit of docker images that you use.
 {.is-warning}
 
 # Update automation of Docker containers
 
-A single command allows you to programm the update of all your containers every night at 11pm, for exemple:
+A single command allows you to schedule the update of all your containers every night at 11pm, for example:
 
 ```bash
 docker run -d \
@@ -33,9 +33,9 @@ docker run -d \
     --cleanup
 ```
 
-Here is the most interesting parts :
+Here are the most interesting parts:
 
-- Here, we restart the Watchtower container even if it crash.
+- Here, we restart the Watchtower container even if it crashes.
 ```bash
     --restart always \
 ```

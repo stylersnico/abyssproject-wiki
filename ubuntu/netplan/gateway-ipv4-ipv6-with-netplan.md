@@ -59,7 +59,7 @@ Ensuite, testez votre configuration avec la commande suivante :
 netplan try -timeout 30
 ```
 
-Si la configuration est bonne, appliquez là ou redémarrez le serveur : 
+Si la configuration est bonne, appliquez-la ou redémarrez le serveur : 
 
 ```bash
 netplan apply

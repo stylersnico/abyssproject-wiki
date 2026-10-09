@@ -1,6 +1,6 @@
 ---
 title: Optimize Debian (and Ubuntu) on Hyper-V
-description: Optimize Debian 12 / 13 (and Ubuntu 24.04) performance inside an Hyper-V virtual machine
+description: Optimize Debian 12 / 13 (and Ubuntu 24.04) performance inside a Hyper-V virtual machine
 published: true
 date: 2025-12-17T07:44:23.184Z
 tags: debian, ubuntu, hyper-v
@@ -19,16 +19,16 @@ To make the most of it performance-wise, your virtual machines need to be in gen
 
 # Installing Cloud / Azure kernel and Hyper-V Daemons
 
-On Debian : 
+On Debian:
 ```bash
 apt install linux-image-cloud-amd64 hyperv-daemons -y
 ```
 
-On Ubuntu : 
+On Ubuntu:
 ```bash
 apt install linux-azure
 ```
-> This one is a meta-package that include everything that is needed, including hyperv-daemons.
+> This one is a meta-package that includes everything that is needed, including hyperv-daemons.
 {.is-info}
 
 
@@ -53,8 +53,8 @@ update-grub
 ```
 
 > **What is done:**
-> **blk-mq** help parralelizing requests on modern hardware, so on SCSI disk.
-> **noop** let the Hyper-V host manage the I/O queue. 
+> **blk-mq** helps parallelize requests on modern hardware, so on SCSI disk.
+> **noop** lets the Hyper-V host manage the I/O queue. 
 {.is-info}
 
 # Tuning sysctl
@@ -69,7 +69,7 @@ EOF
 ```
 
 > **What is done:**
-> **swapinness** : Prevent swapping on disk except if the free ram is really low.
+> **swappiness**: Prevents swapping to disk unless free RAM is really low.
 > **dirty_ratio** : Limit writeback change waiting on RAM. Prevents big write spikes.
 > **dirty_background_ratio** : Keep the limit of pdflush/kworker writeback to 5% of free memory. Prevent any application blocking from being lower than the dirty_ratio.
 {.is-info}

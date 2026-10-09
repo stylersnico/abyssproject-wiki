@@ -13,9 +13,9 @@ dateCreated: 2021-08-12T17:37:50.044Z
 The goal here is to upgrade an existing Debian 10 installation to Debian 11
 
 
-# Updating actual system
+# Updating the current system
 
-First, update your system : 
+First, update your system:
 
 ```bash
 apt update && apt dist-upgrade -y
@@ -42,7 +42,7 @@ reboot
 
 ## Error with Debian Security
 
-> Error get on a CX11 server with the Debian 10 image at Hetzner
+> Error encountered on a CX11 server with the Debian 10 image at Hetzner
 {.is-info}
 
 
